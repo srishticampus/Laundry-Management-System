@@ -1,0 +1,100 @@
+.contact-main1{
+    height: 100vh; 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blueviolet;
+}
+
+.contact-main{
+    padding: 0; 
+    background: linear-gradient(256deg, #D7E8FF 0%, #9FC7ED 98.39%);
+    height: 100vh; 
+    width: 100%;
+    margin: auto;
+
+}
+
+.contact_us_main_container {
+    height: 500px;
+    width: 60%;
+    margin: auto;
+    padding: 30px;
+    /* background-color: aqua; */
+}
+
+.contact_us_head{
+    text-align: center;
+    position: relative;
+    height: 100px;
+    /* background-color: blue; */
+   
+}
+.contact-us-title{
+    color: #000;
+    text-align: center;
+    font-family: "Poltawski Nowy";
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 20px;
+    margin-top: 5px;
+    line-height: 59px; /* 73.75% */
+    letter-spacing: 0.8px;
+}
+.contact_us_circle{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background-color: #c8f5fda2;
+    position: absolute;
+    top: 20px;
+    right: 0;
+    z-index: 1;
+}
+
+.contact_us_input_container{
+    min-height: 300px;
+    width: 80%;
+    background-color: #ffffff;
+    margin: auto;
+    border-radius: 20px;
+    position: relative;
+    height: 500px;
+}
+
+.contact_us_circle2{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background-color: #c8f5fda2;
+    position: absolute;
+    bottom: -80px;
+    left: -80px;
+    z-index: 1;
+}
+.contact-us-div1{
+   
+    width: 600px;
+   
+    padding: 20px 20px;
+    padding-left: 60px;
+}
+.contact_usbtn{
+    width: 380px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 8px;
+background: var(--Gradient-Color-Dark, linear-gradient(135deg, #3A416F 0%, #141727 100%));
+color:white;
+color: var(--Text-Color-White, #FFF);
+text-align: center;
+font-family: "Open Sans";
+font-size: 12px;
+font-style: normal;
+font-weight: 700;
+line-height: 12px; /* 100% */
+letter-spacing: 1.44px;
+box-shadow: 0px 4px 7px -1px rgba(0, 0, 0, 0.11), 0px 2px 4px -1px rgba(0, 0, 0, 0.07);
+    }
+

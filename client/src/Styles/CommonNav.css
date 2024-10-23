@@ -1,30 +1,49 @@
 .landingnavbar_text{
     color: black ;
-    font-weight: 200px;
+    font-weight: normal;
     text-align: center;
     font-family: "Times New Roman";
+    padding: 8px 15px;
 }
 .invalid-feedback {
     display: block;
   }
-  .landin-nav-btn{
-
+  .landin-nav-btn {
     border-radius: 5px;
     background: #75ACCE;
     display: flex;
-width: 137px;
-height: 34px;
-padding: 10px 10px 12px 10px;
-justify-content: center;
-align-items: center;
-gap: 10px;
-flex-shrink: 0;
-  } 
-  .footer-div{
+    width: 137px;
+    height: 34px; /* Adjust height as needed */
+    padding: 5px 10px; /* Reduce padding to make it more compact */
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+/* Adjust navbar container */
+.navbar {
+    padding: 10px 15px; /* Reduce padding to make the navbar smaller */
+    height: auto; /* Let height be auto-adjusted based on content */
+}
+
+/* Adjust navbar logo if present */
+.navbar_logo img {
+    height: 40px; /* Reduce logo size to fit smaller navbar */
+    width: auto;
+}
+
+/* Optional: Reduce padding on navbar collapse section */
+.collapse.navbar-collapse {
+    padding: 0;
+}
+
+/* Footer styling */
+.footer-div {
     width: 100%;
-height: 106px;
-flex-shrink: 0;
-background: #BED6DB;
-margin-top: 20px;
-  }
+    height: 106px;
+    background: #BED6DB;
+    margin-top: 20px;
+}
+
   

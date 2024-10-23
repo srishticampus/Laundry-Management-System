@@ -1,0 +1,89 @@
+.abt-first-img{
+    width: 550px;
+height: 459.712px;
+flex-shrink: 0;
+    border-radius: 23px;
+}
+.abt-sc-img{
+    width: 389px;
+    height: 324.875px;
+  margin-top: 30px;
+}
+.abt-third-img{
+    width: 483.36px;
+height: 315.749px;
+flex-shrink: 0;
+  margin-top: 30px;
+  position: absolute;
+}
+.abt-fourth-img{
+    width: 193.44px;
+    height: 221.621px;
+    top:190px;
+  position: relative;
+
+}
+.abt-about{
+    color: #000;
+text-align: center;
+font-family: "Poltawski Nowy";
+font-size: 48px;
+font-style: normal;
+font-weight: 400;
+line-height: 76px; /* 158.333% */
+}
+.abt-about-content{
+    padding: 20px;
+    margin-left: 20px;
+    color: #000;
+text-align: center;
+font-family: Playfair;
+font-size: 28px;
+font-style: normal;
+font-weight: 400;
+text-align: justify;   
+line-height: 46px; /* 164.286% */
+}
+.abt-about-content2{
+    padding: 20px;
+ 
+    color: #000;
+text-align: center;
+font-family: Playfair;
+font-size: 28px;
+font-style: normal;
+font-weight: 400;
+text-align: justify;   
+line-height: 46px; /* 164.286% */
+}
+.abt-col-content{
+    color: #000;
+font-family: Playfair;
+font-size: 22px;
+font-style: normal;
+font-weight: 400;
+
+}
+.abt-col-head{
+    color: #000;
+font-family: Playfair;
+font-size: 32px;
+font-style: normal;
+font-weight: 600;
+
+}
+.abt-fifth-img{
+    width: 465px;
+height: 480.738px;
+margin-top:100px;
+}
+.abt-col-content2{
+    color: #000;
+font-family: Playfair;
+font-size: 22px;
+font-style: normal;
+font-weight: 300;
+margin-left: 10px;
+padding-left: 20px;
+
+}

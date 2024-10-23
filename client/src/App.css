@@ -6,3 +6,9 @@ body {
   font-family: "Times New Roman",'Otomanopee One','Poppins','Montserrat','Poltawski Nowy','sans-serif';
   ;
 }
+.Toastify__toast {
+  font-size: 14px !important;  /* Set the font size */
+  padding: 10px !important;  /* Adjust padding if necessary */
+  border-radius: 5px !important;  /* Adjust border-radius */
+  max-width: 400px !important;  /* Set a max width */
+}

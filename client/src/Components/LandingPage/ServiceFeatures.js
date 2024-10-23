@@ -83,7 +83,7 @@ function ServiceFeatures() {
                 </div>
             </div>
             <div className='services-prov-head'>
-                <h2 className='working-head1 mb-5'>Our Operational areaS</h2>
+                <h2 className='working-head1'>Our Operational areaS</h2>
             </div>
             <div className='row mt-5'>
                 <div className="col-md-4">
@@ -106,8 +106,8 @@ function ServiceFeatures() {
                 </div>
             </div>
 
-            <div className='services-prov-head'>
-                <h2 className='working-head1 mb-5'>What our customer says about Us</h2>
+            <div className=''>
+                <h2 className='review-prov-mainhead'>What our customer says about Us</h2>
             </div>
             <div className='row mt-5'>
                 <div className="col-md-4">
