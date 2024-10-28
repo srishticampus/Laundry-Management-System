@@ -1,0 +1,56 @@
+/* Admin Sidebar */
+
+.admin-sidebar-background {
+ 
+    background-color: #134074;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+}
+
+.admin-sidebar-h4 {
+    color: white;
+}
+
+.admin-links {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.admin-border:hover {
+    color: white;
+    border-color: white;
+    color:#134074;
+    background-color: rgb(155, 233, 233);
+    
+}
+
+.admin-border:active {
+    color: white;
+    background-color: #56905C;
+}
+
+.admin-dash-link {
+    text-decoration: none;
+    color: white;
+text-align: center;
+
+}
+
+.admin-logo {
+    width: 148px;
+    height: 97px;
+    margin-left: 12%;
+    margin-bottom: 20px;
+
+}
+
+.admin-border {
+    border: 1px solid #f4f8f5;
+    border-radius: 19.32px;
+    margin-right: 10px;
+
+}
+.admin-btn{
+    background-color: #383638;
+}

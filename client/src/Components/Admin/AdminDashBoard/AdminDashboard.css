@@ -1,0 +1,67 @@
+.admin_home_sidebar{
+    min-height: 90vh;
+    width: 20%;
+    background-color:#383638;
+    margin-right: 10px;
+    ;
+}
+.admin_home{
+    display: flex;
+    min-height: 90vh;
+}
+.admin_home_body{
+    min-height: 90vh;
+    width: 80%;
+    /* background-color: aqua; */
+}
+
+.admin-dash-h4{
+    font-weight: bold;
+} 
+.admin-dash-para{
+    color: black;
+}
+.admin-dash-revenue-box{
+    background: linear-gradient(101.58deg, #EDF6EE 0.13%, #FFFFFF 100.13%);
+   
+    border: 1px solid #000000;
+    /* height: 180px;
+    width: 80%; */
+    height: 140px;
+    width: 190px;
+    border-radius: 20px;
+    border: none;
+}
+.admin-dash-span{
+    color: #56905C;
+   
+    letter-spacing: 2px;  
+
+    font-family: Montserrat;
+font-size: 40px;
+font-weight: 500;
+line-height: 48.76px;
+text-align: center;
+margin-left: 25px;
+
+}
+.admin-dash-span2{
+
+    font-family: Montserrat;
+font-size: 14px;
+font-weight: 500;
+line-height: 17.07px;
+text-align: center;
+width: 120px;
+}
+.admin-dash-img{
+    height:87px;
+}
+.admin-dash2{
+    background: linear-gradient(101.58deg, #ECECF5 0.13%, #FFFFFF 100.13%);
+
+}
+.admin-dash3{
+    background: linear-gradient(101.58deg, #F5EDF6 0.13%, #FFFFFF 100.13%);
+
+}
