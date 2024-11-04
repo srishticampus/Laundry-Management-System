@@ -13,10 +13,10 @@ function AboutUs() {
             <div className='container'>
 
                 <div className='row mt-5'>
-                    <div className='col-5'>
+                    <div className='col-6'>
                         <img src={img1} className='abt-first-img'></img>
                     </div>
-                    <div className='col-7'>
+                    <div className='col-6'>
                         <h2 className='abt-about'>About Us</h2>
                         <p className='abt-about-content'>
                             Laundrylynx is a one-of-a-kind laundry aggregator app aimed at connecting customers &
@@ -31,7 +31,7 @@ function AboutUs() {
 
                 <div className='row mt-5'>
                    
-                    <div className='col-9'>
+                    <div className='col-8'>
                         <h2 className='abt-about'>About Us</h2>
                         <p className='abt-about-content2'>
                         We are a dedicated team of professionals committed to revolutionizing
@@ -44,7 +44,7 @@ function AboutUs() {
                         </p>
 
                     </div>
-                    <div className='col-3'>
+                    <div className='col-4'>
                         <img src={img3} className='abt-sc-img'></img>
                     </div>
                 </div>
@@ -112,10 +112,10 @@ function AboutUs() {
                     </div>
                 </div>
                 <div className='row mt-5'>
-                    <div className='col-5'>
+                    <div className='col-6 mt-5'>
                         <img src={img15} className='abt-first-img mt-5'></img>
                     </div>
-                    <div className='col-7'>
+                    <div className='col-6'>
                         <h2 className='abt-about'>What We Offer
                         </h2>
                       

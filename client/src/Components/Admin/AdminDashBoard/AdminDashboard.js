@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './AdminDashboard.css'
+import '../../../Styles/AdminDashboard.css'
 import dash1 from '../../../Assets/shop1.png'
 import dash2 from '../../../Assets/shop1.png'
 import dash3 from '../../../Assets/shop1.png'

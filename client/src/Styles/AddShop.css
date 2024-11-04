@@ -1,0 +1,71 @@
+.shop-signup-mainDiv{
+    width:750px;
+    padding-top: 20px;
+    
+    margin-left: 400px;
+    }
+    .add-shop-label{
+        color: #000;
+font-family: "Open Sans";
+font-size: 12px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+text-transform: capitalize;
+    }
+    .shop-signup-mainText{
+        font-size: 45px;
+    
+    margin-top: 50px;
+    margin-left: 550px;
+    gap: 0px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    
+    }
+    .shop-signup-loginText{
+    
+        color: #56905C;
+        
+        }
+        .shop-signup-password-toggle-icon{
+            position: absolute;
+              top: 50%;
+              right: 10px;
+              transform: translateY(-50%);
+              cursor: pointer;
+          }
+          .shop-signup-login{
+            font-weight: bolder;
+            font-size: 15px;
+            color: #56905C;
+    
+          }
+          .shop-add-staff-mainText{
+            color: #000;
+text-align: center;
+font-feature-settings: 'liga' off, 'clig' off;
+font-family: "Times New Roman";
+font-size: 24px;
+font-style: normal;
+font-weight: 400;
+line-height: 28px; /* 116.667% */
+          }
+          .shop-signup-link{
+            text-align: center;
+            font-weight: bold;
+            font-size: 13px;
+          }
+          .shop-signup-button{
+            border-radius: 30px;
+background: #3070F5;   
+color:white;
+width: 135px;
+justify-content: center;
+align-items: center;
+ height: 40px;
+ text-align: center;
+border-color:#3070F5;     }
+.shop-signup-button-div{
+margin-top: 20px;
+margin-left: 30%;}

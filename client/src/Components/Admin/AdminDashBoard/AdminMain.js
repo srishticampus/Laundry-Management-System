@@ -3,6 +3,9 @@ import AdminSidebar from "./AdminSidebar";
 import AdminDashboard from "./AdminDashboard";
 
 import AdminNavber from "./AdminNavber";
+import AddShop from "./AddShop";
+import ViewAllShops from "./ViewAllShops";
+import EditShop from "./EditShop";
 
 
 
@@ -20,11 +23,13 @@ function AdminMain({ data }) {
             {data === "admindashboard" ? (
               <AdminDashboard />
             
-            // ) : data === "viewallpolicestation" ? (
-            //   <ViewAllPoliceStation />
-            // ) : data === "viewallpoliceprofile" ? (
-            //   <ViewProfile_Policestation />
-            ) : data === "viewallpolicereqprofile" }
+            ) : data === "admin-add-shop" ? (
+              <AddShop />
+            ) : data === "admin-view-shop" ? (
+              <ViewAllShops />
+            ) : data === "admin-edit-shop" ? (
+              <EditShop />
+            ) : data === "logout" }
           </div>
         </div>
       </div>
