@@ -1,7 +1,7 @@
 
     import React from 'react'
     import { Link } from 'react-router-dom'
-    import logo from '../../Assets/navbarlogo.png'
+    import logo from '../../Assets/logo2.png'
     import '../../Styles/CommonNav.css'
 
     function CommonNav() {
@@ -11,8 +11,9 @@
           <div className="container-fluid">
             <Link to='/admin_home' className="text-decoration-none">
               <div className="navbar_logo">
-                {/* <img src={logo} className="img-fluid" alt="logo" /> */}
-               <h3>laundrylynx</h3> 
+                
+                <img src={logo} className="img-fluid nav-img" alt="logo" />
+               {/* <h3>laundrylynx</h3>  */}
                
               </div>
             </Link>

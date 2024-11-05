@@ -13,6 +13,6 @@ app.use(cors())
 const route=require('./routes')
 app.use('/laundry_api',route)
 
-app.listen(4003,()=>{
+app.listen(4047,()=>{
     console.log("Server created successfully at 4000");
 })

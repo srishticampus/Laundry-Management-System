@@ -60,7 +60,7 @@ function AdminLogin() {
         if (data.email === hardCodedUsername && data.password === hardCodedPassword) {
             localStorage.setItem("admin", 1);
             toast.success('Login successful!');
-            navigate('/admin-dashboard');
+            navigate('/admin-home');
         } else {
             toast.error('Incorrect Username or Password');
         }
@@ -98,14 +98,7 @@ function AdminLogin() {
                                     )}
                                 </div>
                                 <div className=" mt-4">
-                                    {/* <label>Password</label>
-                                    <input
-                                        type="password"
-                                        className="form-control border border-dark"
-                                        placeholder="Password"
-                                        name="password"
-                                        value={data.password} onChange={handleChange}
-                                    /> */}
+                                  
                                      <div style={{ position: 'relative' }}>
                         <input type={showPassword ? "text" : "password"}
                             placeholder='password'

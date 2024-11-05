@@ -1,0 +1,90 @@
+/* Admin Sidebar */
+
+.admin-sidebar-background {
+ 
+    background-color: #134074;
+    min-height: 100vh;
+    width: 100%;
+    padding: 10px;
+}
+
+.admin-sidebar-h4 {
+    color: white;
+}
+
+.admin-links {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.admin-border:hover {
+    color: white;
+    border-color: white;
+    color:#134074;
+    background-color: #3070f5
+}
+.submenu {
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    position: relative;
+    margin-left: 20px;
+  }
+  
+  .submenu-item {
+    display: block;
+    color: black;
+    text-decoration: none;
+    padding: 5px 0;
+  }
+  
+  .submenu-item:hover {
+    background-color: #f0f0f0;
+  }
+.admin-border:active {
+    /* color: white; */
+    background-color: #82939e;
+}
+
+.admin-dash-link {
+    text-decoration: none;
+    color: white;
+text-align: left;
+display: block; /* Make the link full width */
+
+
+}
+
+.admin-logo {
+    width: 75px;
+    height: 75px;
+    margin-left: 12%;
+    margin-bottom: 20px;
+
+}
+
+.admin-border {
+    border: 1px solid #134074;
+    border-radius: 19.32px;
+    margin-right: 10px;
+
+}
+.admin-sub-link{
+    color:black;
+    text-decoration: none;
+    padding: 5px;
+}
+.admin-btn{
+    background-color: #383638;
+}
+.admin-dash-link p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0; /* Remove default p tag margin */
+    padding: 0.5em; /* Add padding if needed */
+}
+
+.admin-drop-icon {
+    font-size: 1.8em; /* Increase this size as desired */
+}
