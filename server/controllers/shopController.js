@@ -1,5 +1,6 @@
 const shop = require('../models/shopModel');
 const multer = require("multer");
+const workingHours=require('./workingHoursController')
 
 // Configure multer for image upload
 const storage = multer.diskStorage({
@@ -52,6 +53,7 @@ const registerShop = async (req, res) => {
 
 
         await newShop.save();
+        workingHours.setDefaultWorkingHoursForShop(newShop._id)
         res.status(200).json({ msg: "Shop Registered Successfully", data: newShop });
     } catch (error) {
         console.error(error);

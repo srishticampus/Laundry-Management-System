@@ -39,7 +39,7 @@ const addContat = async (req, res) => {
 
 
 const viewAllContacts = (req, res) => {
-    akshaya.find()
+    contact.find()
         .exec()
         .then(data => {
             res.json({

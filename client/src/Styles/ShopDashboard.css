@@ -1,0 +1,54 @@
+.shop-service-div{
+    color: black;
+text-align: left;
+font-family: "Open Sans";
+font-size: 25px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+text-transform: capitalize;
+margin-left: 20px;
+margin-top: 30px;
+padding-top: 20px;
+}
+.shop-add-service-hr{
+    border: 1px solid rgba(0, 0, 0, 0.5); /* Darker color for better visibility */
+    width: 100%; /* Ensures the hr spans the full width of the container */
+    margin: 0 auto; /* Center horizontally */
+    padding: 0;
+   }
+.shop-add-service{
+    border-radius: 20px;
+border: 1px solid rgba(0, 0, 0, 0.20);
+display: flex;
+padding-bottom: 40px;
+flex-direction: column;
+width:600px;
+justify-content: center;
+align-items: center;
+gap: 40px;
+margin: auto; /* Center horizontally within the parent container */
+margin-top: 40px;
+}
+.shop-add-service-container {
+   margin-left:20%;
+}
+.shop-add-service-mainText{
+    color: #000;
+text-align: center;
+font-feature-settings: 'liga' off, 'clig' off;
+font-family: "Times New Roman";
+font-size: 24px;
+font-style: normal;
+font-weight: 400;
+
+  }
+  .add-service-label{
+    color: #000;
+font-family: "Open Sans";
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+text-transform: capitalize;
+}
