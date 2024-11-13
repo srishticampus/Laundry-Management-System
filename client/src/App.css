@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Otomanopee+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orelega+One&display=swap');
 
 body {
-  font-family: "Times New Roman",'Otomanopee One','Poppins','Montserrat','Poltawski Nowy','sans-serif';
+  font-family: "Times New Roman",'Otomanopee One','Poppins','Montserrat','Poltawski Nowy','sans-serif','Orelega One';
   ;
 }
 .Toastify__toast {

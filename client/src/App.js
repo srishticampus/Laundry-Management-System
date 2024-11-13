@@ -18,6 +18,8 @@ import AdminLogin from './Components/Admin/AdminLogin';
 import ContactUs from './Components/LandingPage/ContactUs';
 import AboutUs from './Components/LandingPage/AboutUs';
 import AdminMain from './Components/Admin/AdminDashBoard/AdminMain';
+import ShopLogin from './Components/Shop/ShopLogin';
+import ShopMain from './Components/Shop/DashBoard/ShopMain';
 
 function App() {
   return (
@@ -47,6 +49,16 @@ function App() {
              <Route path='/admin-add-shop' element={<AdminMain data="admin-add-shop" />} />
              <Route path='/admin-view-shop' element={<AdminMain data="admin-view-shop" />} />
              <Route path='/admin-edit-shop/:id' element={<AdminMain data="admin-edit-shop" />} />
+{/* Shop */}
+
+<Route path='/shop-login' element={[<CommonNav />, <ShopLogin />, <Footer />]} />
+<Route path='/shop-home' element={<ShopMain data="shop-home"/>} />  
+<Route path='/shop-view-service' element={<ShopMain data="shop-view-service"/>} />  
+<Route path='/shop-edit-service/:id' element={<ShopMain data="shop-edit-service"/>} />  
+<Route path='/shop-view-material' element={<ShopMain data="shop-view-material"/>} />  
+<Route path='/shop-edit-material/:id' element={<ShopMain data="shop-edit-material"/>} />  
+<Route path='/shop-view-workinghours' element={<ShopMain data="shop-view-workinghours"/>} />  
+<Route path='/shop-edit-workinghours/:id' element={<ShopMain data="shop-edit-workinghours"/>} />  
 
 
         </Routes>
