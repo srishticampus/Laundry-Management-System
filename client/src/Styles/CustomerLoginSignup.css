@@ -1,0 +1,150 @@
+.cust-lgin-input_container{
+    min-height: 200px;
+    width: 600px;
+    background-color: #ffffff;
+    /* margin: auto; */
+    border-radius: 20px;
+    position: relative;
+    height: 350px;
+    margin-left:100px;
+}
+.cust-title
+{
+    color: #000;
+    text-align: center;
+    font-family: "Times New Roman";
+    font-size: 54px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 59px; /* 109.259% */
+    letter-spacing: 0.54px;
+}
+.cust-signup-title
+{
+    color: #000;
+    text-align: center;
+    font-family: "Times New Roman";
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+margin-top: 20px;
+    letter-spacing: 0.54px;
+}
+.cust-login-div2{
+    margin-left: 50px;
+    margin-top: 0px;
+
+    
+}
+.cust-login-forgot{
+    margin-left: 220px;
+    color: #000;
+    margin-top: 10px;
+text-align: right;
+font-family: "Open Sans";
+font-size: 13px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+text-transform: capitalize;
+}
+.cust-signup-link{
+    color: #000;
+text-align: center;
+font-family: "Open Sans";
+font-size: 13px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+text-transform: capitalize;
+}
+.cust-login-link{
+    color: #000;
+font-family: "Open Sans";
+font-size: 13px;
+font-style: normal;
+text-decoration: none;
+font-weight: 700;
+line-height: normal;
+text-transform: capitalize;
+}
+.cust-login-link2{
+    color: #000;
+text-decoration: none;}
+
+.cust-login-label{
+    color: #000;
+font-family: "Open Sans";
+font-size: 12px;
+
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+text-transform: capitalize;
+}
+.cust-signup-input_container{
+    min-height: 200px;
+    width: 800px;
+    background-color: #ffffff;
+    /* margin: auto; */
+    border-radius: 20px;
+    position: relative;
+    height: 600px;
+    margin-left:0px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+.cust-login-div1{
+   
+  
+   
+    padding: 20px 20px;
+    padding-left: 0px;
+}
+.fake-image-rounded{
+    border-radius: 50%;
+    height: 130px;
+    width:130px;
+    margin-left: 250px;
+}
+.fake-image-rounded {
+    border-radius: 50%;
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+  }
+  
+  .image-upload p {
+    font-size: 14px;
+    color: #6c757d;
+    margin-left:270px ;
+  }
+  .left-align-error{
+    margin-left:250px ;
+  }
+
+  .cust-main1{
+   
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(256deg, #D7E8FF 0%, #9FC7ED 98.39%);
+}
+
+.cust-main{
+    padding: 0; 
+    background: linear-gradient(256deg, #D7E8FF 0%, #9FC7ED 98.39%);
+    height: 100vh; 
+    width: 100%;
+    margin: auto;
+
+}
+
+.cust_us_main_container {
+    height: 500px;
+    width: 60%;
+    margin: auto;
+    padding: 30px;
+    /* background-color: aqua; */
+}

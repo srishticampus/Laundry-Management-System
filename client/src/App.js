@@ -20,6 +20,11 @@ import AboutUs from './Components/LandingPage/AboutUs';
 import AdminMain from './Components/Admin/AdminDashBoard/AdminMain';
 import ShopLogin from './Components/Shop/ShopLogin';
 import ShopMain from './Components/Shop/DashBoard/ShopMain';
+import CustLogin from './Components/Customer/CustLogin';
+import CustSignup from './Components/Customer/CustSignup';
+import CustNavbar from './Components/Navbars/CustNavbar';
+import CustHome from './Components/Customer/CustHome';
+import "remixicon/fonts/remixicon.css";
 
 function App() {
   return (
@@ -49,6 +54,8 @@ function App() {
              <Route path='/admin-add-shop' element={<AdminMain data="admin-add-shop" />} />
              <Route path='/admin-view-shop' element={<AdminMain data="admin-view-shop" />} />
              <Route path='/admin-edit-shop/:id' element={<AdminMain data="admin-edit-shop" />} />
+             <Route path='/admin-view-single-shop/:id' element={<AdminMain data="admin-view-single-shop" />} />
+
 {/* Shop */}
 
 <Route path='/shop-login' element={[<CommonNav />, <ShopLogin />, <Footer />]} />
@@ -60,6 +67,12 @@ function App() {
 <Route path='/shop-view-workinghours' element={<ShopMain data="shop-view-workinghours"/>} />  
 <Route path='/shop-edit-workinghours/:id' element={<ShopMain data="shop-edit-workinghours"/>} />  
 
+
+{/* Customer */}
+
+<Route path='/cust-login' element={[<CommonNav />, <CustLogin />, <Footer />]} />
+<Route path='/cust-signup' element={[<CommonNav />, <CustSignup />, <Footer />]} />
+<Route path='/cust-home' element={[<CustNavbar />, <CustHome />,  <Footer />]} />
 
         </Routes>
       </div>

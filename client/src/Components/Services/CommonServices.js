@@ -124,7 +124,11 @@ export const resetPassword = async (data, api,id) => {
         if (response.data.status === 200) {
             const { result } = response.data;
             return { success: true, user:  response.data.data };
-        } else {
+        } else 
+        if (response.status === 200) {
+            const { result } = response.data;
+            return { success: true, user:  response.data.data };
+        }else {
             return { success: false, message: response.data.msg };
         }
     } catch (error) {

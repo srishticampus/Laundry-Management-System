@@ -6,6 +6,7 @@ const ShopController=require('./controllers/shopController')
 const Service=require('./controllers/serviceController')
 const Material=require('./controllers/materialController')
 const WorkingHours=require('./controllers/workingHoursController')
+const Customer=require('./controllers/custController')
 
 // contacts
 router.post('/addContat', ContactUs.addContat);
@@ -40,5 +41,16 @@ router.post('/editMaterialById/:id', Material.editMaterialById);
 router.post('/viewWorkingHoursById/:id', WorkingHours.viewWorkingHoursById);
 router.post('/viewWorkingHoursByShopId/:id', WorkingHours.viewWorkingHoursByShopId);
 router.post('/editWorkingHoursById/:id', WorkingHours.editWorkingHoursById);
+
+
+// Customer
+router.post('/registerCustomer',Customer.uploadSingle, Customer.registerCustomer);
+router.post('/viewAllCustomer', Customer.viewCustomers);
+router.post('/viewCustomer/:id', Customer.viewCustomerById);
+router.post('/editCustomer/:id', Customer.uploadSingle,Customer.editCustomerById);
+router.post('/deleteCustomerById/:id', Customer.deleteCustomerById);
+Customer
+router.post('/custLogin', Customer.login);
+
 module.exports = router;
 
