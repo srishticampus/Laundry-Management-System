@@ -35,9 +35,12 @@ function ViewAllShops() {
 
         fetchData(); // Call the async function
     }, []);
-    const viewShop=(id)=>{
+    const editShop=(id)=>{
 Navigate(`/admin-edit-shop/${id}`)
     }
+    const viewShop=(id)=>{
+        Navigate(`/admin-view-single-shop/${id}`)
+            }
     const toggleShop = async (id) => {
 
         try {
@@ -95,14 +98,14 @@ Navigate(`/admin-edit-shop/${id}`)
                                             <td>{item.password}</td>
                                             <td>
                                                 <img src={eye} className='mr-3' 
-                                                onClick={() => { viewShop(item._id)
+                                                onClick={() => {viewShop(item._id)
 
                                                  }}
                                                  />
                                                 <img src={notepad} className='ms-2' 
-                                                // onClick={() => { rejectAkshaya(item._id) 
+                                                onClick={() => { editShop(item._id) 
 
-                                                // }}
+                                                }}
                                                  />
                                                  {console.log("j",item.isActive)
                                                  }

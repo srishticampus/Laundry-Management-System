@@ -32,7 +32,7 @@
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0 " >
                   <li className="nav-item m-3">
                     <Link
-                      to='/admin_home'
+                      to='/'
                       className="nav-link landingnavbar_text"
                       aria-current="page"
                     
@@ -78,10 +78,10 @@
               
                   <li className="nav-item m-3">
                     <Link
-                      to="#"
+                      to="/cust-login"
                       className="nav-link landin-nav-btn"
                       role="button"
-                      data-bs-toggle="dropdown"
+                   
                       aria-expanded="false"
                       id="text_color_white"
                     >
