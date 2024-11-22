@@ -74,6 +74,8 @@ console.log(data);
             return { success: false, message: response.data.msg };
         }
     } catch (error) {
+        console.log(error);
+        
         if (error.response && error.response.data) {
             return {
                 success: false,
