@@ -16,7 +16,11 @@ const addService = async (req, res) => {
           amount,
           shopId
         });
+        const existingServiceByName = await Service.findOne({ name });
 
+        if (existingServiceByName) {
+            return res.status(409).json({ msg: "The Service Name Already Added!" });
+        }
        
         await newwData.save()
             .then(data => {
@@ -61,7 +65,26 @@ const viewServiceById = (req, res) => {
             });
         });
 };
-
+const viewServiceByName = (req, res) => {
+    console.log(req.params.id);
+    
+    Service.findOne({name:req.params.id})
+        .exec()
+        .then(data => {
+            res.json({
+                status: 200,
+                msg: "Data obtained successfully",
+                data: data
+            });
+        })
+        .catch(err => {
+            res.status(500).json({
+                status: 500,
+                msg: "No Data obtained",
+                Error: err
+            });
+        });
+};
 const editServiceById = (req, res) => {
     const {      
         name,
@@ -134,5 +157,6 @@ module.exports = {
     viewAllServiceByShopId,
     viewAllServices,
     viewServiceById,
-    editServiceById
+    editServiceById,
+    viewServiceByName
 }

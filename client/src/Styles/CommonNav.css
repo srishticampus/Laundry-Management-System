@@ -40,3 +40,13 @@
 .navbar-toggler {
     padding: 4px; /* Smaller padding for the toggler button */
 }
+.footer-div {
+    background: #f8f9fa; /* Light background for footer */
+    padding: 15px 0;
+    text-align: center; /* Optional */
+    border-top: 1px solid #ddd; /* Optional border */
+}
+
+.navbar_bg {
+    margin: 0;
+}

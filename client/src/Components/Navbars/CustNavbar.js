@@ -166,10 +166,10 @@ const handleLogin = async (e) => {
           <div className="collapse navbar-collapse justify-content-center">
             <ul className="navbar-nav">
               <li className="nav-item mx-3">
-                <Link to="/" className="nav-link">Home</Link>
+                <Link to="/cust-home" className="nav-link">Home</Link>
               </li>
               <li className="nav-item mx-3">
-                <Link to="/admin_home" className="nav-link">Book Now</Link>
+                <Link to="/cust-view-shops" className="nav-link">Book Now</Link>
               </li>
               <li className="nav-item mx-3">
                 <Link to="/about-us" className="nav-link">My Orders</Link>
