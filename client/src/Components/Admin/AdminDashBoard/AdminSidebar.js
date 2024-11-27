@@ -38,7 +38,7 @@ const toggleLaundryDropdown = () => {
         <div className="pt-5 ms-3 admin-sidebar-h4">
             <img src={admin} className='admin-logo'></img>
           <Link to="/admin-home" className="admin-dash-link"><p className="p-2 fw-light admin-border"> Dashboard</p></Link>
-          <Link to='/admin-' className="admin-dash-link"><p className="p-2 fw-light admin-border"> Registered Users</p></Link>
+          <Link to='/admin-view-users' className="admin-dash-link"><p className="p-2 fw-light admin-border"> Registered Users</p></Link>
           <Link to='/' className="admin-dash-link">
   <p className="p-2 fw-light admin-border">
     <span>Report</span>

@@ -17,7 +17,11 @@ const addMaterial = async (req, res) => {
           amount,
           shopId
         });
+        const existingServiceByName = await Material.findOne({ name });
 
+        if (existingServiceByName) {
+            return res.status(409).json({ msg: "The Material Name Already Added!" });
+        }
        
         await newwData.save()
             .then(data => {
@@ -62,7 +66,26 @@ const viewMaterialById = (req, res) => {
             });
         });
 };
-
+const viewMaterialByName = (req, res) => {
+    console.log(req.params.id);
+    
+    Material.findOne({name:req.params.id})
+        .exec()
+        .then(data => {
+            res.json({
+                status: 200,
+                msg: "Data obtained successfully",
+                data: data
+            });
+        })
+        .catch(err => {
+            res.status(500).json({
+                status: 500,
+                msg: "No Data obtained",
+                Error: err
+            });
+        });
+};
 const editMaterialById = (req, res) => {
     const {      
         name,
@@ -135,5 +158,6 @@ module.exports = {
     viewAllMaterialByShopId,
     viewAllMaterials,
     viewMaterialById,
+    viewMaterialByName,
     editMaterialById
 }

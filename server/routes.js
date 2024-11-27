@@ -7,6 +7,10 @@ const Service=require('./controllers/serviceController')
 const Material=require('./controllers/materialController')
 const WorkingHours=require('./controllers/workingHoursController')
 const Customer=require('./controllers/custController')
+const Order=require('./controllers/orderController')
+const orderServiceController=require('./controllers/orderServiceController')
+const cardController=require('./controllers/cardController')
+
 
 // contacts
 router.post('/addContat', ContactUs.addContat);
@@ -28,6 +32,7 @@ router.post('/viewAllServices', Service.viewAllServices);
 router.post('/viewAllServiceByShopId/:id', Service.viewAllServiceByShopId);
 router.post('/viewServiceById/:id', Service.viewServiceById);
 router.post('/editServiceById/:id', Service.editServiceById);
+router.post('/viewServiceByName/:id', Service.viewServiceByName);
 
 
 // Materials
@@ -36,6 +41,7 @@ router.post('/viewAllMaterials', Material.viewAllMaterials);
 router.post('/viewAllMaterialByShopId/:id', Material.viewAllMaterialByShopId);
 router.post('/viewMaterialById/:id', Material.viewMaterialById);
 router.post('/editMaterialById/:id', Material.editMaterialById);
+router.post('/viewMaterialByName/:id', Material.viewMaterialByName);
 
 // Materials
 router.post('/viewWorkingHoursById/:id', WorkingHours.viewWorkingHoursById);
@@ -52,5 +58,39 @@ router.post('/deleteCustomerById/:id', Customer.deleteCustomerById);
 Customer
 router.post('/custLogin', Customer.login);
 
+
+
+
+
+// Orders
+router.post('/addOrder', Order.addOrder);
+router.post('/viewAllOrders', Order.viewAllOrders);
+router.post('/viewAllOrderByShopId/:id', Order.viewAllOrderByShopId);
+router.post('/viewOrderById/:id', Order.viewOrderById);
+router.post('/editOrderById/:id', Order.editOrderById);
+router.post('/viewOrderByName/:id', Order.viewOrderByName);
+router.post('/addAddressOrderById/:id', Order.addAddressOrderById);
+router.post('/addPickUpDateOrderById/:id', Order.addPickUpDateOrderById);
+router.post('/addPayment/:id', Order.addPayment);
+router.post('/viewAllOrderByCustId/:id', Order.viewAllOrderByCustId);
+
+
+//oerder services
+
+router.post('/addServiceOrder', orderServiceController.addServiceOrder);
+router.post('/viewAllServiceOrders', orderServiceController.viewAllServiceOrders);
+router.post('/viewServiceOrderById/:id', orderServiceController.viewServiceOrderById);
+router.post('/viewAllServiceOrdersByShopId/:shopId', orderServiceController.viewServiceOrdersByShopId);
+router.post('/editServiceOrderById/:id', orderServiceController.editServiceOrderById);
+router.post('/deleteServiceOrderById/:id', orderServiceController.deleteServiceOrderById);
+router.post('/viewServiceOrdersBycustId/:id', orderServiceController.viewServiceOrdersBycustId);
+
+// Card routes
+
+router.post('/addCard', cardController.addCard);
+router.post('/viewAllCardsByCustomerId/:custId', cardController.viewAllCardsByCustomerId);
+router.post('/viewCardById/:id', cardController.viewCardById);
+router.post('/editCardById/:shopId', cardController.editCardById);
+router.post('/deleteCardById/:id', cardController.deleteCardById);
 module.exports = router;
 

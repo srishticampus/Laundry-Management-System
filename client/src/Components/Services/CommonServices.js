@@ -33,6 +33,7 @@ export const login = async (data, api) => {
 export const register = async (data, api) => {
     try {
 
+console.log("ddd",data);
 
         const response = await axios.post(`${API_BASE_URL}/${api}`, data);
         console.log(response);
@@ -44,6 +45,8 @@ export const register = async (data, api) => {
             return { success: false, message: response.data.msg };
         }
     } catch (error) {
+        console.log(error);
+        
         if (error.response && error.response.data) {
             return {
                 success: false,

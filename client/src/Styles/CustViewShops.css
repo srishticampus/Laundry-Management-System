@@ -1,0 +1,373 @@
+.cust-view-shop-main {
+    background: #C9E0FA;
+    height: 63px;
+    padding: 20px;
+}
+
+.cust-choose-shop {
+    color: #000;
+    text-align: center;
+    font-family: "Times New Roman";
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.cust-view {
+    height: 100vh;
+    margin-bottom: 20px;
+}
+
+.card-container {
+    display: flex;
+
+    gap: 20px;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.card-view {
+    background: #C9E0FA;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    width: 350px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+    margin-bottom: 40px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+    /* Optional for rounded corners */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Smooth hover effect */
+}
+
+.card-view:hover {
+    transform: translateY(-5px);
+    /* Lift the card on hover */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15), 0px 3px 6px rgba(0, 0, 0, 0.12);
+    /* Enhance shadow on hover */
+}
+
+.card-img-cust {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.cust-card-title {
+    color: #000;
+    text-align: left;
+    font-family: "Times New Roman";
+    font-size: 22px;
+    margin-left: 20px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.cust-card-data {
+    text-align: left;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    padding-bottom: 10px;
+    display: flex;
+    margin-left: 20px;
+    margin-top: 25px;
+    width: 195.667px;
+    height: 71px;
+    line-height: 2px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    flex-shrink: 0;
+}
+
+.circle-container {
+    display: flex;
+    /* Use Flexbox to arrange elements in a row */
+    justify-content: center;
+    /* Center the row */
+    align-items: center;
+    /* Align items vertically */
+    margin-top: 50px;
+    gap: 20px;
+    /* Add space between circles and lines */
+}
+
+.colored-circle,
+.uncolored-circle {
+    display: flex;
+    /* Make the circle content centered */
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    /* Ensures perfect circles */
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+}
+
+.colored-circle {
+    background: #3070F5;
+    /* Blue for active circles */
+}
+
+.uncolored-circle {
+    background: #D1E0FF;
+    /* Light blue for inactive circles */
+}
+
+.circle-text {
+    color: #FFF;
+    font-family: "Open Sans";
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.circle-line {
+    height: 5px;
+    background: #D1E0FF;
+    width: 130px;
+    /* Adjust line width as needed */
+    flex-shrink: 0;
+    /* Prevent the line from shrinking */
+}
+
+.colored-circle-line {
+    height: 5px;
+    background: #3070F5;
+    width: 130px;
+    /* Adjust line width as needed */
+    flex-shrink: 0;
+    /* Prevent the line from shrinking */
+}
+
+.order-service-container {
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    display: flex;
+    padding: 20px 0px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 200px;
+    padding: 30px 30px 30px 15px;
+
+
+    width: 1000px;
+}
+
+.order-service-title {
+    color: #3070F5;
+    font-family: "Open Sans";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: capitalize;
+}
+
+.order-input-container {
+
+    display: flex;
+    padding: 30px 30px 30px 15px;
+
+
+    width: 1000px;
+}
+
+.order-input-container2 {
+
+    margin-left: 10px;
+
+    width: 1000px;
+}
+
+.order-align-icon {
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    background: #FFF;
+    width: 40px;
+    height: 50px;
+    padding: 11px 10px;
+}
+
+.order-align-text {
+
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    background: #FFF;
+    text-align: center;
+    height: 50px;
+    padding: 11px 10px;
+}
+
+.order-align-btn {
+
+    text-align: center;
+    margin-top: 13px;
+
+    color: #3070F5
+}
+
+.plus-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.cust-order-hr {
+    background-color: rgb(32, 31, 31);
+    /* Light gray */
+    width: 998px;
+    height: 1px;
+    /* Adjust the height as needed */
+    margin-left: 12px;
+    ;
+}
+
+.cust-order-hr {
+    background-color: rgb(32, 31, 31);
+    /* Light gray */
+    width: 998px;
+    height: 1px;
+    /* Adjust the height as needed */
+
+}
+
+.cust-orderbtn {
+    display: flex;
+    width: 109px;
+    height: 37px;
+    border-radius: 20px;
+    border: 1px solid #3070F5;
+    background: #FFF;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.cust-order-dynamic-container {
+    margin-left: 480px;
+
+}
+
+.cust-order-amount {
+    color: #3070F5;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-left: 700px;
+    text-transform: capitalize;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.order-thanks {
+    display: flex;
+    width: 461px;
+    margin-left: 35%;
+    margin-top: 2%;
+    gap: 50px;
+}
+
+.order-success-img {
+    align-items: center;
+    width: 259px;
+    margin-left: 10%;
+    height: 194px;
+}
+
+.order-success-h3 {
+    color: #000;
+    text-align: center;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: "Times New Roman";
+
+    font-style: normal;
+
+    line-height: 28px;
+    /* 116.667% */
+
+}
+
+.order-success-sec-div {
+    border-radius: 20px;
+    border: 3px solid #DDD;
+    width: 461px;
+    padding: 10px;
+    margin-left: 30%;
+    margin-top: 3%;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+
+.order-table {
+    width: 100%;
+
+    margin: 20px 0;
+}
+
+.order-table td {
+    padding: 10px 15px;
+
+    text-align: left;
+}
+.track-row{
+    border-radius: 20px;
+border: 1px solid rgba(0, 0, 0, 0.10);
+width:80%;
+margin-left: 10%;
+margin-top:3%;
+padding: 30px 60px;
+justify-content: space-between;
+align-items: center;
+}
+.track-col{
+    border-radius: 20px;
+border: 1px solid rgba(0, 0, 0, 0.20);
+height:300px;
+padding: 15px;
+flex-direction: column;
+align-items: flex-start;
+gap: 15px;
+margin:5px;
+}
+
+.shop-image{
+    width: 260px;
+height: 159px;
+border-radius: 10.707px;
+}
+.cust-shop-content{
+margin-left:10px;margin-top: 10px;
+line-height: 9px;
+
+}
+.cust-shop-content h5{
+    text-transform: uppercase;
+}
+.track-order-sub{
+    color: #3070F5;
+text-align: center;
+font-feature-settings: 'liga' off, 'clig' off;
+font-family: "Open Sans";
+font-size: 24px;
+font-style: normal;
+font-weight: 700;
+line-height: 28px; /* 116.667% */
+text-transform: capitalize;
+}
+.track-order-sub-p{
+    color: #3070F5;
+    text-align: center;
+    font-size: 14px;
+}

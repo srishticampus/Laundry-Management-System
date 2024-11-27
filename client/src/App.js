@@ -25,6 +25,13 @@ import CustSignup from './Components/Customer/CustSignup';
 import CustNavbar from './Components/Navbars/CustNavbar';
 import CustHome from './Components/Customer/CustHome';
 import "remixicon/fonts/remixicon.css";
+import CustViewAllShops from './Components/Customer/CustViewAllShops';
+import CustPlaceOrder1 from './Components/Customer/CustPlaceOrder1';
+import CustOrderAddress from './Components/Customer/CustOrderAddress';
+import CustPickUpDate from './Components/Customer/CustPickUpDate';
+import CustPayment from './Components/Customer/CustPayment';
+import CustOrderSuccess from './Components/Customer/CustOrderSuccess';
+import CustTrackOrder from './Components/Customer/CustTrackOrder';
 
 function App() {
   return (
@@ -55,6 +62,7 @@ function App() {
              <Route path='/admin-view-shop' element={<AdminMain data="admin-view-shop" />} />
              <Route path='/admin-edit-shop/:id' element={<AdminMain data="admin-edit-shop" />} />
              <Route path='/admin-view-single-shop/:id' element={<AdminMain data="admin-view-single-shop" />} />
+             <Route path='/admin-view-users' element={<AdminMain data="admin-view-users" />} />
 
 {/* Shop */}
 
@@ -73,6 +81,13 @@ function App() {
 <Route path='/cust-login' element={[<CommonNav />, <CustLogin />, <Footer />]} />
 <Route path='/cust-signup' element={[<CommonNav />, <CustSignup />, <Footer />]} />
 <Route path='/cust-home' element={[<CustNavbar />, <CustHome />,  <Footer />]} />
+<Route path='/cust-view-shops' element={[<CustNavbar />, <CustViewAllShops />]} />
+<Route path='/place-order1/:id' element={[<CustNavbar />, <CustPlaceOrder1 />]} />
+<Route path='/order-address/:id' element={[<CustNavbar />, <CustOrderAddress />]} />
+<Route path='/cust-pickup-date/:id' element={[<CustNavbar />, <CustPickUpDate />]} />
+<Route path='/cust-payment/:id' element={[<CustNavbar />, <CustPayment />]} />
+<Route path='/cust-order-success/:id' element={[<CustNavbar />, <CustOrderSuccess />]} />
+<Route path='/cust-track-order' element={[<CustNavbar />, <CustTrackOrder />]} />
 
         </Routes>
       </div>
