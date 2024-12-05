@@ -1,6 +1,6 @@
 .cust-view-shop-main {
     background: #C9E0FA;
-    height: 63px;
+    /* height: 63px; */
     padding: 20px;
 }
 
@@ -14,7 +14,7 @@
 }
 
 .cust-view {
-    height: 100vh;
+    /* height: 100vh; */
     margin-bottom: 20px;
 }
 
@@ -92,7 +92,7 @@
     align-items: center;
     /* Align items vertically */
     margin-top: 50px;
-    gap: 20px;
+  
     /* Add space between circles and lines */
 }
 

@@ -32,6 +32,10 @@ import CustPickUpDate from './Components/Customer/CustPickUpDate';
 import CustPayment from './Components/Customer/CustPayment';
 import CustOrderSuccess from './Components/Customer/CustOrderSuccess';
 import CustTrackOrder from './Components/Customer/CustTrackOrder';
+import AgentSignup from './Components/Delivery/AgentSignup';
+import AgentLogin from './Components/Delivery/AgentLogin';
+import AgentHome from './Components/Delivery/AgentHome';
+import AgentNav from './Components/Navbars/AgentNav';
 
 function App() {
   return (
@@ -51,6 +55,7 @@ function App() {
           <Route path='/' element={[<CommonNav />, <TopComponent />, <Working />, <Services />, <ServiceFeatures />, <Footer />]} />
           <Route path='/contact-us' element={[<CommonNav />, <ContactUs />, <Footer />]} />
           <Route path='/about-us' element={[<CommonNav />, <TopComponent />, <AboutUs />, <Footer />]} />
+          <Route path='/services' element={[<CommonNav />, <Services />, <Footer />]} />
 
           {/* Admin  */}
 
@@ -63,6 +68,7 @@ function App() {
              <Route path='/admin-edit-shop/:id' element={<AdminMain data="admin-edit-shop" />} />
              <Route path='/admin-view-single-shop/:id' element={<AdminMain data="admin-view-single-shop" />} />
              <Route path='/admin-view-users' element={<AdminMain data="admin-view-users" />} />
+             <Route path='/admin-agent-requests' element={<AdminMain data="admin-agent-requests" />} />
 
 {/* Shop */}
 
@@ -81,13 +87,20 @@ function App() {
 <Route path='/cust-login' element={[<CommonNav />, <CustLogin />, <Footer />]} />
 <Route path='/cust-signup' element={[<CommonNav />, <CustSignup />, <Footer />]} />
 <Route path='/cust-home' element={[<CustNavbar />, <CustHome />,  <Footer />]} />
-<Route path='/cust-view-shops' element={[<CustNavbar />, <CustViewAllShops />]} />
-<Route path='/place-order1/:id' element={[<CustNavbar />, <CustPlaceOrder1 />]} />
-<Route path='/order-address/:id' element={[<CustNavbar />, <CustOrderAddress />]} />
+<Route path='/cust-view-shops' element={[<CustNavbar />, <CustViewAllShops />,<Footer />]} />
+<Route path='/place-order1/:id' element={[<CustNavbar />, <CustPlaceOrder1 />,<Footer />]} />
+<Route path='/order-address/:id' element={[<CustNavbar />, <CustOrderAddress />,<Footer />]} />
 <Route path='/cust-pickup-date/:id' element={[<CustNavbar />, <CustPickUpDate />]} />
 <Route path='/cust-payment/:id' element={[<CustNavbar />, <CustPayment />]} />
 <Route path='/cust-order-success/:id' element={[<CustNavbar />, <CustOrderSuccess />]} />
 <Route path='/cust-track-order' element={[<CustNavbar />, <CustTrackOrder />]} />
+
+
+
+{/* Del Agent */}
+<Route path='/agent-signup' element={[<CommonNav />, <AgentSignup />, <Footer/>]} />
+<Route path='/agent-login' element={[<CommonNav />, <AgentLogin />, <Footer />]} />
+<Route path='/agent-home' element={[<AgentNav />, <AgentHome />, <Footer />]} />
 
         </Routes>
       </div>

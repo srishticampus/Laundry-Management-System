@@ -269,7 +269,7 @@ function CustSignup() {
                             </form> 
                             <p className="cust-signup-link mt-3">
                             Already have an account?<span className="cust-login-link">
-                                <Link className="cust-login-link2" to='/cust-signup'>
+                                <Link className="cust-login-link2" to='/cust-login'>
                              Login </Link></span></p> </div>
 
                  

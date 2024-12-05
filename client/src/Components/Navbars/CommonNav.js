@@ -42,7 +42,7 @@
                   </li>
                   <li className="nav-item m-3">
                     <Link
-                      to='/admin_home'
+                      to='/services'
                       className="nav-link landingnavbar_text"
                       aria-current="page"
                   
