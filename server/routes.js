@@ -10,6 +10,7 @@ const Customer=require('./controllers/custController')
 const Order=require('./controllers/orderController')
 const orderServiceController=require('./controllers/orderServiceController')
 const cardController=require('./controllers/cardController')
+const agentController=require('./controllers/agentController')
 
 
 // contacts
@@ -55,7 +56,7 @@ router.post('/viewAllCustomer', Customer.viewCustomers);
 router.post('/viewCustomer/:id', Customer.viewCustomerById);
 router.post('/editCustomer/:id', Customer.uploadSingle,Customer.editCustomerById);
 router.post('/deleteCustomerById/:id', Customer.deleteCustomerById);
-Customer
+
 router.post('/custLogin', Customer.login);
 
 
@@ -92,5 +93,20 @@ router.post('/viewAllCardsByCustomerId/:custId', cardController.viewAllCardsByCu
 router.post('/viewCardById/:id', cardController.viewCardById);
 router.post('/editCardById/:shopId', cardController.editCardById);
 router.post('/deleteCardById/:id', cardController.deleteCardById);
+
+// Agent
+// Customer
+router.post('/registerAgent',agentController.upload, agentController.registerAgent);
+router.post('/viewAgents', agentController.viewAgents);
+router.post('/viewAgentById/:id', agentController.viewAgentById);
+router.post('/editAgentById/:id', agentController.upload,agentController.editAgentById);
+router.post('/deleteAgentById/:id', agentController.deleteAgentById);
+router.post('/viewApprovedAgents', agentController.viewApprovedAgents);
+router.post('/viewAgentsforApproval', agentController.viewAgentsforApproval);
+router.post('/agentLogin', agentController.login);
+router.post('/approveAgentById/:id', agentController.approveAgentById);
+
+router.post('/toggleAgentActivationAgent/:id', agentController.toggleAgentActivation);
+
 module.exports = router;
 

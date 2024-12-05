@@ -94,6 +94,18 @@ text-transform: capitalize;
     margin-bottom: 20px;
     padding-bottom: 20px;
 }
+.agent-signup-input_container{
+  
+    width: 800px;
+    background-color: #ffffff;
+    /* margin: auto; */
+    border-radius: 20px;
+    position: relative;
+    min-height: 650px;
+    margin-left:0px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
 .cust-login-div1{
    
   

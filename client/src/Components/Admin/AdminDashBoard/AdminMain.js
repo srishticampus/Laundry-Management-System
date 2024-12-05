@@ -8,6 +8,7 @@ import ViewAllShops from "./ViewAllShops";
 import EditShop from "./EditShop";
 import AdminViewSingleShop from "./AdminViewSingleShop";
 import AdminViewAllUsers from "./AdminViewAllUsers";
+import AdminAgentReqs from "./AdminAgentReqs";
 
 
 
@@ -35,6 +36,8 @@ function AdminMain({ data }) {
               <AdminViewSingleShop />
             ) : data === "admin-view-users" ? (
               <AdminViewAllUsers />
+            ) : data === "admin-agent-requests" ? (
+              <AdminAgentReqs />
             ) : data === "logout" }
           </div>
         </div>
