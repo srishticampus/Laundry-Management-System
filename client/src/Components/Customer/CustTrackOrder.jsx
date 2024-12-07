@@ -7,6 +7,7 @@ import cardimg from '../../Assets/cardimg.png'
 import { approveById, viewCount } from "../Services/AdminService";
 import { IMG_BASE_URL } from "../Services/BaseURL";
 import { IoLocationSharp } from "react-icons/io5";
+import bluetick from '../../Assets/bluetick.png'
 
 function CustTrackOrder() {
     const custId = localStorage.getItem('customer')
@@ -73,7 +74,7 @@ const [services,setServices]=useState([])
 
                         <div className="row track-row">
                             <div className="col-md-3 track-col">
-                                <img src={`${IMG_BASE_URL}/${item.shopId.image.filename}`} className='ms-2 shop-image'></img>
+                                <img src={`${IMG_BASE_URL}/${item.shopId.image.filename}`} className='ms-2 shop-image2'></img>
                                 <div className="cust-shop-content"><h5>{item.shopId.name}</h5>
                                
 
@@ -82,10 +83,10 @@ const [services,setServices]=useState([])
                                 <p><IoLocationSharp /><b>{item.shopId.location}</b></p>
                                 </div>
                             </div>
-                            <div className="col-md-3 track-col">
+                            <div className="col-md-4 track-col">
     <h4 className="track-order-sub">ORDER DETAILS</h4>
     <p className="track-order-sub-p"> Order Id : ORD{item._id.slice(20, 24).toUpperCase()}</p>
-    <table className="order-table">
+    <table className="order-table2">
         
     {services.length > 0 ? (
     services
@@ -96,10 +97,12 @@ const [services,setServices]=useState([])
                
                 {service.materials.length > 0 ? (
                     service.materials.map((material, index) => (
-                        <tr key={index}>
-                            <td>{service.serviceId.name || "N/A"}</td> 
-                            <td>{material.material || "N/A"}</td>
-                            <td>{material.count || "0"}</td>
+                        <tr key={index} style={{ padding: "4px" }}>
+                            <td style={{ padding: "4px" }} >{service.serviceId.name || "N/A"}</td> 
+                            <td>-</td>
+                            <td className="order-table2-td">{material.material || "N/A"}</td>
+                            <td>-</td>
+                            <td className="order-table2-td">{material.count || "0"}</td>
                         </tr>
                     ))
                 ) : (

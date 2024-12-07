@@ -37,13 +37,13 @@ function ShopSidebar() {
       <div className="admin-sidebar-background">
         <div className="pt-5 ms-3 admin-sidebar-h4">
           <img src={admin} className='admin-logo'></img>
-          <Link to="/admin-home" className="admin-dash-link"><p className="p-2 fw-light admin-border"> Dashboard</p></Link>
+          <Link to="/shop-home" className="admin-dash-link"><p className="p-2 fw-light admin-border"> Dashboard</p></Link>
           <Link to='/shop-view-service' className="admin-dash-link"><p className="p-2 fw-light admin-border"> Services</p></Link>
           <Link to='/shop-view-material' className="admin-dash-link"><p className="p-2 fw-light admin-border"> Materials</p></Link>
 
           <Link to='/shop-view-workinghours' className="admin-dash-link"><p className="p-2 fw-light admin-border"> Operating Hours</p></Link>
 
-          <Link to='/admin-' className="admin-dash-link"><p className="p-2 fw-light admin-border"> Orders</p></Link>
+          <Link to='/shop-orders' className="admin-dash-link"><p className="p-2 fw-light admin-border"> Orders</p></Link>
 
        
           <Link to='/admin-' className="admin-dash-link"><p className="p-2 fw-light admin-border">PickUp Response</p></Link>

@@ -7,7 +7,7 @@ import ico4 from '../../Assets/Vector.png'
 
 function Services() {
     return (
-        <div className='container'>
+        <div className='container' id='services'>
             <div className='services-head'>
                 <h2 className='working-head1'>Service provided by us</h2>
                 <div className='services-sec-div'>

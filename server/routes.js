@@ -74,6 +74,13 @@ router.post('/addAddressOrderById/:id', Order.addAddressOrderById);
 router.post('/addPickUpDateOrderById/:id', Order.addPickUpDateOrderById);
 router.post('/addPayment/:id', Order.addPayment);
 router.post('/viewAllOrderByCustId/:id', Order.viewAllOrderByCustId);
+router.post('/viewAllOrderByCustId/:id', Order.viewAllOrderByCustId);
+
+router.post('/UpdateServiceStatus/:id', Order.UpdateServiceStatus);
+router.post('/viewAllOrderforAgent', Order.viewAllOrderforAgent);
+router.post('/approveOrderByAgent/:id', Order.approveOrderByAgent);
+router.post('/viewAllAssignedOrdersByAGId/:id', Order.viewAllAssignedOrdersByAGId);
+router.post('/viewAllServiceOrderss', Order.viewAllServiceOrders);
 
 
 //oerder services

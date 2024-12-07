@@ -4,13 +4,14 @@ import { register, resetPassword, ViewById } from "../Services/CommonServices";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import img from '../../Assets/orderSuccess.png'
 function CustOrderSuccess() {
-    const [order,setOrder]=useState({
-        _id:'',
-        pickupDate:'',
-        totalAmount:0
-    })
-    const Navigate=useNavigate()
+ 
+    const navigate=useNavigate()
 const {id}=useParams()
+const [order,setOrder]=useState({
+    _id:id,
+    pickupDate:'',
+    totalAmount:0
+})
     const fetchOrderData = async () => {
         try {
             const result = await ViewById("viewOrderById", id);
@@ -28,6 +29,9 @@ const {id}=useParams()
     useEffect(() => {
         fetchOrderData();
     }, []);
+    const track=()=>{
+        navigate(`/cust-track-order`)
+    }
     return (
         <div>
             <div className="page-wrapper">
@@ -55,7 +59,7 @@ const {id}=useParams()
                                 <tr>
                                     <td>Order Id</td>
                                     <td>:</td>
-                                    <td> ORD{(order._id.slice(20,24)).toUpperCase()}</td>
+                                    <td> ORD{(id.slice(20,24)).toUpperCase()}</td>
                                 </tr>
                                 <tr>
                                     <td>Pick Up Date</td>
@@ -71,7 +75,7 @@ const {id}=useParams()
                         </div>
                         <center>
                         <button className="shop-signup-button mt-3 mb-3"
-                        onClick={Navigate(`/cust-track-order`)}
+                        onClick={track}
                         >Track Order</button>
                     </center>
         </div>

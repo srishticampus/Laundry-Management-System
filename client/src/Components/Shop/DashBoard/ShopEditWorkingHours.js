@@ -119,17 +119,8 @@ const {id}=useParams()
 
 <div className='col-md-12 p-2 '>
     <label className='add-service-label'>Day</label>
-    <select placeholder='Day' className='form-control p-2' name='day' onChange={handleChange} value={data.day}>
-    <option value="">Select Day</option>
-    <option value="Monday">Monday</option>
-    <option value="Tuesday">Tuesday</option>
-    <option value="Wednesday">Wednesday</option>
-    <option value="Thursday">Thursday</option>
-    <option value="Friday">Friday</option>
-    <option value="Saturday">Saturday</option>
-    <option value="Sunday">Sunday</option>
-</select>
-    {errors.name && <div id="nameError" className="invalid-feedback">{errors.name}</div>}
+    <input type="day"  className='form-control p-2'value={data.day} disabled></input>
+
 </div>
 <div className='row '>
 <div className='col-md-6 p-2 '>

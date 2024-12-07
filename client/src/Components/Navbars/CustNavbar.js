@@ -172,7 +172,7 @@ const handleLogin = async (e) => {
                 <Link to="/cust-view-shops" className="nav-link">Book Now</Link>
               </li>
               <li className="nav-item mx-3">
-                <Link to="/about-us" className="nav-link">My Orders</Link>
+                <Link to="/cust-track-order" className="nav-link">My Orders</Link>
               </li>
               <li className="nav-item mx-3">
                 <Link to="/contact-us" className="nav-link">About Us</Link>

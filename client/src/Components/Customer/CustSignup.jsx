@@ -17,6 +17,7 @@ function CustSignup() {
         const navigate = useNavigate();
         const [data, setData] = useState('');
         const [profileImage, setProfileImage] = useState(img1);
+        const [showPassword2, setShowPassword2] = useState(false)
 
         const [showPassword, setShowPassword] = useState(false)
         const [errors, setErrors] = useState({});
@@ -41,6 +42,9 @@ function CustSignup() {
           };
         const togglePasswordVisibility = () => {
             setShowPassword(!showPassword);
+        };
+        const togglePasswordVisibility2 = () => {
+            setShowPassword2(!showPassword2);
         };
         const validate = () => {
             const newErrors = {};
@@ -222,7 +226,7 @@ function CustSignup() {
                                 <div className="col-lg-6 ">
                                 <label className="cust-login-label">Confirm Password</label>
                                      <div style={{ position: 'relative' }}>
-                        <input type={showPassword ? "text" : "password"}
+                        <input type={showPassword2 ? "text" : "password"}
                             placeholder='Re-Type password'
                             name="cpassword"
                             onChange={handleChange}
@@ -230,8 +234,8 @@ function CustSignup() {
                             style={{ paddingRight: '40px' }} >
 
                         </input>
-                        <div className="admin-login-password-toggle-icon" onClick={togglePasswordVisibility}>
-                            {showPassword ? <VscEyeClosed  /> : <VscEye />}
+                        <div className="admin-login-password-toggle-icon" onClick={togglePasswordVisibility2}>
+                            {showPassword2 ? <VscEyeClosed  /> : <VscEye />}
                         </div>
                           
                     </div>

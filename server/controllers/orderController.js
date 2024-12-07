@@ -1,4 +1,5 @@
 const Order = require('../models/orderModel');
+const orderServiceModel = require('../models/orderServiceModel');
 
 
 
@@ -176,16 +177,18 @@ const addPickUpDateOrderById =async (req, res) => {
         });
 };
 
-const addPayment =async (req, res) => {
+const UpdateServiceStatus=async (req, res) => {
     
     
    await  Order.findByIdAndUpdate({_id:req.params.id},{
    
-    paymentStatus:true,
-    orderStatus:"Paid"
+    serviceStatus:req.body.serviceStatus,
+  
      })
          .exec()
          .then(data => {
+            console.log(data);
+            
              res.json({
                  status: 200,
                  msg: "Data Updated successfully",
@@ -202,8 +205,35 @@ const addPayment =async (req, res) => {
              });
          });
  };
+
+ const addPayment =async (req, res) => {
+    
+    
+    await  Order.findByIdAndUpdate({_id:req.params.id},{
+    
+     paymentStatus:true,
+     orderStatus:"Paid"
+      })
+          .exec()
+          .then(data => {
+              res.json({
+                  status: 200,
+                  msg: "Data Updated successfully",
+                  data: data
+              });
+          })
+          .catch(err => {
+              console.log(err);
+              
+              res.status(500).json({
+                  status: 500,
+                  msg: "No Data obtained",
+                  Error: err
+              });
+          });
+  };
 const viewAllOrderByShopId = (req, res) => {
-    Order.find({shopId:req.params.id})
+    Order.find({shopId:req.params.id}).populate('custId')
         .exec()
         .then(data => {
             res.json({
@@ -258,6 +288,98 @@ const viewAllOrders = (req, res) => {
 };
 
 
+const viewAllServiceOrders =async (req, res) => {
+    try{
+    const serviceOrders = await orderServiceModel.find().populate('serviceId', 'name amount');
+    
+    // Aggregate revenue by service name
+    const revenueData = serviceOrders.reduce((acc, order) => {
+      const service = order.serviceId;
+      if (service) {
+        acc[service.name] = (acc[service.name] || 0) + service.amount;
+      }
+      return acc;
+    }, {});
+
+    res.status(200).json({ success: true, data: revenueData });
+  } catch (error) {
+    console.error("Error fetching revenue data:", error);
+    res.status(500).json({ success: false, message: "Server Error" });
+  
+}
+}
+
+
+const viewAllOrderforAgent = (req, res) => {
+    Order.find({serviceStatus:{$in:['Requested Pickup','Requested Drop']},agentStatus:false})
+    .populate('custId')
+    .populate('shopId')
+        .exec()
+        .then(data => {
+            res.json({
+                status: 200,
+                msg: "Data obtained successfully",
+                data: data
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            
+            res.status(500).json({
+                status: 500,
+                msg: "No Data obtained",
+                Error: err
+            });
+        });
+};
+const approveOrderByAgent =async (req, res) => {
+    
+    
+    await  Order.findByIdAndUpdate({_id:req.params.id},{
+    
+     agentStatus:true,
+     agentId:req.body.agentId
+      })
+          .exec()
+          .then(data => {
+              res.json({
+                  status: 200,
+                  msg: "Data Updated successfully",
+                  data: data
+              });
+          })
+          .catch(err => {
+              console.log(err);
+              
+              res.status(500).json({
+                  status: 500,
+                  msg: "No Data obtained",
+                  Error: err
+              });
+          });
+  };
+  const viewAllAssignedOrdersByAGId = (req, res) => {
+    Order.find({agentId:req.params.id,serviceStatus:'Request Pickup'})
+    .populate('custId')
+    .populate('shopId')
+        .exec()
+        .then(data => {
+            res.json({
+                status: 200,
+                msg: "Data obtained successfully",
+                data: data
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            
+            res.status(500).json({
+                status: 500,
+                msg: "No Data obtained",
+                Error: err
+            });
+        });
+};
 module.exports = {
     addOrder,
     viewAllOrderByShopId,
@@ -268,5 +390,10 @@ module.exports = {
     addPayment,
     addAddressOrderById,
     addPickUpDateOrderById,
-    viewAllOrderByCustId
+    UpdateServiceStatus,
+    viewAllOrderByCustId,
+    viewAllOrderforAgent,
+    viewAllAssignedOrdersByAGId,
+    viewAllServiceOrders,
+    approveOrderByAgent
 }

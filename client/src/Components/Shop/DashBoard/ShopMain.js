@@ -9,6 +9,7 @@ import ShopViewMaterial from "./ShopViewMaterial";
 import ShopEditMaterial from "./ShopEditMaterial";
 import ShopWorkingHoursView from "./ShopWorkingHoursView";
 import ShopEditWorkingHours from "./ShopEditWorkingHours";
+import ShopViewOrders from "./ShopViewOrders";
 
 
 
@@ -39,6 +40,8 @@ function ShopMain({ data }) {
               <ShopWorkingHoursView />
             ) : data === "shop-edit-workinghours" ? (
               <ShopEditWorkingHours/>
+            ) : data === "shop-orders" ? (
+              <ShopViewOrders/>
             ) : data === "logout" }
           </div>
         </div>

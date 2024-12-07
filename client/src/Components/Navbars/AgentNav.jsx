@@ -180,9 +180,48 @@ const handleLogin = async (e) => {
               <li className="nav-item mx-3">
                 <Link to="/contact-us" className="nav-link">Customer Feedback</Link>
               </li>
-              <li className="nav-item mx-3">
-                <Link to="/contact-us" className="nav-link">Manage Request</Link>
-              </li>
+         
+              <div className="nav-item dropdown">
+
+  <span
+    className="dropdown-toggle"
+    id="manageRequestDropdown"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+    style={{
+      cursor: "pointer",
+      textDecoration: "none",
+    }}
+  >
+    Manage Request
+  </span>
+  <ul className="dropdown-menu" aria-labelledby="manageRequestDropdown">
+    <li>
+      <Link
+        className="dropdown-item"
+        to={`/agent-order-reqs`}
+      >
+        Pick Up Request
+      </Link>
+    </li>
+    <li>
+      <Link className="dropdown-item" to={`/agent-orders`}>
+        Assigned Orders
+      </Link>
+    </li>
+    <li>
+      <Link
+        className="dropdown-item"
+        to={`/agent-orders`}      >
+        Delivery Request
+      </Link>
+    </li>
+  </ul>
+</div>
+
+
+
+
             </ul>
           </div>
 

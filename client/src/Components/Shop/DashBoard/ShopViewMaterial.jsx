@@ -20,26 +20,32 @@ function ShopViewMaterial() {
         const [errors, setErrors] = useState({});
 
         const [isAddingService, setIsAddingService] = useState(false);
-        const fetchData = async () => {
-            try {
-                const result = await ViewById('viewAllMaterialByShopId',localStorage.getItem('shop'));
-    
-                if (result.success) {
-                    console.log(result);
-                    if (result.user.length > 0)
-                        setdata(result.user);
-                    else
-                        setdata([])
-                } else {
-                    console.error('Data error:', result);
-                    toast.error(result.message);
+ 
+        useEffect(() => {
+            const fetchData = async () => {
+                try {
+                    const result = await ViewById('viewAllMaterialByShopId',localStorage.getItem('shop'));
+        
+                    if (result.success) {
+                        console.log(result);
+                        if (result.user.length > 0)
+                            setdata(result.user);
+                        else
+                            setdata([])
+                    } else {
+                        console.error('Data error:', result);
+                        toast.error(result.message);
+                    }
+        
+                } catch (error) {
+                    console.error('Unexpected error:', error);
+                    toast.error('An unexpected error occurred during Data View');
                 }
+            };
+      
     
-            } catch (error) {
-                console.error('Unexpected error:', error);
-                toast.error('An unexpected error occurred during Data View');
-            }
-        };
+            fetchData(); // Call the async function
+        }, []);
         const handleAddServiceClick = () => {
             setIsAddingService(true);
         };
@@ -47,11 +53,6 @@ function ShopViewMaterial() {
         const handleViewServicesClick = () => {
             setIsAddingService(false); 
         };
-        useEffect(() => {
-    
-    
-            fetchData(); // Call the async function
-        }, []);
         const viewShop=(id)=>{
     Navigate(`/shop-edit-material/${id}`)
         }

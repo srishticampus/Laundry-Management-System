@@ -63,7 +63,7 @@ function AddShop() {
             newErrors.contact = 'Contact is required';
 
         } else if (!phoneRegex.test(data.contact)) {
-            newErrors.password = 'Invalid Contact Number !';
+            newErrors.contact = 'Invalid Contact Number !';
         }
 
         if (!data.pincode) {

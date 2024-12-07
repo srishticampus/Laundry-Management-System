@@ -38,7 +38,7 @@ function CustPlaceOrder1() {
 
             }
         } catch (error) {
-            toast.error("An unexpected error occurred during Data View");
+            // toast.error("An unexpected error occurred during Data View");
         }
     };
     // const fetchMaterialDatabyId = async (id) => {
@@ -100,7 +100,7 @@ function CustPlaceOrder1() {
 
             }
         } catch (error) {
-            toast.error("An unexpected error occurred during Data View");
+            // toast.error("An unexpected error occurred during Data View");
         }
     };
 
@@ -113,14 +113,14 @@ function CustPlaceOrder1() {
 
             }
         } catch (error) {
-            toast.error("An unexpected error occurred during Data View");
+            // toast.error("An unexpected error occurred during Data View");
         }
     };
 
     useEffect(() => {
         fetchData();
         fetchData2();
-    }, []);
+    }, [id]);
     const fetchOrderData = async () => {
         try {
             const result = await ViewById("viewOrderById", localStorage.getItem('order'));
@@ -131,13 +131,13 @@ function CustPlaceOrder1() {
 
             }
         } catch (error) {
-            toast.error("An unexpected error occurred during Data View");
+            // toast.error("An unexpected error occurred during Data View");
         }
     };
 
     useEffect(() => {
         fetchOrderData();
-    }, []);
+    }, [localStorage.getItem('order')]);
     const validate = () => {
         const newErrors = {};
         setErrors(newErrors);

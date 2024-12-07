@@ -20,17 +20,21 @@
 
 .card-container {
     display: flex;
-
+    flex-wrap: wrap; /* Allow the cards to wrap when necessary */
     gap: 20px;
     justify-content: center;
     margin-top: 50px;
     margin-bottom: 50px;
+    max-width: 1200px; /* Limit the width of the container */
+    margin-left: auto;
+    margin-right: auto; /* Center the container */
 }
+
 
 .card-view {
     background: #C9E0FA;
     border: 1px solid rgba(0, 0, 0, 0.2);
-    width: 350px;
+    width: 300px;
     height: 400px;
     display: flex;
     flex-direction: column;
@@ -315,26 +319,34 @@
 
     margin: 20px 0;
 }
+.order-table2 {
+    width: 100%;
 
+    margin: 20px 0;
+}
 .order-table td {
     padding: 10px 15px;
 
     text-align: left;
 }
+.order-table2-td {
+
+    text-align: center;
+}
 .track-row{
     border-radius: 20px;
 border: 1px solid rgba(0, 0, 0, 0.10);
-width:80%;
-margin-left: 10%;
+width: 90%;
+margin-left: 5%;
 margin-top:3%;
-padding: 30px 60px;
+padding: 20px;
 justify-content: space-between;
 align-items: center;
 }
 .track-col{
     border-radius: 20px;
 border: 1px solid rgba(0, 0, 0, 0.20);
-height:300px;
+height:330px;
 padding: 15px;
 flex-direction: column;
 align-items: flex-start;
@@ -345,6 +357,14 @@ margin:5px;
 .shop-image{
     width: 260px;
 height: 159px;
+border-radius: 10.707px;
+}
+.shop-image2{
+    width: 250px;
+    
+    align-items: center;
+height: 200px;
+margin-left: 40%;
 border-radius: 10.707px;
 }
 .cust-shop-content{
@@ -370,4 +390,8 @@ text-transform: capitalize;
     color: #3070F5;
     text-align: center;
     font-size: 14px;
+}
+
+.track-tracking{
+    
 }
