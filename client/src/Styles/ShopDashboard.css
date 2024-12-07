@@ -10,6 +10,7 @@ text-transform: capitalize;
 margin-left: 20px;
 margin-top: 30px;
 padding-top: 20px;
+cursor: pointer;
 }
 .shop-add-service-hr{
     border: 1px solid rgba(0, 0, 0, 0.5); /* Darker color for better visibility */
@@ -41,6 +42,7 @@ font-family: "Times New Roman";
 font-size: 24px;
 font-style: normal;
 font-weight: 400;
+cursor: pointer;
 
   }
   .add-service-label{
@@ -49,6 +51,7 @@ font-family: "Open Sans";
 font-size: 14px;
 font-style: normal;
 font-weight: 600;
+cursor: pointer;
 line-height: normal;
 text-transform: capitalize;
 }

@@ -21,6 +21,10 @@ const schema=mongoose.Schema({
         ref:'customers',
         required:true
     },
+    agentId:{
+        type:mongoose.Types.ObjectId,
+        ref:'agents',
+    },
     orderStatus:{
         type:String,
         default:'Pending'
@@ -47,7 +51,15 @@ const schema=mongoose.Schema({
     paymentStatus:{
         type:Boolean,
         default:false
+    },
+    serviceStatus:{
+        type:String,
+        default:'Pending'
     }
-
-},{timeStamps:true});
+,
+agentStatus:{
+    type:Boolean,
+    default:false
+}
+},{timestamps:true});
 module.exports=mongoose.model('orders',schema)

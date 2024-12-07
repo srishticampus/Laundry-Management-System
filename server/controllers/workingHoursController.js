@@ -37,9 +37,7 @@ console.log(shopId);
 
         const workingHourss = await workingHours.find({ shopId });
 
-        if (!workingHourss.length) {
-            return res.status(400).json({ status: 400, msg: 'No working hours found for this shop' });
-        }
+     
 
         res.json({ status: 200, msg: 'Working hours retrieved successfully', data: workingHourss });
     } catch (error) {

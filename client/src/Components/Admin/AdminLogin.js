@@ -98,7 +98,8 @@ function AdminLogin() {
                                     )}
                                 </div>
                                 <div className=" mt-4">
-                                  
+                                <label>Password</label>
+
                                      <div style={{ position: 'relative' }}>
                         <input type={showPassword ? "text" : "password"}
                             placeholder='password'

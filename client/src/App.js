@@ -36,6 +36,9 @@ import AgentSignup from './Components/Delivery/AgentSignup';
 import AgentLogin from './Components/Delivery/AgentLogin';
 import AgentHome from './Components/Delivery/AgentHome';
 import AgentNav from './Components/Navbars/AgentNav';
+import AgentOrderReqs from './Components/Delivery/AgentOrderReqs';
+import AgentAssignedOrders from './Components/Delivery/AgentAssignedOrders';
+import CommonNav2 from './Components/Navbars/CommonNav2';
 
 function App() {
   return (
@@ -53,54 +56,57 @@ function App() {
       <div>
         <Routes>
           <Route path='/' element={[<CommonNav />, <TopComponent />, <Working />, <Services />, <ServiceFeatures />, <Footer />]} />
-          <Route path='/contact-us' element={[<CommonNav />, <ContactUs />, <Footer />]} />
-          <Route path='/about-us' element={[<CommonNav />, <TopComponent />, <AboutUs />, <Footer />]} />
+          <Route path='/contact-us' element={[<CommonNav2 />, <ContactUs />, <Footer />]} />
+          <Route path='/about-us' element={[<CommonNav2 />, <TopComponent />, <AboutUs />, <Footer />]} />
           <Route path='/services' element={[<CommonNav />, <Services />, <Footer />]} />
 
           {/* Admin  */}
 
           <Route path='/admin-login' element={[<CommonNav />, <AdminLogin />, <Footer />]} />
           <Route path='/admin-resetpwd' element={<AdminMain data="admin-resetpwd" />} />
-          <Route path='/admin-home' element={<AdminMain data="admindashboard"/>} />       
-             <Route path='/admin-home' element={<AdminMain data="admindashboard" />} />
-             <Route path='/admin-add-shop' element={<AdminMain data="admin-add-shop" />} />
-             <Route path='/admin-view-shop' element={<AdminMain data="admin-view-shop" />} />
-             <Route path='/admin-edit-shop/:id' element={<AdminMain data="admin-edit-shop" />} />
-             <Route path='/admin-view-single-shop/:id' element={<AdminMain data="admin-view-single-shop" />} />
-             <Route path='/admin-view-users' element={<AdminMain data="admin-view-users" />} />
-             <Route path='/admin-agent-requests' element={<AdminMain data="admin-agent-requests" />} />
+          <Route path='/admin-home' element={<AdminMain data="admindashboard" />} />
+          <Route path='/admin-home' element={<AdminMain data="admindashboard" />} />
+          <Route path='/admin-add-shop' element={<AdminMain data="admin-add-shop" />} />
+          <Route path='/admin-view-shop' element={<AdminMain data="admin-view-shop" />} />
+          <Route path='/admin-edit-shop/:id' element={<AdminMain data="admin-edit-shop" />} />
+          <Route path='/admin-view-single-shop/:id' element={<AdminMain data="admin-view-single-shop" />} />
+          <Route path='/admin-view-users' element={<AdminMain data="admin-view-users" />} />
+          <Route path='/admin-agent-requests' element={<AdminMain data="admin-agent-requests" />} />
 
-{/* Shop */}
+          {/* Shop */}
 
-<Route path='/shop-login' element={[<CommonNav />, <ShopLogin />, <Footer />]} />
-<Route path='/shop-home' element={<ShopMain data="shop-home"/>} />  
-<Route path='/shop-view-service' element={<ShopMain data="shop-view-service"/>} />  
-<Route path='/shop-edit-service/:id' element={<ShopMain data="shop-edit-service"/>} />  
-<Route path='/shop-view-material' element={<ShopMain data="shop-view-material"/>} />  
-<Route path='/shop-edit-material/:id' element={<ShopMain data="shop-edit-material"/>} />  
-<Route path='/shop-view-workinghours' element={<ShopMain data="shop-view-workinghours"/>} />  
-<Route path='/shop-edit-workinghours/:id' element={<ShopMain data="shop-edit-workinghours"/>} />  
-
-
-{/* Customer */}
-
-<Route path='/cust-login' element={[<CommonNav />, <CustLogin />, <Footer />]} />
-<Route path='/cust-signup' element={[<CommonNav />, <CustSignup />, <Footer />]} />
-<Route path='/cust-home' element={[<CustNavbar />, <CustHome />,  <Footer />]} />
-<Route path='/cust-view-shops' element={[<CustNavbar />, <CustViewAllShops />,<Footer />]} />
-<Route path='/place-order1/:id' element={[<CustNavbar />, <CustPlaceOrder1 />,<Footer />]} />
-<Route path='/order-address/:id' element={[<CustNavbar />, <CustOrderAddress />,<Footer />]} />
-<Route path='/cust-pickup-date/:id' element={[<CustNavbar />, <CustPickUpDate />]} />
-<Route path='/cust-payment/:id' element={[<CustNavbar />, <CustPayment />]} />
-<Route path='/cust-order-success/:id' element={[<CustNavbar />, <CustOrderSuccess />]} />
-<Route path='/cust-track-order' element={[<CustNavbar />, <CustTrackOrder />]} />
+          <Route path='/shop-login' element={[<CommonNav />, <ShopLogin />, <Footer />]} />
+          <Route path='/shop-home' element={<ShopMain data="shop-home" />} />
+          <Route path='/shop-view-service' element={<ShopMain data="shop-view-service" />} />
+          <Route path='/shop-edit-service/:id' element={<ShopMain data="shop-edit-service" />} />
+          <Route path='/shop-view-material' element={<ShopMain data="shop-view-material" />} />
+          <Route path='/shop-edit-material/:id' element={<ShopMain data="shop-edit-material" />} />
+          <Route path='/shop-view-workinghours' element={<ShopMain data="shop-view-workinghours" />} />
+          <Route path='/shop-edit-workinghours/:id' element={<ShopMain data="shop-edit-workinghours" />} />
+          <Route path='/shop-orders' element={<ShopMain data="shop-orders" />} />
 
 
+          {/* Customer */}
 
-{/* Del Agent */}
-<Route path='/agent-signup' element={[<CommonNav />, <AgentSignup />, <Footer/>]} />
-<Route path='/agent-login' element={[<CommonNav />, <AgentLogin />, <Footer />]} />
-<Route path='/agent-home' element={[<AgentNav />, <AgentHome />, <Footer />]} />
+          <Route path='/cust-login' element={[<CommonNav2 />, <CustLogin />, <Footer />]} />
+          <Route path='/cust-signup' element={[<CommonNav />, <CustSignup />, <Footer />]} />
+          <Route path='/cust-home' element={[<CustNavbar />, <CustHome />, <Footer />]} />
+          <Route path='/cust-view-shops' element={[<CustNavbar />, <CustViewAllShops />, <Footer />]} />
+          <Route path='/place-order1/:id' element={[<CustNavbar />, <CustPlaceOrder1 />, <Footer />]} />
+          <Route path='/order-address/:id' element={[<CustNavbar />, <CustOrderAddress />, <Footer />]} />
+          <Route path='/cust-pickup-date/:id' element={[<CustNavbar />, <CustPickUpDate />]} />
+          <Route path='/cust-payment/:id' element={[<CustNavbar />, <CustPayment />]} />
+          <Route path='/cust-order-success/:id' element={[<CustNavbar />, <CustOrderSuccess />]} />
+          <Route path='/cust-track-order' element={[<CustNavbar />, <CustTrackOrder />]} />
+
+
+
+          {/* Del Agent */}
+          <Route path='/agent-signup' element={[<CommonNav />, <AgentSignup />, <Footer />]} />
+          <Route path='/agent-login' element={[<CommonNav />, <AgentLogin />, <Footer />]} />
+          <Route path='/agent-home' element={[<AgentNav />, <AgentHome />, <Footer />]} />
+          <Route path='/agent-order-reqs' element={[<AgentNav />, <AgentOrderReqs />, <Footer />]} />
+          <Route path='/agent-orders' element={[<AgentNav />, <AgentAssignedOrders />, <Footer />]} />
 
         </Routes>
       </div>
