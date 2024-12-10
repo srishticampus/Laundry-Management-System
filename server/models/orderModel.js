@@ -25,6 +25,10 @@ const schema=mongoose.Schema({
         type:mongoose.Types.ObjectId,
         ref:'agents',
     },
+    dropAgentId:{
+        type:mongoose.Types.ObjectId,
+        ref:'agents',
+    },
     orderStatus:{
         type:String,
         default:'Pending'
@@ -60,6 +64,19 @@ const schema=mongoose.Schema({
 agentStatus:{
     type:Boolean,
     default:false
+},
+dropStatus:{
+    type:Boolean,
+    default:false
+},
+orderDate:{
+    type:Date
+},
+completionDate:{
+    type:Date
+},
+deliveryDate:{
+    type:Date
 }
 },{timestamps:true});
 module.exports=mongoose.model('orders',schema)

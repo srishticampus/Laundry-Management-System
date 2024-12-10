@@ -46,7 +46,11 @@ const addOrder = async (req, res) => {
 const viewOrderById = (req, res) => {
     console.log(req.params.id);
     
-    Order.findById({_id:req.params.id})
+    Order.findById({_id:req.params.id}).populate('custId')
+
+    .populate('shopId')
+    .populate('dropAgentId')
+    .populate('agentId')
         .exec()
         .then(data => {
             res.json({
@@ -56,6 +60,8 @@ const viewOrderById = (req, res) => {
             });
         })
         .catch(err => {
+            console.log(err);
+            
             res.status(500).json({
                 status: 500,
                 msg: "No Data obtained",
@@ -178,7 +184,13 @@ const addPickUpDateOrderById =async (req, res) => {
 };
 
 const UpdateServiceStatus=async (req, res) => {
-    
+    if(req.body.serviceStatus=="Delivery Completed"){
+        await  Order.findByIdAndUpdate({_id:req.params.id},{
+
+            orderStatus:'Completed',
+          
+             })
+     }
     
    await  Order.findByIdAndUpdate({_id:req.params.id},{
    
@@ -204,6 +216,7 @@ const UpdateServiceStatus=async (req, res) => {
                  Error: err
              });
          });
+      
  };
 
  const addPayment =async (req, res) => {
@@ -212,7 +225,8 @@ const UpdateServiceStatus=async (req, res) => {
     await  Order.findByIdAndUpdate({_id:req.params.id},{
     
      paymentStatus:true,
-     orderStatus:"Paid"
+     orderStatus:"Paid",
+     orderDate:new Date()
       })
           .exec()
           .then(data => {
@@ -234,6 +248,7 @@ const UpdateServiceStatus=async (req, res) => {
   };
 const viewAllOrderByShopId = (req, res) => {
     Order.find({shopId:req.params.id}).populate('custId')
+    .sort({createdAt:-1})
         .exec()
         .then(data => {
             res.json({
@@ -251,9 +266,15 @@ const viewAllOrderByShopId = (req, res) => {
         });
 };
 const viewAllOrderByCustId = (req, res) => {
-    Order.find({custId:req.params.id,orderStatus:"Paid"}).populate('shopId')
+    console.log("req.params.id",req.params.id);
+    
+    Order.find({custId:req.params.id,orderStatus: { $in: ["Paid", "Completed"] } })
+    .populate('shopId').populate('agentId').populate('dropAgentId')
+    .sort({createdAt:-1})
         .exec()
         .then(data => {
+            console.log(data);
+            
             res.json({
                 status: 200,
                 msg: "Data obtained successfully",
@@ -311,7 +332,30 @@ const viewAllServiceOrders =async (req, res) => {
 
 
 const viewAllOrderforAgent = (req, res) => {
-    Order.find({serviceStatus:{$in:['Requested Pickup','Requested Drop']},agentStatus:false})
+    Order.find({serviceStatus:'Requested Pickup',agentStatus:false})
+    .populate('custId')
+    .populate('shopId')
+        .exec()
+        .then(data => {
+            res.json({
+                status: 200,
+                msg: "Data obtained successfully",
+                data: data
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            
+            res.status(500).json({
+                status: 500,
+                msg: "No Data obtained",
+                Error: err
+            });
+        });
+};
+
+const viewAllDropOrderforAgent = (req, res) => {
+    Order.find({serviceStatus:'Requested Drop',dropStatus:false})
     .populate('custId')
     .populate('shopId')
         .exec()
@@ -358,8 +402,129 @@ const approveOrderByAgent =async (req, res) => {
               });
           });
   };
-  const viewAllAssignedOrdersByAGId = (req, res) => {
-    Order.find({agentId:req.params.id,serviceStatus:'Request Pickup'})
+  const approvedropOrderByAgent =async (req, res) => {
+    
+    
+    await  Order.findByIdAndUpdate({_id:req.params.id},{
+    
+     dropStatus:true,
+     dropAgentId:req.body.agentId
+      })
+          .exec()
+          .then(data => {
+              res.json({
+                  status: 200,
+                  msg: "Data Updated successfully",
+                  data: data
+              });
+          })
+          .catch(err => {
+              console.log(err);
+              
+              res.status(500).json({
+                  status: 500,
+                  msg: "No Data obtained",
+                  Error: err
+              });
+          });
+  };
+  const viewAllAssignedOrdersByAGIdPickUp = (req, res) => {
+    Order.find(   { agentId: req.params.id,serviceStatus:'Requested Pickup' })
+    .sort({createdAt:-1})
+    .populate('custId')
+    .populate('shopId')
+        .exec()
+        .then(data => {
+            res.json({
+                status: 200,
+                msg: "Data obtained successfully",
+                data: data
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            
+            res.status(500).json({
+                status: 500,
+                msg: "No Data obtained",
+                Error: err
+            });
+        });
+};
+const viewAllAssignedOrdersByAGIdDrop = (req, res) => {
+    Order.find(   { agentId: req.params.id,serviceStatus:'Requested Drop' })
+    .sort({createdAt:-1})
+    .populate('custId')
+    .populate('shopId')
+        .exec()
+        .then(data => {
+            res.json({
+                status: 200,
+                msg: "Data obtained successfully",
+                data: data
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            
+            res.status(500).json({
+                status: 500,
+                msg: "No Data obtained",
+                Error: err
+            });
+        });
+};
+
+
+const viewAllCompletedOrdersByAGIdPickUp = (req, res) => {
+    Order.find(   { agentId: req.params.id,serviceStatus:{$ne:'Requested Pickup' }})
+    .sort({createdAt:-1})
+    .populate('custId')
+    .populate('shopId')
+        .exec()
+        .then(data => {
+            res.json({
+                status: 200,
+                msg: "Data obtained successfully",
+                data: data
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            
+            res.status(500).json({
+                status: 500,
+                msg: "No Data obtained",
+                Error: err
+            });
+        });
+};
+
+const viewAllCompletedOrderByShopId = (req, res) => {
+    Order.find(   { shopId: req.params.id,orderStatus:'Completed'})
+    .populate('custId')
+   .sort({createdAt:-1})
+        .exec()
+        .then(data => {
+            res.json({
+                status: 200,
+                msg: "Data obtained successfully",
+                data: data
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            
+            res.status(500).json({
+                status: 500,
+                msg: "No Data obtained",
+                Error: err
+            });
+        });
+};
+const viewAllCompletedOrdersByAGIdDrop = (req, res) => {
+    Order.find(   { dropAgentId: req.params.id,serviceStatus:'Requested Drop' })
+    .sort({createdAt:-1})
     .populate('custId')
     .populate('shopId')
         .exec()
@@ -393,7 +558,13 @@ module.exports = {
     UpdateServiceStatus,
     viewAllOrderByCustId,
     viewAllOrderforAgent,
-    viewAllAssignedOrdersByAGId,
+    viewAllAssignedOrdersByAGIdPickUp,
+    viewAllAssignedOrdersByAGIdDrop,
     viewAllServiceOrders,
-    approveOrderByAgent
+    viewAllDropOrderforAgent,
+    approveOrderByAgent,
+    approvedropOrderByAgent,
+    viewAllCompletedOrdersByAGIdDrop,
+    viewAllCompletedOrdersByAGIdPickUp,
+    viewAllCompletedOrderByShopId
 }

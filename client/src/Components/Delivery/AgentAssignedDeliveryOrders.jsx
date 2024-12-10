@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import { Modal, Button } from "react-bootstrap";
 import { approveById, viewCount } from '../Services/AdminService';
 import { toast } from "react-toastify";
 import '../../Styles/ViewAllshops.css';
@@ -10,24 +11,17 @@ import '../../Styles/Agent.css'
 import { IoLocationSharp } from "react-icons/io5";
 import { IoMdMail } from "react-icons/io";
 import { IoMdCall } from "react-icons/io";
-import { Modal, Button } from "react-bootstrap";
-import { register, resetPassword, ViewById } from '../Services/CommonServices';
-function AgentAssignedOrders() {
+
+import { resetPassword, ViewById } from '../Services/CommonServices';
+function AgentAssignedDeliveryOrders() {
   const [data, setData] = useState([]);
-  const [showIssueModal, setShowIssueModal] = useState(false);
-  const [currentOrderId, setCurrentOrderId] = useState(null);
-  const [issueDetails, setIssueDetails] = useState({
-    issueType: "",
-    comments: "",
-    type:'Pickup',
-    agentId: localStorage.getItem('agent'),
-  });
+
   const navigate = useNavigate();
 
   // Fetch Data
   const fetchData = async () => {
     try {
-      const result = await ViewById('viewAllAssignedOrdersByAGIdPickUp',localStorage.getItem('agent'));
+      const result = await ViewById('viewAllCompletedOrdersByAGIdDrop',localStorage.getItem('agent'));
       if (result.success) {
         setData(result.user.length > 0 ? result.user : []);
       } else {
@@ -56,7 +50,7 @@ const UpdateService=async(id)=>{
   try {
       console.log("stats",statuses.id,"id", id);
       
-      const result = await resetPassword({serviceStatus:'Pickup Completed'}, 'UpdateServiceStatus',id);
+      const result = await resetPassword({serviceStatus:'Delivery Completed'}, 'UpdateServiceStatus',id);
 
       if (result.success) {
           console.log(result);
@@ -72,33 +66,22 @@ const UpdateService=async(id)=>{
 }
 
 
-const openIssueModal = (orderId) => {
-  setCurrentOrderId(orderId);
-  setShowIssueModal(true);
-};
-
-const closeIssueModal = () => {
-  setShowIssueModal(false);
-  setIssueDetails({ issueType: "", comments: "", agentId: localStorage.getItem('agent') });
-};
-
-const handleIssueSubmit = async () => {
-  try {
-    const result = await register(
-      { ...issueDetails, orderId: currentOrderId },
-      'registerIssue'
-    );
-    if (result.success) {
-      toast.success('Issue generated successfully');
-      fetchData();
-    } else {
-      toast.error(result.message);
+  // Approve Request
+  const genIssue = async (id) => {
+    try {
+      const result = await resetPassword({agentId:localStorage.getItem('agent')},'approveOrderByAgent', id);
+      if (result.success) {
+        toast.success('Request approved successfully');
+        fetchData();
+      } else {
+        toast.error(result.message);
+      }
+    } catch (error) {
+      toast.error('An unexpected error occurred during approval');
     }
-  } catch (error) {
-    toast.error('An unexpected error occurred during issue generation');
-  }
-  closeIssueModal();
-};
+  };
+
+  
 
   return (
     <div className="Agent-order">
@@ -149,7 +132,7 @@ const handleIssueSubmit = async () => {
                 <select onChange={(e) => handleStatusChange(e, item._id)}>
                                                     <option value="">Choose One </option>
                                                     
-                                                        <option value="Pickup Completed">Pickup Completed</option>
+                                                        <option value="Drop Completed">Delivery Completed</option>
                                                     
                                                 </select>
                 </td>
@@ -159,7 +142,7 @@ const handleIssueSubmit = async () => {
                
                 <td>
                 <button className="shop-signup-button"
-                                                     onClick={() => openIssueModal(item._id)}>Genenrate Issue</button>
+                                                     onClick={()=>{genIssue(item._id)}}>Genenrate Issue</button>
                 </td>
               </tr>
             ))}
@@ -171,55 +154,9 @@ const handleIssueSubmit = async () => {
         </center>
       )}
 
-
-{showIssueModal && (
-        <Modal show={showIssueModal} onHide={closeIssueModal}>
-          <Modal.Header closeButton>
-            <Modal.Title>Generate Issue</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <div className="form-group">
-              <label>Issue Type</label>
-              <select
-                className="form-control"
-                value={issueDetails.issueType}
-                onChange={(e) =>
-                  setIssueDetails({ ...issueDetails, issueType: e.target.value })
-                }
-              >
-                <option value="">Select Issue Type</option>
-                <option value="Address not found">Address not found
-
-</option>
-                <option value="Customer not in place">Customer not in place</option>
-                <option value="Couldn’t reach on given mobile number">Couldn’t reach on given mobile number</option>
-              </select>
-            </div>
-            <div className="form-group mt-3">
-              <label>Comments</label>
-              <textarea
-                className="form-control"
-                rows="3"
-                value={issueDetails.comments}
-                onChange={(e) =>
-                  setIssueDetails({ ...issueDetails, comments: e.target.value })
-                }
-              ></textarea>
-            </div>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={closeIssueModal}>
-              Close
-            </Button>
-            <Button variant="primary" onClick={handleIssueSubmit}>
-              Submit
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      )}
      
     </div>
   );
 }
 
-export default AgentAssignedOrders;
+export default AgentAssignedDeliveryOrders;

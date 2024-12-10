@@ -5,11 +5,14 @@
     import active from '../../../Assets/active.png'
     import { approveById, viewCount } from '../../Services/AdminService'
     import { toast } from "react-toastify";
+    import { IoLocationSharp } from "react-icons/io5";
+import { IoMdMail } from "react-icons/io";
+import { IoMdCall } from "react-icons/io";
     import '../../../Styles/ViewAllshops.css'
     import { useNavigate } from 'react-router-dom'
     import { register, resetPassword, ViewById } from '../../Services/CommonServices'
     import '../../../Styles/ShopDashboard.css'
-function ShopViewOrders() {
+function ShopViewOrderHistory() {
 
     const [data, setdata] = useState([]);
 
@@ -19,7 +22,7 @@ function ShopViewOrders() {
 
     const fetchData = async () => {
         try {
-            const result = await ViewById('viewAllOrderByShopId', localStorage.getItem('shop'));
+            const result = await ViewById('viewAllCompletedOrderByShopId', localStorage.getItem('shop'));
 
             if (result.success) {
                 console.log(result);
@@ -44,7 +47,7 @@ function ShopViewOrders() {
         fetchData(); // Call the async function
     }, []);
     const viewShop = (id) => {
-        Navigate(`/shop-view-single-order/${id}`)
+        Navigate(`/shop-view-single-comp-order/${id}`)
     }
 
 
@@ -116,7 +119,7 @@ const UpdateServiceforCompletion=async(id)=>{
     return (
         <div className='container mt-5 '>
 
-            <h2 className='shop-add-service-mainText'> View Orders</h2>
+            <h2 className='shop-add-service-mainText'> View Completed Orders</h2>
 
 
 
@@ -127,14 +130,12 @@ const UpdateServiceforCompletion=async(id)=>{
                         <thead className='ms-5 aks shop-tab2'>
                             <tr >
                                 <th className=' ps-3'>Sl No</th>
-                                <th className=''>Order no</th>
+                                <th className=''>Order ID</th>
+                                <th className=''>Customer Details</th>
                                 <th className=''>Order Date</th>
-                                <th className=''>Customer Name</th>
-                                <th className=''>Pickup City</th>
-                                <th className=''>Amount</th>
-                                <th className=''>Serrvice Status</th>
+                                <th className=''>Total Amount</th>
+                              
                                 <th className='vo-table-head '>Action</th>
-                                <th className='vo-table-head '>View More</th>
                             </tr>
                         </thead>
                         <tbody className='shop-tab2'>
@@ -144,45 +145,19 @@ const UpdateServiceforCompletion=async(id)=>{
                                         <tr className='shop-tab2'>
                                             <td>{index + 1}</td>
                                             <td>ORD{item._id.slice(20, 24).toUpperCase()}</td>
-                                            <td>{item.orderDate.slice(0,10)}</td>
+                                            <td>{item.custId.name}<br/>
+                <IoMdCall /> 
+ {item.custId.contact}<br/>
+               
+                <IoLocationSharp /> {item.houseName} {item.street}
+                </td>
                                             {/* <td>date</td> */}
 
 
-                                            <td>{item.custId.name}</td>
-                                            <td>{item.city}</td>
+                                         
+                                            <td>{item.orderDate.slice(0,10)}</td>
                                             <td>{item.totalAmount}</td>
-                                            <td>
-                                                <select onChange={(e) => handleStatusChange(e, item._id)}>
-                                                    <option value="">Choose One </option>
-                                                    {item.serviceStatus === "Pending" && (
-                                                        <option value="Request Pickup">Request Pickup</option>
-                                                    )}
-                                                    {item.serviceStatus === "Pickup Completed" && (
-                                                        <option value="Process Completed">Process Completed</option>
-                                                    )}
-                                                      {item.serviceStatus === "Process Completed" && (
-                                                        <option value="Request Drop">Request Drop</option>
-                                                    )}
-                                                </select>
-                                            </td>
-                                            <td>
-                                                {item.serviceStatus === "Pending" ? (
-                                                    <button className="shop-signup-button"
-                                                     onClick={()=>{UpdateService(item._id)}}>Request PickUp</button>
-                                                ) : item.serviceStatus === "Process Completed" ? (
-                                                    <button className="shop-signup-button"
-                                                    onClick={()=>{UpdateServiceforDrop(item._id)}}>Request Drop</button>
-                                                    
-                                                ) : item.serviceStatus === "Pickup Completed" ? (
-                                                    <button className="shop-signup-button"
-                                                    onClick={()=>{UpdateServiceforCompletion(item._id)}}>Completed</button>
-                                                ) : item.serviceStatus === "Drop Completed" ? (
-                                                    <p style={{color:'green'}}>Service Completed</p>
-
-                                                ) : (
-                                                    <p style={{color:'red'}}>Waiting for an Update from Delivery Agent</p>
-                                                )}
-                                            </td>
+                                          
                                             <td>
                                                 <img src={eye} className='ms-2'
                                                     onClick={() => {
@@ -204,7 +179,7 @@ const UpdateServiceforCompletion=async(id)=>{
                         </tbody>
                     </table>
                 </>) : (<>
-                    <center>  <h3>No New Requests Found</h3></center>
+                    <center>  <h3>No Histrory Found</h3></center>
                 </>)
             }
 
@@ -213,4 +188,4 @@ const UpdateServiceforCompletion=async(id)=>{
     )
 }
 
-export default ShopViewOrders
+export default ShopViewOrderHistory

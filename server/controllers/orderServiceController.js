@@ -85,7 +85,19 @@ const viewServiceOrdersBycustId = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
-
+const viewServiceOrdersByOrderId = async (req, res) => {
+    try {
+        const data = await ServiceOrder.find({ orderId: req.params.id }).populate('serviceId');
+        res.json({
+            status: 200,
+            msg: "Service Orders retrieved successfully",
+            data: data,
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: error.message });
+    }
+};
 // Edit a service order by ID
 const editServiceOrderById = async (req, res) => {
     try {
@@ -156,5 +168,6 @@ module.exports = {
     editServiceOrderById,
     deleteServiceOrderById,
     viewAllServiceOrders,
-    viewServiceOrdersBycustId
+    viewServiceOrdersBycustId,
+    viewServiceOrdersByOrderId
 };
