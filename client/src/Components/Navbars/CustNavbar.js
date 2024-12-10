@@ -153,6 +153,7 @@ const handleLogin = async (e) => {
         toast.error('An unexpected error occurred during Registration');
     }
 }; 
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-light">

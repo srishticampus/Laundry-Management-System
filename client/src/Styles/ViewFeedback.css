@@ -1,0 +1,64 @@
+.feedbacks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.feedback-container {
+    border: 1px solid #ccc;
+    width: 445px;
+    padding: 8px 15px;
+
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.20);
+    background: #FFF;
+    background-color: #f9f9f9;
+}
+/* Container for each feedback */
+.admin-comp-container {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.20);
+    background: #FFF;
+}
+
+/* Row for name and rating */
+.feedback-row {
+    display: flex;
+    justify-content: space-between; /* Ensures name is on the left and rating is on the right */
+    align-items: center; /* Align items vertically centered */
+    width: 100%; /* Ensure it spans the container */
+    margin-bottom: 8px; /* Add spacing between this row and the comments */
+}
+
+/* Name styling */
+.feedback-name {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left; /* Align text to the left */
+    flex: 1; /* Allows it to take up remaining space */
+}
+
+/* Rating styling */
+.feedback-rating {
+    text-align: right; /* Align stars to the right */
+}
+
+
+
+.feedback-comments {
+    color: #2A2A2A;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+}
+
+.feedback-footer {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #777;
+}

@@ -1,0 +1,43 @@
+.admin-comp-container{
+    display: flex;
+
+padding: 8px 15px;
+flex-direction: column;
+align-items: flex-start;
+border-radius: 20px;
+border: 1px solid rgba(0, 0, 0, 0.20);
+background: #FFF;
+}
+.comp-small-green{
+    color: #56905C;
+font-family: Montserrat;
+font-size: 13px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+font-weight: bold;
+}
+.comp-maintext{
+    color: #2A2A2A;
+font-family: Montserrat;
+font-size: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+font-weight: bold;
+}
+.comp-footer{
+    color: rgba(42, 42, 42, 0.50);
+text-align: center;
+font-family: Montserrat;
+font-size: 13px;
+font-style: normal;
+font-weight: bold;
+font-weight: 500;
+line-height: normal;
+}
+.complaints-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 20px; /* Space between grid items */
+  }

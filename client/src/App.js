@@ -39,6 +39,10 @@ import AgentNav from './Components/Navbars/AgentNav';
 import AgentOrderReqs from './Components/Delivery/AgentOrderReqs';
 import AgentAssignedOrders from './Components/Delivery/AgentAssignedOrders';
 import CommonNav2 from './Components/Navbars/CommonNav2';
+import AgentDropReqs from './Components/Delivery/AgentDropReqs';
+import AgentHistoryPickup from './Components/Delivery/AgentHistoryPickup';
+import AgentHistoryDrop from './Components/Delivery/AgentHistoryDrop';
+import AgentAssignedDeliveryOrders from './Components/Delivery/AgentAssignedDeliveryOrders';
 
 function App() {
   return (
@@ -84,7 +88,11 @@ function App() {
           <Route path='/shop-view-workinghours' element={<ShopMain data="shop-view-workinghours" />} />
           <Route path='/shop-edit-workinghours/:id' element={<ShopMain data="shop-edit-workinghours" />} />
           <Route path='/shop-orders' element={<ShopMain data="shop-orders" />} />
-
+          
+          <Route path='/shop-view-single-order/:id' element={<ShopMain data="shop-view-single-order" />} />
+          <Route path='/shop-order-history' element={<ShopMain data="shop-order-history" />} />
+          <Route path='/shop-view-single-comp-order/:id' element={<ShopMain data="shop-view-single-comp-order" />} />
+          <Route path='/shop-feedback' element={<ShopMain data="shop-feedback" />} />
 
           {/* Customer */}
 
@@ -107,6 +115,10 @@ function App() {
           <Route path='/agent-home' element={[<AgentNav />, <AgentHome />, <Footer />]} />
           <Route path='/agent-order-reqs' element={[<AgentNav />, <AgentOrderReqs />, <Footer />]} />
           <Route path='/agent-orders' element={[<AgentNav />, <AgentAssignedOrders />, <Footer />]} />
+          <Route path='/agent-drop-orders' element={[<AgentNav />, <AgentDropReqs />, <Footer />]} />
+          <Route path='/agent-pickup-orders-con' element={[<AgentNav />, <AgentHistoryPickup />, <Footer />]} />
+          <Route path='/agent-delivery-orders-con' element={[<AgentNav />, <AgentHistoryDrop />, <Footer />]} />
+          <Route path='/agent-delivery-orders' element={[<AgentNav />, <AgentAssignedDeliveryOrders />, <Footer />]} />
 
         </Routes>
       </div>

@@ -11,6 +11,8 @@ const Order=require('./controllers/orderController')
 const orderServiceController=require('./controllers/orderServiceController')
 const cardController=require('./controllers/cardController')
 const agentController=require('./controllers/agentController')
+const feedbackController=require('./controllers/feedbackController')
+const issue=require('./controllers/issueController')
 
 
 // contacts
@@ -75,11 +77,19 @@ router.post('/addPickUpDateOrderById/:id', Order.addPickUpDateOrderById);
 router.post('/addPayment/:id', Order.addPayment);
 router.post('/viewAllOrderByCustId/:id', Order.viewAllOrderByCustId);
 router.post('/viewAllOrderByCustId/:id', Order.viewAllOrderByCustId);
+router.post('/viewAllDropOrderforAgent', Order.viewAllDropOrderforAgent);
+router.post('/viewAllCompletedOrderByShopId/:id', Order.viewAllCompletedOrderByShopId);
 
 router.post('/UpdateServiceStatus/:id', Order.UpdateServiceStatus);
 router.post('/viewAllOrderforAgent', Order.viewAllOrderforAgent);
 router.post('/approveOrderByAgent/:id', Order.approveOrderByAgent);
-router.post('/viewAllAssignedOrdersByAGId/:id', Order.viewAllAssignedOrdersByAGId);
+router.post('/approvedropOrderByAgent/:id', Order.approvedropOrderByAgent);
+
+router.post('/viewAllAssignedOrdersByAGIdPickUp/:id', Order.viewAllAssignedOrdersByAGIdPickUp);
+router.post('/viewAllAssignedOrdersByAGIdDrop/:id', Order.viewAllAssignedOrdersByAGIdDrop);
+router.post('/viewAllCompletedOrdersByAGIdDrop/:id', Order.viewAllCompletedOrdersByAGIdDrop);
+router.post('/viewAllCompletedOrdersByAGIdPickUp/:id', Order.viewAllCompletedOrdersByAGIdPickUp);
+
 router.post('/viewAllServiceOrderss', Order.viewAllServiceOrders);
 
 
@@ -92,6 +102,7 @@ router.post('/viewAllServiceOrdersByShopId/:shopId', orderServiceController.view
 router.post('/editServiceOrderById/:id', orderServiceController.editServiceOrderById);
 router.post('/deleteServiceOrderById/:id', orderServiceController.deleteServiceOrderById);
 router.post('/viewServiceOrdersBycustId/:id', orderServiceController.viewServiceOrdersBycustId);
+router.post('/viewServiceOrdersByOrderId/:id', orderServiceController.viewServiceOrdersByOrderId);
 
 // Card routes
 
@@ -114,6 +125,17 @@ router.post('/agentLogin', agentController.login);
 router.post('/approveAgentById/:id', agentController.approveAgentById);
 
 router.post('/toggleAgentActivationAgent/:id', agentController.toggleAgentActivation);
+
+
+
+
+// Feedback
+router.post('/registerFeedback', feedbackController.registerFeedback);
+router.post('/viewFeedbacks', feedbackController.viewFeedbacks);
+
+// Feedback
+router.post('/registerIssue', issue.registerIssue);
+router.post('/viewIssues', issue.viewIssues);
 
 module.exports = router;
 

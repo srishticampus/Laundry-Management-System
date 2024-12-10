@@ -206,20 +206,51 @@ const handleLogin = async (e) => {
     </li>
     <li>
       <Link className="dropdown-item" to={`/agent-orders`}>
-        Assigned Orders
+        Assigned PickUp Orders
       </Link>
     </li>
     <li>
       <Link
         className="dropdown-item"
-        to={`/agent-orders`}      >
+        to={`/agent-drop-orders`}      >
         Delivery Request
+      </Link>
+    </li>
+    <li>
+      <Link className="dropdown-item" to={`/agent-delivery-orders`}>
+        Assigned Delivery Orders
       </Link>
     </li>
   </ul>
 </div>
 
+<>
 
+<span
+  className="dropdown-toggle"
+  id="manageRequestDropdown"
+  data-bs-toggle="dropdown"
+  aria-expanded="false"
+  style={{
+    cursor: "pointer",
+    textDecoration: "none",
+  }}
+>
+  Confirmed Orders
+</span>
+<ul className="dropdown-menu dropdown-menu-end" aria-labelledby="manageRequestDropdown">
+<li>
+      <Link className="dropdown-item" to={`/agent-pickup-orders-con`}>
+         PickUp Orders
+      </Link>
+    </li>
+    <li>
+      <Link className="dropdown-item" to={`/agent-delivery-orders-con`}>
+        Delivery Orders
+      </Link>
+    </li>
+</ul>
+</>
 
 
             </ul>

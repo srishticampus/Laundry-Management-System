@@ -10,6 +10,10 @@ import ShopEditMaterial from "./ShopEditMaterial";
 import ShopWorkingHoursView from "./ShopWorkingHoursView";
 import ShopEditWorkingHours from "./ShopEditWorkingHours";
 import ShopViewOrders from "./ShopViewOrders";
+import ShopOrderViewMore from "./ShopOrderViewMore";
+import ShopViewOrderHistory from "./ShopViewOrderHistory";
+import ShopOrderViewMorecomp from "./ShopOrderViewMorecomp";
+import ShopViewFeedback from "./ShopViewFeedback";
 
 
 
@@ -20,10 +24,10 @@ function ShopMain({ data }) {
         
       <div>
         <div className="row">
-          <div className="col-3">
+          <div className="col-2">
             <ShopSidebar />
           </div>
-          <div className="col-9">
+          <div className="col-10">
           <ShopNavbar/>
           {data === "shop-home" ? (
               <ShopDashboard />
@@ -42,6 +46,14 @@ function ShopMain({ data }) {
               <ShopEditWorkingHours/>
             ) : data === "shop-orders" ? (
               <ShopViewOrders/>
+            ) : data === "shop-view-single-order" ? (
+              <ShopOrderViewMore/>
+            ) : data === "shop-order-history" ? (
+              <ShopViewOrderHistory/>
+            ) : data === "shop-view-single-comp-order" ? (
+              <ShopOrderViewMorecomp/>
+            ) : data === "shop-feedback" ? (
+              <ShopViewFeedback/>
             ) : data === "logout" }
           </div>
         </div>

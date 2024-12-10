@@ -1,0 +1,201 @@
+.trackdelivery-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Align everything to the left */
+    gap: 0;
+    /* No extra spacing; rely on margins */
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    /* Vertically align image and text */
+    gap: 10px;
+    /* Space between image and text */
+    position: relative;
+}
+
+.status-item img {
+    width: 40px;
+    height: 40px;
+}
+
+.status-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.trackdelivery-main_text {
+    color: #000;
+    margin-top: 3px;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.trackdelivery-sub-text {
+    color: rgba(0, 0, 0, 0.7);
+    font-family: "Open Sans";
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.blue-tick {
+    color: blue;
+    height: 35px;
+    width: 30px;
+    ;
+}
+
+.status-line {
+    width: 2px;
+    /* Line thickness */
+    background-color: #0084E4;
+    height: 20px;
+    /* Distance between statuses */
+    margin-left: 12px;
+    /* Align with the center of the images */
+}
+
+.grey-circle-track {
+    height: 35px;
+    width: 35px;
+    ;
+    border-radius: 50%;
+    background-color: rgb(201, 194, 194);
+    margin-left: 1px;
+    margin-top: 1px;
+}
+
+.trackdelivery-agent-container {
+    display: flex;
+    align-items: center;
+  
+    gap: 10px;
+ 
+    margin-top: 10px;
+
+}
+
+.trackdelivery-sub-img {
+    width: 40px;
+    /* Set image size */
+    height: 40px;
+    border-radius: 50%;
+    /* Optional: Make image circular if needed */
+}
+
+.trackdelivery-sub-text {
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.7);
+    text-transform: capitalize;
+}
+
+.trackdelivery_date {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.trackdelivery_main_row {
+    margin-top: 10px;
+}
+
+.trackdelivery_itemname {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.trackdelivery_amount {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.trackdelivery_span {
+    font-size: 10;
+}
+
+.trackdelivery_color {
+    color: #0084E4;
+}
+
+.trackdelivery_info {
+    color: #0084E4;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22.33px;
+    font-weight: 600;
+}
+
+.trackdelivery_subtext {
+    color: #0084E4;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.complaint-box-container {
+    position: relative;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.complaint-box-container textarea {
+    width: 100%;
+    height: 100px;
+    border: none;
+    outline: none;
+    resize: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+
+
+.trackdelivery_img {
+    border-radius: 20px;
+    height: 300px;
+    width: 500px;
+}
+
+.icon_style_rejected {
+    color: red;
+}
+
+/* .icon_style_track {
+    color: green; 
+  } */
+
+  .align-feed{
+    width: 199px;
+    height: 40px;
+    
+    border-radius: 8px;
+background: var(--Gradient-Color-Dark, linear-gradient(135deg, #3A416F 0%, #141727 100%));
+color:white;
+color: var(--Text-Color-White, #FFF);
+
+font-family: "Open Sans";
+font-size: 12px;
+font-style: normal;
+font-weight: 700;
+line-height: 12px; /* 100% */
+letter-spacing: 1.44px;
+box-shadow: 0px 4px 7px -1px rgba(0, 0, 0, 0.11), 0px 2px 4px -1px rgba(0, 0, 0, 0.07);
+margin-left:60%;
+  }
+
+  .mh1{
+    background-color: white;
+  }

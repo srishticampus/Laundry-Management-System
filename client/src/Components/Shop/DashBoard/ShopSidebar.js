@@ -45,12 +45,9 @@ function ShopSidebar() {
 
           <Link to='/shop-orders' className="admin-dash-link"><p className="p-2 fw-light admin-border"> Orders</p></Link>
 
-       
-          <Link to='/admin-' className="admin-dash-link"><p className="p-2 fw-light admin-border">PickUp Response</p></Link>
+          <Link to='/shop-feedback' className="admin-dash-link"><p className="p-2 fw-light admin-border">Feedback</p></Link>
+          <Link to='/shop-order-history' className="admin-dash-link"><p className="p-2 fw-light admin-border"> Order History</p></Link>
 
-          <Link to='/admin-' className="admin-dash-link"><p className="p-2 fw-light admin-border">Schedule Delivery</p></Link>
-
-          <Link to='/admin-' className="admin-dash-link"><p className="p-2 fw-light admin-border">Feedback</p></Link>
           <Link to='/admin-' className="admin-dash-link"><p className="p-2 fw-light admin-border">Manage Issues</p></Link>
 
           <Link to='' className="admin-dash-link" onClick={handleView}><p className="p-2  fw-light admin-border">Logout</p></Link>
