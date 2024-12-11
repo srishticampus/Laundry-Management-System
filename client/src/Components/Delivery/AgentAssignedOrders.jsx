@@ -79,11 +79,13 @@ const openIssueModal = (orderId) => {
 
 const closeIssueModal = () => {
   setShowIssueModal(false);
-  setIssueDetails({ issueType: "", comments: "", agentId: localStorage.getItem('agent') });
+  setIssueDetails({ issueType: "", comments: "", agentId: localStorage.getItem('agent'),type:"Pickup" });
 };
 
 const handleIssueSubmit = async () => {
   try {
+    console.log(issueDetails);
+    
     const result = await register(
       { ...issueDetails, orderId: currentOrderId },
       'registerIssue'

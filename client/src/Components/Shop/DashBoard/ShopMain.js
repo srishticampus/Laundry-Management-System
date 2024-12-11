@@ -14,6 +14,7 @@ import ShopOrderViewMore from "./ShopOrderViewMore";
 import ShopViewOrderHistory from "./ShopViewOrderHistory";
 import ShopOrderViewMorecomp from "./ShopOrderViewMorecomp";
 import ShopViewFeedback from "./ShopViewFeedback";
+import ShopManageIssue from "./ShopManageIssue";
 
 
 
@@ -54,6 +55,8 @@ function ShopMain({ data }) {
               <ShopOrderViewMorecomp/>
             ) : data === "shop-feedback" ? (
               <ShopViewFeedback/>
+            ) : data === "shop-issues" ? (
+              <ShopManageIssue/>
             ) : data === "logout" }
           </div>
         </div>

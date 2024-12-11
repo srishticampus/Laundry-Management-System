@@ -17,7 +17,7 @@ function AgentHistoryDrop() {
   // Fetch Data
   const fetchData = async () => {
     try {
-      const result = await ViewById('viewAllCompletedOrdersByAGIdDrop'.localStorage.getItem('agent'));
+      const result = await ViewById('viewAllCompletedOrdersByAGIdDrop',localStorage.getItem('agent'));
       if (result.success) {
         setData(result.user.length > 0 ? result.user : []);
       } else {
@@ -68,7 +68,7 @@ function AgentHistoryDrop() {
   return (
     <div className="Agent-order">
        <div className="cust-view-shop-main">
-                        <p className="cust-choose-shop">PICK UP REQUEST</p>
+                        <p className="cust-choose-shop">ORDER HISTORY</p>
                     </div>
       {data.length > 0 ? (
         <table className="table table-hover shop-tab2 p-5 mt-3">
@@ -83,7 +83,6 @@ function AgentHistoryDrop() {
               <th>District</th>
               <th>Pickup Location</th>
               <th>Pickup City</th>
-              <th className="vo-table-head">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -102,23 +101,14 @@ function AgentHistoryDrop() {
                 <td>{item.city}</td>
                 
                
-               
-                <td>
-                  <img
-                    src={tick}
-                    alt="Approve"
-                    className="ms-3"
-                    onClick={() => approve(item._id)}
-                  />
-                
-                </td>
+           
               </tr>
             ))}
           </tbody>
         </table>
       ) : (
         <center>
-          <h3 className='mt-5'>No New Requests Found !!</h3>
+          <h3 className='mt-5'>No Deliveries Found !!</h3>
         </center>
       )}
 

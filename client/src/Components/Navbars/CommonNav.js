@@ -9,7 +9,7 @@ function CommonNav() {
     <div>
       <nav className="navbar navbar-expand">
         <div className="container-fluid">
-          <Link to='/admin_home' className="text-decoration-none">
+          <Link to='/' className="text-decoration-none">
             <div className="navbar_logo">
 
               <img src={logo} className="img-fluid nav-img" alt="logo" />

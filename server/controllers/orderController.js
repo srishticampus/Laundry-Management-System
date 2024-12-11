@@ -291,6 +291,7 @@ const viewAllOrderByCustId = (req, res) => {
 };
 const viewAllOrders = (req, res) => {
     Order.find()
+    .populate('custId').populate('shopId')
         .exec()
         .then(data => {
             res.json({
@@ -332,7 +333,7 @@ const viewAllServiceOrders =async (req, res) => {
 
 
 const viewAllOrderforAgent = (req, res) => {
-    Order.find({serviceStatus:'Requested Pickup',agentStatus:false})
+    Order.find({serviceStatus:{$in:['Requested Pickup','Reschedule Pickup']},agentStatus:false})
     .populate('custId')
     .populate('shopId')
         .exec()
@@ -355,7 +356,7 @@ const viewAllOrderforAgent = (req, res) => {
 };
 
 const viewAllDropOrderforAgent = (req, res) => {
-    Order.find({serviceStatus:'Requested Drop',dropStatus:false})
+    Order.find({serviceStatus:{$in:['Requested Drop','Reschedule Drop']},dropStatus:false})
     .populate('custId')
     .populate('shopId')
         .exec()
@@ -429,7 +430,7 @@ const approveOrderByAgent =async (req, res) => {
           });
   };
   const viewAllAssignedOrdersByAGIdPickUp = (req, res) => {
-    Order.find(   { agentId: req.params.id,serviceStatus:'Requested Pickup' })
+    Order.find(   { agentId: req.params.id,serviceStatus:{$in:['Requested Pickup','Reschedule Pickup']} })
     .sort({createdAt:-1})
     .populate('custId')
     .populate('shopId')
@@ -452,7 +453,7 @@ const approveOrderByAgent =async (req, res) => {
         });
 };
 const viewAllAssignedOrdersByAGIdDrop = (req, res) => {
-    Order.find(   { agentId: req.params.id,serviceStatus:'Requested Drop' })
+    Order.find(   { agentId: req.params.id,serviceStatus:{$in:['Requested Drop','Reschedule Drop']} })
     .sort({createdAt:-1})
     .populate('custId')
     .populate('shopId')
@@ -545,6 +546,78 @@ const viewAllCompletedOrdersByAGIdDrop = (req, res) => {
             });
         });
 };
+
+const updateOrderByIdonPickupIssue =async (req, res) => {
+    console.log();
+    
+   const {     
+         city,
+    district,
+    street,
+    landmark,
+    pincode,
+    houseName,
+    pickupDate
+    
+        } = req.body;
+  await  Order.findByIdAndUpdate({_id:req.params.id},{
+    city,
+    district,
+    street,
+    landmark,
+    pincode,
+    houseName,
+    pickupDate,
+    serviceStatus:'Reschedule Pickup'
+     
+    })
+        .exec()
+        .then(data => {
+            res.json({
+                status: 200,
+                msg: "Data obtained successfully",
+                data: data
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            
+            res.status(500).json({
+                status: 500,
+                msg: "No Data obtained",
+                Error: err
+            });
+        });
+};
+
+const updateOrderByIdonDropIssue =async (req, res) => {
+  
+   await  Order.findByIdAndUpdate({_id:req.params.id},{
+
+     serviceStatus:'Reschedule Drop',
+     dropStatus:false,
+     dropAgentId:null
+      
+     })
+         .exec()
+         .then(data => {
+             res.json({
+                 status: 200,
+                 msg: "Data obtained successfully",
+                 data: data
+             });
+         })
+         .catch(err => {
+             res.status(500).json({
+                 status: 500,
+                 msg: "No Data obtained",
+                 Error: err
+             });
+         });
+ };
+
+
+ 
 module.exports = {
     addOrder,
     viewAllOrderByShopId,
@@ -561,10 +634,13 @@ module.exports = {
     viewAllAssignedOrdersByAGIdPickUp,
     viewAllAssignedOrdersByAGIdDrop,
     viewAllServiceOrders,
-    viewAllDropOrderforAgent,
+    viewAllDropOrderforAgent,   
     approveOrderByAgent,
     approvedropOrderByAgent,
     viewAllCompletedOrdersByAGIdDrop,
     viewAllCompletedOrdersByAGIdPickUp,
-    viewAllCompletedOrderByShopId
+    viewAllCompletedOrderByShopId,
+    updateOrderByIdonDropIssue,
+    updateOrderByIdonPickupIssue,
+    
 }

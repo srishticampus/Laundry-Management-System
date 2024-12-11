@@ -91,6 +91,8 @@ router.post('/viewAllCompletedOrdersByAGIdDrop/:id', Order.viewAllCompletedOrder
 router.post('/viewAllCompletedOrdersByAGIdPickUp/:id', Order.viewAllCompletedOrdersByAGIdPickUp);
 
 router.post('/viewAllServiceOrderss', Order.viewAllServiceOrders);
+router.post('/updateOrderByIdonDropIssue/:id', Order.updateOrderByIdonDropIssue);
+router.post('/updateOrderByIdonPickupIssue/:id', Order.updateOrderByIdonPickupIssue);
 
 
 //oerder services
@@ -136,6 +138,11 @@ router.post('/viewFeedbacks', feedbackController.viewFeedbacks);
 // Feedback
 router.post('/registerIssue', issue.registerIssue);
 router.post('/viewIssues', issue.viewIssues);
+router.post('/viewIssuesByShopId/:id', issue.viewIssuesByShopId);
+router.post('/viewIssuesByCustId/:id', issue.viewIssuesByCustId);
+router.post('/updateIssuesByShopId/:id', issue.updateIssuesByShopId);
+router.post('/delIssuesById/:id', issue.delIssuesById);
+router.post('/updateIssuesByCustId/:id', issue.updateIssuesByCustId);
 
 module.exports = router;
 

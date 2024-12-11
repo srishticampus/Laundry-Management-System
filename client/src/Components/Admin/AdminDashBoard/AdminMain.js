@@ -9,6 +9,9 @@ import EditShop from "./EditShop";
 import AdminViewSingleShop from "./AdminViewSingleShop";
 import AdminViewAllUsers from "./AdminViewAllUsers";
 import AdminAgentReqs from "./AdminAgentReqs";
+import AdminViewAllAgents from "./AdminViewAllAgents";
+import AdminViewAllOrders from "./AdminViewAllOrders";
+import ShopViewFeedback from "../../Shop/DashBoard/ShopViewFeedback";
 
 
 
@@ -38,6 +41,12 @@ function AdminMain({ data }) {
               <AdminViewAllUsers />
             ) : data === "admin-agent-requests" ? (
               <AdminAgentReqs />
+            ) : data === "admin-agent-details" ? (
+              <AdminViewAllAgents />
+            ) : data === "admin-order-details" ? (
+              <AdminViewAllOrders />
+            ) : data === "admin-feedback" ? (
+              <ShopViewFeedback />
             ) : data === "logout" }
           </div>
         </div>

@@ -69,9 +69,9 @@ const UpdateService=async(id)=>{
   // Approve Request
   const genIssue = async (id) => {
     try {
-      const result = await resetPassword({agentId:localStorage.getItem('agent')},'approveOrderByAgent', id);
+      const result = await ViewById('updateOrderByIdonDropIssue', id);
       if (result.success) {
-        toast.success('Request approved successfully');
+        toast.success('Request send successfully');
         fetchData();
       } else {
         toast.error(result.message);

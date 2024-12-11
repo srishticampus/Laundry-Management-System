@@ -4,98 +4,106 @@ import dash1 from '../../../Assets/shop1.png'
 import dash2 from '../../../Assets/shop1.png'
 import dash3 from '../../../Assets/shop1.png'
 import { toast } from "react-toastify";
+import { Bar } from 'react-chartjs-2';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  ArcElement,  // For Pie chart (Arc)
+
+  Tooltip,
+  Legend,
+} from 'chart.js';
+import { ViewById } from '../../Services/CommonServices'
 // import { viewCount } from '../../Services/AdminService'
 function ShopDashboard() {
-  const [village, setVillage] = useState([]);
-  const [akshaya, setAkshaya] = useState([]);
-  const [staff, setStaff] = useState([]);
+  const [orders, setOrders] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
-      // try {
-      //   const result = await viewCount('viewActiveAkshayas');
-  
-      //   if (result.success) {
-      //     console.log(result);
-      //     setAkshaya(result.user);
-      //   } else {
-      //     console.error('Data error:', result);
-      //     toast.error(result.message);
-      //   }
-      //   const result2 = await viewCount('viewActiveStaffs');
-  
-      //   if (result2.success) {
-      //     setStaff(result2.user);
-      //   } else {
-      //     console.error('Data error:', result2);
-      //     toast.error(result2.message);
-      //   }
-      //   const result3 = await viewCount('viewActiveVos');
-  
-      //   if (result3.success) {
-      //     setVillage(result3.user);
-      //   } else {
-      //     console.error('Data error:', result3);
-      //     toast.error(result3.message);
-      //   }
-      // } catch (error) {
-      //   console.error('Unexpected error:', error);
-      //   toast.error('An unexpected error occurred during Data View');
-      // }
+      try {
+        const result = await ViewById('viewAllOrderByShopId',localStorage.getItem('shop'));
+        if (result.success) {
+          setOrders(result.user || []);
+        } else {
+          console.error('Data error:', result);
+          toast.error(result.message);
+        }
+      } catch (error) {
+        console.error('Unexpected error:', error);
+        toast.error('An unexpected error occurred during Data View');
+      }
     };
-  
-    fetchData(); // Call the async function
+
+    fetchData();
   }, []);
+  const totalOrders = orders.length;
+  const pendingOrders = orders.filter(order => order.serviceStatus === 'Pending').length;
+  const completedOrders = orders.filter(order => order.serviceStatus === 'Delivery Completed').length;
+  const canceledOrders = orders.filter(order => order.serviceStatus === 'Canceled').length;
+  const otherOrders = orders.filter(order => !['Requested Pickup', 'Requested Drop', 'Drop Completed','Pickup Completed'].includes(order.status)).length;
+
+  const data = {
+    labels: ['Total Orders', 'Pending', 'Completed', 'Canceled', 'Others'],
+    datasets: [
+      {
+        label: 'Order Analysis',
+        data: [totalOrders, pendingOrders, completedOrders, canceledOrders, otherOrders],
+        backgroundColor: [
+          '#3070F5'
+        ],
+        borderColor: [
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(153, 102, 255, 1)'
+        ],
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Order Analysis Chart',
+      },
+    },
+    scales: {
+      x: {
+        ticks: {
+          maxRotation: 0, // Keep labels horizontal
+          minRotation: 0,
+        },
+        grid: {
+          drawOnChartArea: false, // Removes horizontal grid lines
+        },
+      },
+      y: {
+        beginAtZero: true, // Start the Y-axis at 0
+      },
+    },
+    // Adjust bar width
+    barPercentage: 0.3, // Controls the width of individual bars (0.0 to 1.0)
+    categoryPercentage: 0.8, // Controls spacing between bars in the same category (0.0 to 1.0)
+  };
   
   return (
     <div>
       <div className='container'>
        
-        <div className='row pt-4'>
-
-          <div className='col-12 col-sm-4 mb-4'>
-            <div className='row admin-dash-revenue-box pt-3'>
-              <div className='col-6'>
-                <img src={dash1} />
-              </div>
-              <div className='col-6'>
-                <div className='ms-3'>
-                  <span className='admin-dash-span'>{(village.length) > 0 ? village.length : 0}</span>
-                  <p className='admin-dash-span2'>Total no.of Village offices</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className='col-12 col-sm-4 mb-4'>
-            <div className=' row admin-dash-revenue-box admin-dash2 pt-3 '>
-              <div className='col-6'>
-                <img src={dash2} />
-              </div>
-              <div className='col-6'>
-                <div className='ms-3 '>
-                  <span className='admin-dash-span '>{(akshaya.length) > 0 ? akshaya.length : 0}</span>
-                  <p className='admin-dash-span2'>Total no.of Akshaya Centres</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className='col-12 col-sm-4  mb-4'>
-            <div className='row admin-dash-revenue-box admin-dash3 pt-3 '>
-              <div className='col-6'>
-                <img src={dash3} />
-              </div>
-              <div className='col-6'>
-                <div className='ms-3'>
-                  <span className='admin-dash-span '>{(staff.length) > 0 ? staff.length : 0}</span>
-                  <p></p><p className='admin-dash-span2'>Total no.of Staffs</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
+      <div className="chart-container" style={{ width: '80%', margin: '0 auto' }}>
+          <Bar data={data} options={options} />
         </div>
+      
       </div></div>
   )
 }

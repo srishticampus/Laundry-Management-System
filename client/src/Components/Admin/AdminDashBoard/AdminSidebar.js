@@ -39,12 +39,7 @@ const toggleLaundryDropdown = () => {
             <img src={admin} className='admin-logo'></img>
           <Link to="/admin-home" className="admin-dash-link"><p className="p-2 fw-light admin-border"> Dashboard</p></Link>
           <Link to='/admin-view-users' className="admin-dash-link"><p className="p-2 fw-light admin-border"> Registered Users</p></Link>
-          <Link to='/' className="admin-dash-link">
-  <p className="p-2 fw-light admin-border">
-    <span>Report</span>
-    <span><RiArrowDropDownLine className="admin-drop-icon" /></span>
-  </p>
-</Link>
+        
 <Link to='' className="admin-dash-link" onClick={toggleLaundryDropdown}>
   <p className="p-2 fw-light admin-border">
     <span>Laundry Shop</span>
@@ -72,9 +67,9 @@ const toggleLaundryDropdown = () => {
               </ul>   </div>
           )}
 
-          <Link to='/admin-' className="admin-dash-link"><p className="p-2 fw-light admin-border">Laundry Orders</p></Link>
+          <Link to='/admin-order-details' className="admin-dash-link"><p className="p-2 fw-light admin-border">Laundry Orders</p></Link>
           
-          <Link to='/admin-' className="admin-dash-link"><p className="p-2 fw-light admin-border">Feedback</p></Link>
+          <Link to='/admin-feedback' className="admin-dash-link"><p className="p-2 fw-light admin-border">Feedback</p></Link>
 
           <Link to='' className="admin-dash-link" onClick={handleView}><p className="p-2  fw-light admin-border">Logout</p></Link>
 

@@ -17,13 +17,17 @@ function AgentHistoryPickup() {
   // Fetch Data
   const fetchData = async () => {
     try {
-      const result = await ViewById('viewAllCompletedOrdersByAGIdPickUp'.localStorage.getItem('agent'));
+      const result = await ViewById('viewAllCompletedOrdersByAGIdPickUp',localStorage.getItem('agent'));
+      console.log(result);
+      
       if (result.success) {
         setData(result.user.length > 0 ? result.user : []);
       } else {
         toast.error(result.message);
       }
     } catch (error) {
+      console.log(error);
+      
       toast.error('An unexpected error occurred during Data View');
     }
   };
@@ -68,7 +72,7 @@ function AgentHistoryPickup() {
   return (
     <div className="Agent-order">
        <div className="cust-view-shop-main">
-                        <p className="cust-choose-shop">PICK UP REQUEST</p>
+                        <p className="cust-choose-shop">ORDER HISTORY</p>
                     </div>
       {data.length > 0 ? (
         <table className="table table-hover shop-tab2 p-5 mt-3">
@@ -83,7 +87,6 @@ function AgentHistoryPickup() {
               <th>District</th>
               <th>Pickup Location</th>
               <th>Pickup City</th>
-              <th className="vo-table-head">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -103,19 +106,9 @@ function AgentHistoryPickup() {
                 
                
                
-                <td>
-                  <img
-                    src={tick}
-                    alt="Approve"
-                    className="ms-3"
-                    onClick={() => approve(item._id)}
-                  />
-                  {/* <AiOutlineCloseCircle
-                    className="ms-2"
-                    onClick={() => reject(item._id)}
-                    style={{ color: 'red', height: '50px', width: '22px' }}
-                  /> */}
-                </td>
+                
+               
+              
               </tr>
             ))}
           </tbody>

@@ -43,6 +43,7 @@ import AgentDropReqs from './Components/Delivery/AgentDropReqs';
 import AgentHistoryPickup from './Components/Delivery/AgentHistoryPickup';
 import AgentHistoryDrop from './Components/Delivery/AgentHistoryDrop';
 import AgentAssignedDeliveryOrders from './Components/Delivery/AgentAssignedDeliveryOrders';
+import CustEnquiries from './Components/Customer/CustEnquiries';
 
 function App() {
   return (
@@ -76,6 +77,9 @@ function App() {
           <Route path='/admin-view-single-shop/:id' element={<AdminMain data="admin-view-single-shop" />} />
           <Route path='/admin-view-users' element={<AdminMain data="admin-view-users" />} />
           <Route path='/admin-agent-requests' element={<AdminMain data="admin-agent-requests" />} />
+          <Route path='/admin-agent-details' element={<AdminMain data="admin-agent-details" />} />
+          <Route path='/admin-order-details' element={<AdminMain data="admin-order-details" />} />
+          <Route path='/admin-feedback' element={<AdminMain data="admin-feedback" />} />
 
           {/* Shop */}
 
@@ -93,6 +97,7 @@ function App() {
           <Route path='/shop-order-history' element={<ShopMain data="shop-order-history" />} />
           <Route path='/shop-view-single-comp-order/:id' element={<ShopMain data="shop-view-single-comp-order" />} />
           <Route path='/shop-feedback' element={<ShopMain data="shop-feedback" />} />
+          <Route path='shop-issues' element={<ShopMain data="shop-issues" />} />
 
           {/* Customer */}
 
@@ -107,6 +112,7 @@ function App() {
           <Route path='/cust-order-success/:id' element={[<CustNavbar />, <CustOrderSuccess />]} />
           <Route path='/cust-track-order' element={[<CustNavbar />, <CustTrackOrder />]} />
 
+          <Route path='/cust-enquiries' element={[<CustNavbar />, <CustEnquiries />]} />
 
 
           {/* Del Agent */}
