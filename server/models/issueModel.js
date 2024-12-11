@@ -15,6 +15,16 @@ const schema=mongoose.Schema({
         ref:'orders',
         required:true
     },
+    shopId:{
+        type:mongoose.Types.ObjectId,
+        ref:'shops',
+        required:true
+    },
+    custId:{
+        type:mongoose.Types.ObjectId,
+        ref:'customers',
+        required:true
+    },
     type:{
         type:String,
         required:true
@@ -23,6 +33,10 @@ const schema=mongoose.Schema({
         type:String,
         required:true
     },
+    status:{
+        type:String,
+        default:'Pending'
+    }
 
 },{timestamps:true});
 module.exports=mongoose.model('issues',schema)

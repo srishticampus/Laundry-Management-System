@@ -157,8 +157,14 @@ const UpdateServiceforCompletion=async(id)=>{
                                                     {item.serviceStatus === "Pending" && (
                                                         <option value="Request Pickup">Request Pickup</option>
                                                     )}
+                                                    {item.serviceStatus === "Reschedule Pickup"  && (
+                                                        <option value="Request Pickup">Reschedule Pickup</option>
+                                                    )}
                                                     {item.serviceStatus === "Pickup Completed" && (
                                                         <option value="Process Completed">Process Completed</option>
+                                                    )}
+                                                     {item.serviceStatus === "Reschedule Drop" && (
+                                                        <option value="Request Drop">Reschedule Drop</option>
                                                     )}
                                                       {item.serviceStatus === "Process Completed" && (
                                                         <option value="Request Drop">Request Drop</option>
@@ -179,7 +185,17 @@ const UpdateServiceforCompletion=async(id)=>{
                                                 ) : item.serviceStatus === "Drop Completed" ? (
                                                     <p style={{color:'green'}}>Service Completed</p>
 
-                                                ) : (
+                                                ) : item.serviceStatus === "Reschedule Pickup" ? (
+                                                    <button className="shop-signup-button"
+                                                    onClick={()=>{UpdateService(item._id)}}>Request PickUp</button>
+                                              
+
+                                                ): item.serviceStatus === "Reschedule Drop" ? (
+                                                    <button className="shop-signup-button"
+                                                    onClick={()=>{UpdateServiceforDrop(item._id)}}>Request Drop</button>
+                                                    
+
+                                                ): (
                                                     <p style={{color:'red'}}>Waiting for an Update from Delivery Agent</p>
                                                 )}
                                             </td>

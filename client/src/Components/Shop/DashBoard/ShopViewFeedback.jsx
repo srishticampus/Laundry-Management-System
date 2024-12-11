@@ -4,6 +4,7 @@ import '../../../Styles/ViewComplaints.css';
 import { viewCount } from '../../Services/AdminService';
 import { toast } from "react-toastify";
 import ReactStars from 'react-stars'; // Import ReactStars
+import { IMG_BASE_URL } from '../../Services/BaseURL';
 
 function ShopViewFeedback() {
     console.log('bjhj');
@@ -44,6 +45,7 @@ console.log(result);
             <div key={index} className="admin-comp-container">
               <div className="row align-items-center">
   <div className="col-6 text-start">
+    <img src={`${IMG_BASE_URL}${item.custId.image.filename}`}  alt="User Image" className="small-profile" />
     <strong>{item.custId.name}</strong>
   </div>
   <div className="col-6 text-end">
@@ -60,8 +62,8 @@ console.log(result);
 
               <p className="feedback-comments ">{item.comments}</p>
               <p className="comp-footer">
-                
-                {item.name} &nbsp;&nbsp;&nbsp; . &nbsp;&nbsp;&nbsp;
+              {item.custId.contact} &nbsp;&nbsp;&nbsp; .&nbsp;&nbsp;&nbsp;
+                {item.custId.email} &nbsp;&nbsp;&nbsp; . &nbsp;&nbsp;&nbsp;
                 {item.createdAt.slice(0, 10)} &nbsp;&nbsp;&nbsp; . {/* Formatting date */}
               </p>
             </div>

@@ -119,7 +119,7 @@ function CustTrackOrder() {
             <div className="page-wrapper">
                 <div className="content-wrapper">
                     <div className="cust-view-shop-main">
-                        <p className="cust-choose-shop"> MY ORDERs </p>
+                        <p className="cust-choose-shop"> MY ORDERS </p>
                     </div>
                 </div>
             </div>
@@ -291,7 +291,7 @@ function CustTrackOrder() {
                     </>
                 )
 
-                : <p>No orders found</p>
+                : <h3>No orders found</h3>
             }
             {showFeedbackModal && (
                 <div className="modal fade show d-block" tabIndex="-1">
