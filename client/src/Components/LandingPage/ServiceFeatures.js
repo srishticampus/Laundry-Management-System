@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../../Styles/TopComponent.css'
 import Slider from 'react-slick';
 import shop1 from '../../Assets/shop1.png'
@@ -11,7 +11,38 @@ import rev1 from '../../Assets/rev1.png'
 import rev2 from '../../Assets/rev2.png'
 import rev3 from '../../Assets/rev3.png'
 import rating from '../../Assets/rating.png'
+import { IMG_BASE_URL } from '../Services/BaseURL';
+import ReactStars from 'react-stars'; // Import ReactStars
+import { viewCount } from '../Services/AdminService';
+
 function ServiceFeatures() {
+
+
+    const [feedbacks, setFeedbacks] = useState([]);
+
+  // Fetch feedback data
+  const fetchData = async () => {
+    try {
+        console.log('in use');
+        
+      const result = await viewCount('viewFeedbacksforLanding');
+console.log(result);
+
+      if (result.success) {
+        if (result.user.length ==3) setFeedbacks(result.user);
+        else setFeedbacks([]);
+      } else {
+        console.error('Data error:', result);
+       
+      }
+    } catch (error) {
+      console.error('Unexpected error:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData(); // Call the async function
+  }, []);
     const settings = {
 
         infinite: true,
@@ -109,7 +140,43 @@ function ServiceFeatures() {
             <div className=''>
                 <h2 className='review-prov-mainhead'>What our customer says about Us</h2>
             </div>
-            <div className='row mt-5'>
+          {feedbacks.length>0?
+
+                      <div className='row mt-5'>
+
+          {feedbacks.map(item=>{
+
+      return(
+         <>
+          <div className="col-md-4">
+              <div className='review-prov-div'>
+                  <img src={`${IMG_BASE_URL}/${item.custId.image.filename}`} className='review-prov-img' />
+                  <h5 className='review-prov-head'>{item.custId.name}</h5>
+                  <ReactStars
+      count={5}
+      value={item.rating} // Display rating from feedback data
+      size={28}
+      color1={'#dcdcdc'} // Default color for stars
+      color2={'#3070F5'} // Green color for filled stars
+      edit={false} // Disable editing
+    />
+                  <p className='review-prov-reviews'>
+                {item.custId.comments}
+v                        </p>
+              </div>
+          </div>
+
+      
+        
+          </>
+      )
+            }) 
+            }
+            </div>
+            
+
+        :
+        <div className='row mt-5'>
                 <div className="col-md-4">
                     <div className='review-prov-div'>
                         <img src={rev1} className='review-prov-img' />
@@ -141,8 +208,9 @@ v                        </p>
                     </div>
                 </div>
             </div>
+}
+</div>
 
-        </div>
 
     )
 }

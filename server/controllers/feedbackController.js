@@ -45,7 +45,28 @@ const viewFeedbacks = async (req, res) => {
     });
   }
 };
+// View All Feedbacks
+const viewFeedbacksforLanding = async (req, res) => {
+  try {
+    const feedbacks = await FeedbackModel.find()
+      .populate('custId') // Populate customer details if referenced in the schema
+      .sort({ createdAt: 1 }) // Sort feedbacks by creation date (oldest first)
+      .limit(3) // Fetch only the latest 3 feedbacks
+      .exec();
 
+    return res.status(200).json({
+      status: 200,
+      msg: "Feedbacks obtained successfully",
+      data: feedbacks,
+    });
+  } catch (error) {
+    res.status(500).json({
+      status: 500,
+      msg: "Failed to retrieve feedbacks",
+      error: error.message,
+    });
+  }
+};
 // View Feedback by ID
 const viewFeedbackById = async (req, res) => {
   try {
@@ -76,4 +97,5 @@ module.exports = {
   registerFeedback,
   viewFeedbacks,
   viewFeedbackById,
+  viewFeedbacksforLanding
 };

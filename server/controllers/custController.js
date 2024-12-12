@@ -1,6 +1,7 @@
 const Customer = require('../models/customerModel');
 const multer = require("multer");
-
+const nodemailer = require('nodemailer');
+const Configue = require("./Configue");
 // Configure multer for image upload
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -14,6 +15,32 @@ const storage = multer.diskStorage({
     },
 });
 const uploadSingle = multer({ storage: storage }).single('image');
+// Create a transporter object using Gmail SMTP
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'supprot.web.application@gmail.com',
+      pass: 'ukyw olqq kuql jnty'
+    }
+  });
+const testMail = (data) => {
+    let email=data.email
+    const mailOptions = {
+      from: 'supprot.web.application@gmail.com',
+      to: email,
+      subject: 'Reset Password From Blue_Collar',
+      text: `Dear ${data.name},${'\n'}please check this link : ${Configue.serverUrl}${data._id} to reset your password`
+    };
+  
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log('Error:', error);
+      } else {
+        console.log('Email sent:', info.response);
+      }
+    });
+  }
+
 
 // Register new Customer
 const registerCustomer = async (req, res) => {
@@ -172,8 +199,65 @@ const toggleCustomerActivation = async (req, res) => {
     }
 };
 
-
-
+const forgotPWDsentMail=async(req,res)=>{
+    let data=null
+    try{
+        
+         data = await Customer.findOne({ email:  req.body.email })
+    
+       
+        
+          if (data != null)
+            {
+              
+              testMail(data)
+            res.json({
+              status: 200,
+              msg: "Data Obtained successfully",
+            });
+          }
+          else
+            res.json({
+              status: 500,
+              msg: "Enter your Registered MailId",
+            });
+        }
+        catch(err) {
+          console.log(err);
+          res.json({
+            status: 500,
+            msg: "Data not Updated",
+            Error: err,
+          })
+        }
+    
+      }
+      const custresetpswd=((req,res)=>{
+        Customer.findByIdAndUpdate({_id:req.params.id},{ password: req.body.password }
+          )
+          .exec()
+          .then((data) => {
+            if (data != null)
+              res.json({
+                status: 200,
+                msg: "Updated successfully",
+              });
+            else
+              res.json({
+                status: 500,
+                msg: "User Not Found",
+              });
+          })
+          .catch((err) => {
+            console.log(err);
+            res.json({
+              status: 500,
+              msg: "Data not Updated",
+              Error: err,
+            });
+          });
+      
+    })
 module.exports = {
     registerCustomer,
     viewCustomers,
@@ -182,5 +266,7 @@ module.exports = {
     deleteCustomerById,
     toggleCustomerActivation,
     login,
-    uploadSingle
+    uploadSingle,
+    forgotPWDsentMail,
+    custresetpswd
 };

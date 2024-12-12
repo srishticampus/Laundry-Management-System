@@ -140,6 +140,20 @@ function CustPlaceOrder1() {
     }, [localStorage.getItem('order')]);
     const validate = () => {
         const newErrors = {};
+
+        if (!data.service) {
+
+            newErrors.service = 'Service is required';
+        }
+        rows.forEach((row, index) => {
+            if (!row.material) {
+                newErrors[`material_${index}`] = `Material is required for row ${index + 1}`;
+            }
+            if (!row.count || row.count <= 0) {
+                newErrors[`count_${index}`] = `Count must be greater than 0 for row ${index + 1}`;
+            }
+        });
+      
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
@@ -162,28 +176,15 @@ function CustPlaceOrder1() {
     const handleMaterialChange = (index, value) => {
         fetchMaterialDatabyId(value, index); // Fetch material details for the specific row
     };
-    // const incrementCount = (index) => {
-    //     const updatedRows = [...rows];
-    //     updatedRows[index].count += 1;
-    //     setRows(updatedRows);
-    //     console.log("updatedRows[index].count)", updatedRows[index].count);
-
-
-
-    // };
-
-    // const decrementCount = (index) => {
-    //     const updatedRows = [...rows];
-    //     updatedRows[index].count = Math.max(0, updatedRows[index].count - 1);
-    //     setRows(updatedRows);
-    //     console.log("updatedRows[index].count)", updatedRows[index].count);
-
-    //     // setTempAmount((matamount*updatedRows[index].count))     
-    //     //    setAmount(tempamount+singleservice.amount);
-    //     //    amount=tempamount+singleservice.amount
-    // };
+ 
+  
+  
     const addMore = async () => {
         console.log(data);
+        if (!validate()) {
+            toast.error('Please fix the errors in the form.');
+            return;
+        }
         data.totalAmount = amount
 
         console.log(localStorage.getItem('order'));
@@ -351,6 +352,9 @@ const onCountChange = (e, index) => {
                                         </option>
                                     ))}
                                 </select>
+                                {errors.service && (
+                                        <span className="text-danger">{errors.service}</span>
+                                    )}
                             </div>
 
                             <div className="col-lg-3">
@@ -372,6 +376,9 @@ const onCountChange = (e, index) => {
                                         </option>
                                     ))}
                                 </select>
+                                {errors.material && (
+                                        <span className="text-danger">{errors.material}</span>
+                                    )}
                             </div>
 
                             <div className="col-lg-4">

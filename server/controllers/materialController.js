@@ -17,7 +17,7 @@ const addMaterial = async (req, res) => {
           amount,
           shopId
         });
-        const existingServiceByName = await Material.findOne({ name });
+        const existingServiceByName = await Material.findOne({ name,shopId });
 
         if (existingServiceByName) {
             return res.status(409).json({ msg: "The Material Name Already Added!" });

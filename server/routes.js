@@ -60,7 +60,8 @@ router.post('/editCustomer/:id', Customer.uploadSingle,Customer.editCustomerById
 router.post('/deleteCustomerById/:id', Customer.deleteCustomerById);
 
 router.post('/custLogin', Customer.login);
-
+router.post('/forgotPasswordCustomer', Customer.forgotPWDsentMail);
+router.post('/resetPasswordCustomer/:id', Customer.custresetpswd);
 
 
 
@@ -134,6 +135,7 @@ router.post('/toggleAgentActivationAgent/:id', agentController.toggleAgentActiva
 // Feedback
 router.post('/registerFeedback', feedbackController.registerFeedback);
 router.post('/viewFeedbacks', feedbackController.viewFeedbacks);
+router.post('/viewFeedbacksforLanding', feedbackController.viewFeedbacksforLanding);
 
 // Feedback
 router.post('/registerIssue', issue.registerIssue);
