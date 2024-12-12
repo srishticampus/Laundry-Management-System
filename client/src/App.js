@@ -44,6 +44,8 @@ import AgentHistoryPickup from './Components/Delivery/AgentHistoryPickup';
 import AgentHistoryDrop from './Components/Delivery/AgentHistoryDrop';
 import AgentAssignedDeliveryOrders from './Components/Delivery/AgentAssignedDeliveryOrders';
 import CustEnquiries from './Components/Customer/CustEnquiries';
+import CustForgotPassword from './Components/Customer/CustForgotPassword';
+import CustResetPassword from './Components/Customer/CustResetPassword'
 
 function App() {
   return (
@@ -113,7 +115,9 @@ function App() {
           <Route path='/cust-track-order' element={[<CustNavbar />, <CustTrackOrder />]} />
 
           <Route path='/cust-enquiries' element={[<CustNavbar />, <CustEnquiries />]} />
-
+          <Route path='/cust-forgot' element={[<CustNavbar />, <CustForgotPassword />]} />
+          
+          <Route path='/reset-password/:id' element={[<CustNavbar />, <CustResetPassword />]} />
 
           {/* Del Agent */}
           <Route path='/agent-signup' element={[<CommonNav />, <AgentSignup />, <Footer />]} />

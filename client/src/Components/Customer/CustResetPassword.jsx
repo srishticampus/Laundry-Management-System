@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-    import { Link, useNavigate } from "react-router-dom";
+    import { Link, useNavigate, useParams } from "react-router-dom";
     import '../../Styles/ContactUs.css'
     import { toast } from "react-toastify";
     import "../../Styles/AdminLogin.css";
@@ -9,14 +9,16 @@ import img from "../../Assets/adminlogin.png";
     import '../../Styles/ShopLogin.css'
     import '../../Styles/CustomerLoginSignup.css'
 
-    import { login, register } from "../Services/CommonServices";
-function CustLogin() {
+    import { login, register, resetPassword } from "../Services/CommonServices";
+function CustResetPassword() {
     
 
         const navigate = useNavigate();
         const [data, setData] = useState('');
-    
+    const {id}=useParams()
         const [showPassword, setShowPassword] = useState(false)
+        const [showPassword2, setShowPassword2] = useState(false)
+
         const [errors, setErrors] = useState({});
         const handleChange = (e) => {
             const { name, value } = e.target;
@@ -28,24 +30,24 @@ function CustLogin() {
         const togglePasswordVisibility = () => {
             setShowPassword(!showPassword);
         };
+        const togglePasswordVisibility2 = () => {
+            setShowPassword2(!showPassword2);
+        };
         const validate = () => {
             const newErrors = {};
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
     
-            if (!data.email) {
-                
-    
-                newErrors.email = 'Email is required';
-            }
-            else  if (!emailRegex.test(data.email)) {
-                newErrors.email = 'Enter a valid E-mail Id';
-    
-            }
             if (!data.password) {
     
                 newErrors.password = 'Password is required';
             }
-    
+         else if (!passwordRegex.test(data.password)) {
+            newErrors.password = 'Password Must Contain 1 Uppercase,1 Symbol and 1 Number with minimum 6 characters';
+        }
+        else if (data.password != data.cpassword) {
+            newErrors.cpassword = 'Password and Confirm Password must be the same !';
+        }
+            
           
             setErrors(newErrors);
             return Object.keys(newErrors).length === 0;
@@ -62,13 +64,12 @@ function CustLogin() {
                 return;
             }
             try {
-                const result = await login(data, 'custLogin');
+                const result = await resetPassword(data, 'resetPasswordCustomer',id);
     
                 if (result.success) {
                     console.log(result);
-                    localStorage.setItem("customer", result.user._id);
-
-                navigate ('/cust-home')
+toast.success("Password Reset Succesful")
+                navigate ('/cust-login')
     
     
                 } else {
@@ -88,7 +89,7 @@ function CustLogin() {
     
                     <div className="contact_us_main_container" >
                         <div className="contact_us_head">
-                            <h4 className="cust-title">Login</h4>
+                            <h4 className="cust-title">Reset Password?</h4>
                             <div className="contact_us_circle">
     
                             </div>
@@ -103,20 +104,7 @@ function CustLogin() {
                         <div className="cust-login-div2">
                          
                             <form>
-                                <div className="">
-                                    <label className="cust-login-label">E-Mail ID</label>
-                                    <input
-                                        type="text"
-                                        className="form-control border border-dark"
-                                        placeholder="Enter Email"
-                                        name="email"
-                                        value={data.email} onChange={handleChange}
-
-                                    />
-                                    {errors.email && (
-                                        <span className="text-danger">{errors.email}</span>
-                                    )}
-                                </div>
+                                <p className="forgot-p"> Enter your new password to reset.</p>
                                 <div className=" mt-4">
                                 <label className="cust-login-label">Password</label>
                                      <div style={{ position: 'relative' }}>
@@ -136,17 +124,35 @@ function CustLogin() {
                                     {errors.password && (
                                         <span className="text-danger">{errors.password}</span>
                                     )}
+                                </div><div className=" mt-4">
+                                <label className="cust-login-label">Confirm Password</label>
+                                     <div style={{ position: 'relative' }}>
+                        <input type={showPassword2 ? "text" : "password"}
+                            placeholder='password'
+                            name="cpassword"
+                            onChange={handleChange}
+                               className="form-control border border-dark"
+                            style={{ paddingRight: '40px' }} >
+
+                        </input>
+                        <div className="admin-login-password-toggle-icon" onClick={togglePasswordVisibility2}>
+                            {showPassword2 ? <VscEyeClosed  /> : <VscEye />}
+                        </div>
+                          
+                    </div>
+                                    {errors.cpassword && (
+                                        <span className="text-danger">{errors.cpassword}</span>
+                                    )}
                                 </div>
-<Link to={'/cust-forgot'} className="cust-login-forgot">Forgot Password</Link>
-                                <div className="text-center mt-3 d-flex justify-content-evenly mb-2">
+                             <div className="text-center mt-3 d-flex justify-content-evenly mb-2">
                                     
-                                    <button type="submit" onClick={handleLogin} className="adminloginbtn">Login</button>
+                                    <button type="submit" onClick={handleLogin} className="adminloginbtn">Confirm</button>
                                 </div>
 
 
                             </form> 
-                            <p className="cust-signup-link mt-3">
-                            Don’t have an account?<span className="cust-login-link"><Link className="cust-login-link2" to='/cust-signup'> Sign Up</Link></span></p> </div>
+                           
+                             </div>
 
                     </div>
 
@@ -168,4 +174,4 @@ function CustLogin() {
     }
     
 
-export default CustLogin
+export default CustResetPassword

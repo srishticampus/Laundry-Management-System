@@ -10,7 +10,7 @@ import img from "../../Assets/adminlogin.png";
     import '../../Styles/CustomerLoginSignup.css'
 
     import { login, register } from "../Services/CommonServices";
-function CustLogin() {
+function CustForgotPassword() {
     
 
         const navigate = useNavigate();
@@ -41,11 +41,7 @@ function CustLogin() {
                 newErrors.email = 'Enter a valid E-mail Id';
     
             }
-            if (!data.password) {
-    
-                newErrors.password = 'Password is required';
-            }
-    
+            
           
             setErrors(newErrors);
             return Object.keys(newErrors).length === 0;
@@ -62,13 +58,12 @@ function CustLogin() {
                 return;
             }
             try {
-                const result = await login(data, 'custLogin');
+                const result = await register(data, 'forgotPasswordCustomer');
     
                 if (result.success) {
                     console.log(result);
-                    localStorage.setItem("customer", result.user._id);
 
-                navigate ('/cust-home')
+                navigate ('/cust-login')
     
     
                 } else {
@@ -88,7 +83,7 @@ function CustLogin() {
     
                     <div className="contact_us_main_container" >
                         <div className="contact_us_head">
-                            <h4 className="cust-title">Login</h4>
+                            <h4 className="cust-title">Forget Password?</h4>
                             <div className="contact_us_circle">
     
                             </div>
@@ -104,49 +99,35 @@ function CustLogin() {
                          
                             <form>
                                 <div className="">
-                                    <label className="cust-login-label">E-Mail ID</label>
-                                    <input
-                                        type="text"
-                                        className="form-control border border-dark"
-                                        placeholder="Enter Email"
-                                        name="email"
-                                        value={data.email} onChange={handleChange}
+                               < p className="forgot-p"> Enter your E-mail below to receive your Password Reset Instruction</p>
+                                </div>
+                                <div className=" mt-4">
+                                <label className="cust-login-label">E-Mail ID</label>
+                                     
+                        <input type="text"
+                            placeholder='Enter Registered E-Mail ID'
+                            name="email"
+                            onChange={handleChange}
+                               className="form-control border border-dark"
+                             >
 
-                                    />
+                        </input>
+                       
+                          
+                  
                                     {errors.email && (
                                         <span className="text-danger">{errors.email}</span>
                                     )}
                                 </div>
-                                <div className=" mt-4">
-                                <label className="cust-login-label">Password</label>
-                                     <div style={{ position: 'relative' }}>
-                        <input type={showPassword ? "text" : "password"}
-                            placeholder='password'
-                            name="password"
-                            onChange={handleChange}
-                               className="form-control border border-dark"
-                            style={{ paddingRight: '40px' }} >
-
-                        </input>
-                        <div className="admin-login-password-toggle-icon" onClick={togglePasswordVisibility}>
-                            {showPassword ? <VscEyeClosed  /> : <VscEye />}
-                        </div>
-                          
-                    </div>
-                                    {errors.password && (
-                                        <span className="text-danger">{errors.password}</span>
-                                    )}
-                                </div>
-<Link to={'/cust-forgot'} className="cust-login-forgot">Forgot Password</Link>
-                                <div className="text-center mt-3 d-flex justify-content-evenly mb-2">
+                             <div className="text-center mt-3 d-flex justify-content-evenly mb-2">
                                     
                                     <button type="submit" onClick={handleLogin} className="adminloginbtn">Login</button>
                                 </div>
 
 
                             </form> 
-                            <p className="cust-signup-link mt-3">
-                            Don’t have an account?<span className="cust-login-link"><Link className="cust-login-link2" to='/cust-signup'> Sign Up</Link></span></p> </div>
+                           
+                             </div>
 
                     </div>
 
@@ -168,4 +149,4 @@ function CustLogin() {
     }
     
 
-export default CustLogin
+export default CustForgotPassword
