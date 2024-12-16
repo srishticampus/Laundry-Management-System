@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import '../../Styles/CommonNav.css'
 function Footer() {
+  
   return (
     <div className='footer-div'>
          <nav className="navbar navbar-expand-lg navbar_bg">
@@ -15,7 +16,7 @@ function Footer() {
                   </li>
                   <li className="nav-item m-3">
                     <Link
-                      to='/admin_home'
+to='/'
                       className="nav-link landingnavbar_text"
                       aria-current="page"
                   
@@ -25,7 +26,7 @@ function Footer() {
                   </li>
                   <li className="nav-item m-3">
                     <Link
-                      to='/'
+                      to='/contact-us'
                       className="nav-link landingnavbar_text"
                       aria-current="page"
                     
@@ -36,10 +37,10 @@ function Footer() {
               
                   <li className="nav-item m-3">
                     <Link
-                      to="#"
+                      to="/about-us"
                       className="nav-link landingnavbar_text "
                       role="button"
-                      data-bs-toggle="dropdown"
+                    
                       aria-expanded="false"
                       id="text_color_white"
                     >
