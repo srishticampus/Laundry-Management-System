@@ -144,7 +144,7 @@ const UpdateServiceforCompletion=async(id)=>{
                                         <tr className='shop-tab2'>
                                             <td>{index + 1}</td>
                                             <td>ORD{item._id.slice(20, 24).toUpperCase()}</td>
-                                            <td>{item.orderDate.slice(0,10)}</td>
+                                            {/* <td>{item.orderDate.slice(0,10)}</td> */}
                                             {/* <td>date</td> */}
 
 

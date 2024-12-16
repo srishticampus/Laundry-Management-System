@@ -28,7 +28,7 @@ const testMail = (data) => {
     const mailOptions = {
       from: 'supprot.web.application@gmail.com',
       to: email,
-      subject: 'Reset Password From Blue_Collar',
+      subject: 'Reset Password From LaundryLynx',
       text: `Dear ${data.name},${'\n'}please check this link : ${Configue.serverUrl}${data._id} to reset your password`
     };
   
