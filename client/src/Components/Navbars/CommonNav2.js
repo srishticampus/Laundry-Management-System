@@ -67,19 +67,40 @@ function CommonNav2() {
               </li>
           
           
-              <li className="nav-item m-3">
-                <Link
-                  to="/cust-login"
-                  className="nav-link landin-nav-btn"
-                  role="button"
-               
-                  aria-expanded="false"
-                  id="text_color_white"
-                >
-                Login
-                </Link>
-              
-              </li>
+              <li className="nav-item m-3 dropdown">
+                             <Link
+                               to="#"
+                               className="nav-link dropdown-toggle landin-nav-btn"
+                               role="button"
+                               id="loginDropdown"
+                               data-bs-toggle="dropdown"
+                               aria-expanded="false"
+                             >
+                               Login
+                             </Link>
+                             <ul className="dropdown-menu" aria-labelledby="loginDropdown">
+                             <li>
+                                 <Link to="/cust-login" className="dropdown-item">
+                                   Customer Login
+                                 </Link>
+                               </li>
+                               <li>
+                                 <Link to="/admin-login" className="dropdown-item">
+                                   Admin Login
+                                 </Link>
+                               </li>
+                               <li>
+                                 <Link to="/shop-login" className="dropdown-item">
+                                   Shop Login
+                                 </Link>
+                               </li>
+                               <li>
+                                 <Link to="/agent-login" className="dropdown-item">
+                                   Agent Login
+                                 </Link>
+                               </li>
+                             </ul>
+                           </li>
               
             
             </ul>
