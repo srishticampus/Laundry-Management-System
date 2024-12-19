@@ -243,7 +243,7 @@ function ShopViewServices() {
             </tbody>
         </table>
     </>) : (<>
-        <center>  <h3>No New Requests Found</h3></center>
+        <center>  <h3>No Services Found</h3></center>
     </>)
 }
                     </>
