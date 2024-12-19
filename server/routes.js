@@ -26,6 +26,7 @@ router.post('/viewShop/:id', ShopController.viewShopById);
 router.post('/editShop/:id', ShopController.uploadSingle,ShopController.editShopById);
 router.post('/deleteShop/:id', ShopController.deleteShopById);
 router.post('/toggleShopActivation/:id', ShopController.toggleShopActivation);
+router.post('/viewActiveShops', ShopController.viewActiveShops);
 
 router.post('/shopLogin', ShopController.login);
 

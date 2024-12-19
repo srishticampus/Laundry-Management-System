@@ -46,6 +46,7 @@ import AgentAssignedDeliveryOrders from './Components/Delivery/AgentAssignedDeli
 import CustEnquiries from './Components/Customer/CustEnquiries';
 import CustForgotPassword from './Components/Customer/CustForgotPassword';
 import CustResetPassword from './Components/Customer/CustResetPassword'
+import ShopViewFeedback from './Components/Shop/DashBoard/ShopViewFeedback';
 
 function App() {
   return (
@@ -129,6 +130,7 @@ function App() {
           <Route path='/agent-pickup-orders-con' element={[<AgentNav />, <AgentHistoryPickup />, <Footer />]} />
           <Route path='/agent-delivery-orders-con' element={[<AgentNav />, <AgentHistoryDrop />, <Footer />]} />
           <Route path='/agent-delivery-orders' element={[<AgentNav />, <AgentAssignedDeliveryOrders />, <Footer />]} />
+          <Route path='/view-feedback-agent' element={[<AgentNav />, <ShopViewFeedback />, <Footer />]} />
 
         </Routes>
       </div>

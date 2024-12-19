@@ -70,7 +70,14 @@ const viewShops = async (req, res) => {
         res.status(500).json({ msg: "Error retrieving shops", error });
     }
 };
-
+const viewActiveShops = async (req, res) => {
+    try {
+        const shops = await shop.find({isActive:true}).exec();
+        res.status(200).json({ msg: "Shops retrieved successfully", data: shops });
+    } catch (error) {
+        res.status(500).json({ msg: "Error retrieving shops", error });
+    }
+};
 const login = (req, res) => {
     const { email, password } = req.body;
 
@@ -188,6 +195,7 @@ module.exports = {
     editShopById,
     deleteShopById,
     toggleShopActivation,
+    viewActiveShops,
     login,
     uploadSingle
 };

@@ -75,8 +75,8 @@ Navigate(`/admin-edit-shop/${id}`)
                         <thead className='ms-5 aks shop-tab2'>
                             <tr >
                                 <th className=' ps-3'>Sl No</th>
+                                <th className=''>Shop Name</th>
                                 <th className=''>Reg Number</th>
-                                <th className=''>Centre Number</th>
                                 <th className=''>Email</th>
                                 <th className='vo-table-head'>Phone Number</th>
                            

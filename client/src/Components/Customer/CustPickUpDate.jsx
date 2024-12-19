@@ -7,7 +7,7 @@ import "react-calendar/dist/Calendar.css";
 
 function CustPickUpDate() {
     const {id}=useParams()
-    const [date, setDate] = useState(new Date());
+    const [date, setDate] = useState(new Date().setHours(0, 0, 0, 0));  // Set the time to midnight
 
    
     const Navigate=useNavigate()
@@ -15,17 +15,39 @@ function CustPickUpDate() {
     const disablePastDates = ({ date }) => {
         return date < new Date();
     };
-
-   
+    const handleDateChange = (selectedDate) => {
+        console.log("Raw Selected Date:", selectedDate); // Direct from Calendar
+        const formattedDate = formatDate(selectedDate);
+        console.log("Stored Date (Local):", formattedDate); // Local Time
+        setDate(selectedDate); // Store it
+    };
+    
+    
+    
+    const formatDate = (date) => {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`; // YYYY-MM-DD format
+    };
+        
+    
+    
+    
     
     const handleSave = async (e) => {
         e.preventDefault()
       
-console.log(date);
-const formattedDate = date.toISOString().split("T")[0]; // Convert to YYYY-MM-DD
-
+        
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+        const day = String(date.getDate()).padStart(2, '0');
+        const formattedDate = `${year}-${month}-${day}`; // YYYY-MM-DD format
+        console.log(formattedDate);
       
         try {
+            console.log("date",formattedDate);
+            
             const result = await resetPassword({date:formattedDate}, 'addPickUpDateOrderById',id);
 
             if (result.success) {
@@ -75,7 +97,7 @@ const formattedDate = date.toISOString().split("T")[0]; // Convert to YYYY-MM-DD
                     <div className="order-service-container mt-5">
                         <p className="order-service-title">PICK UP DATE</p>
                         <hr className="cust-order-hr" />
-                        <Calendar onChange={setDate}
+                        <Calendar onChange={handleDateChange}
                          value={date}
                          tileDisabled={disablePastDates}
                          />

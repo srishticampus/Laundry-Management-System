@@ -13,7 +13,7 @@ function CustViewAllShops() {
 
     const fetchData = async () => {
         try {
-            const result = await viewCount('viewAllShops');
+            const result = await viewCount('viewActiveShops');
             if (result.success) {
                 if (result.user.length > 0) setData(result.user);
                 else setData([]);

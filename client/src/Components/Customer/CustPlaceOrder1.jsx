@@ -18,12 +18,12 @@ function CustPlaceOrder1() {
     const [amount, setAmount] = useState(0)
     const [matamount, setMatAmount] = useState(0)
     const [tempamount, setTempAmount] = useState(0)
-
+    const [viewNext, setViewNext] = useState(false)
     const [singleMat, setSingleMat] = useState({ amount: 0 });
 
     const [material, setMaterial] = useState([]);
-    const [rows, setRows] = useState([{ material: "", count: 1, matamount: 0 }]);  
-      const [errors, setErrors] = useState({});
+    const [rows, setRows] = useState([{ material: "", count: 1, matamount: 0 }]);
+    const [errors, setErrors] = useState({});
     const fetchServiceDatabyId = async (id) => {
         try {
             const result = await ViewById("viewServiceByName", id);
@@ -51,7 +51,7 @@ function CustPlaceOrder1() {
 
     //             setSingleMat(result.user);
     //             setMatAmount(result.user.amount)
-        
+
     //             setAmount((prevAmount) => prevAmount + result.user.amount);
     //         } else {
 
@@ -60,7 +60,7 @@ function CustPlaceOrder1() {
     //         toast.error("An unexpected error occurred during Data View");
     //     }
     // };
-   
+
     const fetchMaterialDatabyId = async (id, index) => {
         try {
             const result = await ViewById("viewMaterialByName", id);
@@ -76,7 +76,7 @@ function CustPlaceOrder1() {
             toast.error("An unexpected error occurred during Data View");
         }
     };
-    
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         if (name == 'service') {
@@ -126,7 +126,7 @@ function CustPlaceOrder1() {
             const result = await ViewById("viewOrderById", localStorage.getItem('order'));
             if (result.success) {
                 setAmount(result.user.totalAmount);
-                
+
             } else {
 
             }
@@ -153,32 +153,25 @@ function CustPlaceOrder1() {
                 newErrors[`count_${index}`] = `Count must be greater than 0 for row ${index + 1}`;
             }
         });
-      
+
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
 
     const handleAddRow = () => {
-      
+
 
         setRows([...rows, { material: "", count: 0 }]);
 
 
     };
 
-    // const handleMaterialChange = (index, value) => {
-    //     const updatedRows = [...rows];
-    //     updatedRows[index].material = value;
-    //     setRows(updatedRows);
-    //     fetchMaterialDatabyId(value)
-
-    // };
     const handleMaterialChange = (index, value) => {
-        fetchMaterialDatabyId(value, index); // Fetch material details for the specific row
+        fetchMaterialDatabyId(value, index); 
     };
- 
-  
-  
+
+
+
     const addMore = async () => {
         console.log(data);
         if (!validate()) {
@@ -198,7 +191,6 @@ function CustPlaceOrder1() {
 
                     console.log(result);
                     toast.success('Added successfully !');
-
                     const result2 = await register({
                         materials: rows,
                         custId: localStorage.getItem('customer'),
@@ -254,46 +246,46 @@ function CustPlaceOrder1() {
 
         console.log(rows);
     }
-//     useEffect(() => {
-//         // Calculate the total amount whenever rows or matamount or singleservice.amount changes
-//         const totalAmount = rows.reduce(
-//             (sum, row) => sum + matamount * row.count,
-//             singleservice.amount
-//         );
-// console.log("singleservice.amount",singleservice.amount)
-// console.log("amount",amount);
-// ;
+    //     useEffect(() => {
+    //         // Calculate the total amount whenever rows or matamount or singleservice.amount changes
+    //         const totalAmount = rows.reduce(
+    //             (sum, row) => sum + matamount * row.count,
+    //             singleservice.amount
+    //         );
+    // console.log("singleservice.amount",singleservice.amount)
+    // console.log("amount",amount);
+    // ;
 
-//         setAmount(totalAmount);
-//     }, [rows, matamount, singleservice.amount]);
-const incrementCount = (index) => {
-    const updatedRows = [...rows];
-    updatedRows[index].count += 1;
-    setRows(updatedRows);
-};
+    //         setAmount(totalAmount);
+    //     }, [rows, matamount, singleservice.amount]);
+    const incrementCount = (index) => {
+        const updatedRows = [...rows];
+        updatedRows[index].count += 1;
+        setRows(updatedRows);
+    };
 
-const decrementCount = (index) => {
-    const updatedRows = [...rows];
-    updatedRows[index].count = Math.max(0, updatedRows[index].count - 1);
-    setRows(updatedRows);
-};
+    const decrementCount = (index) => {
+        const updatedRows = [...rows];
+        updatedRows[index].count = Math.max(0, updatedRows[index].count - 1);
+        setRows(updatedRows);
+    };
 
-useEffect(() => {
-    const totalAmount = rows.reduce(
-        (sum, row) => sum + row.matamount * row.count,
-        singleservice.amount // Add base service amount
-    );
-    setAmount(totalAmount);
-}, [rows, singleservice.amount]);
+    useEffect(() => {
+        const totalAmount = rows.reduce(
+            (sum, row) => sum + row.matamount * row.count,
+            singleservice.amount // Add base service amount
+        );
+        setAmount(totalAmount);
+    }, [rows, singleservice.amount]);
 
-    
-const onCountChange = (e, index) => {
-    const { value } = e.target;
-    if (!/^\d*$/.test(value)) return; // Ensure numeric input
-    const updatedRows = [...rows];
-    updatedRows[index].count = parseInt(value, 10) || 0;
-    setRows(updatedRows);
-};
+
+    const onCountChange = (e, index) => {
+        const { value } = e.target;
+        if (!/^\d*$/.test(value)) return; // Ensure numeric input
+        const updatedRows = [...rows];
+        updatedRows[index].count = parseInt(value, 10) || 0;
+        setRows(updatedRows);
+    };
 
     const next = () => {
         let orderId = localStorage.getItem('order')
@@ -353,8 +345,8 @@ const onCountChange = (e, index) => {
                                     ))}
                                 </select>
                                 {errors.service && (
-                                        <span className="text-danger">{errors.service}</span>
-                                    )}
+                                    <span className="text-danger">{errors.service}</span>
+                                )}
                             </div>
 
                             <div className="col-lg-3">
@@ -377,8 +369,8 @@ const onCountChange = (e, index) => {
                                     ))}
                                 </select>
                                 {errors.material && (
-                                        <span className="text-danger">{errors.material}</span>
-                                    )}
+                                    <span className="text-danger">{errors.material}</span>
+                                )}
                             </div>
 
                             <div className="col-lg-4">
@@ -498,6 +490,7 @@ const onCountChange = (e, index) => {
                     </div>
                     <center>
                         <button className="shop-signup-button mt-3" onClick={next}>Next</button>
+
                     </center>
                 </div>
             </div>
