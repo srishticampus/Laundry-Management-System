@@ -181,7 +181,6 @@ const deleteCustomerById = async (req, res) => {
 // Activate/Deactivate Customer by ID
 const toggleCustomerActivation = async (req, res) => {
     try {
-        console.log("in");
         
         const CustomerData = await Customer.findById(req.params.id).exec();
         if (!CustomerData) {

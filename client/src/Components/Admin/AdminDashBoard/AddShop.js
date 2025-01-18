@@ -94,7 +94,6 @@ function AddShop() {
     return Object.keys(newErrors).length === 0;
   };
   const handleImageChange = (e) => {
-    console.log("in file", e.target.files[0]);
 
     const file = e.target.files[0];
     setData({

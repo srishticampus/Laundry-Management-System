@@ -168,7 +168,6 @@ const deleteShopById = async (req, res) => {
 // Activate/Deactivate shop by ID
 const toggleShopActivation = async (req, res) => {
     try {
-        console.log("in");
         
         const shopData = await shop.findById(req.params.id).exec();
         if (!shopData) {

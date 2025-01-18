@@ -214,7 +214,6 @@ const approveAgentById = async (req, res) => {
 // Activate/Deactivate Agent by ID
 const toggleAgentActivation = async (req, res) => {
     try {
-        console.log("in");
         
         const AgentData = await Agent.findById(req.params.id).exec();
         if (!AgentData) {
