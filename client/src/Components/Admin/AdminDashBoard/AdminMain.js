@@ -13,22 +13,18 @@ import AdminViewAllAgents from "./AdminViewAllAgents";
 import AdminViewAllOrders from "./AdminViewAllOrders";
 import ShopViewFeedback from "../../Shop/DashBoard/ShopViewFeedback";
 
-
-
 function AdminMain({ data }) {
   return (
     <div>
-        
       <div>
         <div className="row">
           <div className="col-3">
             <AdminSidebar />
           </div>
           <div className="col-9">
-          <AdminNavber/>
+            <AdminNavber />
             {data === "admindashboard" ? (
               <AdminDashboard />
-            
             ) : data === "admin-add-shop" ? (
               <AddShop />
             ) : data === "admin-view-shop" ? (
@@ -47,7 +43,9 @@ function AdminMain({ data }) {
               <AdminViewAllOrders />
             ) : data === "admin-feedback" ? (
               <ShopViewFeedback />
-            ) : data === "logout" }
+            ) : (
+              data === "logout"
+            )}
           </div>
         </div>
       </div>

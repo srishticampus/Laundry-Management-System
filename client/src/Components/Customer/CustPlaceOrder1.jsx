@@ -13,14 +13,9 @@ function CustPlaceOrder1() {
     totalAmount: 0,
   });
 
-  console.log('cust data', data);
   const [service, setService] = useState([]);
   const [singleservice, setSingleService] = useState({ amount: 0 });
   const [amount, setAmount] = useState(0);
-  const [matamount, setMatAmount] = useState(0);
-  const [tempamount, setTempAmount] = useState(0);
-  const [viewNext, setViewNext] = useState(false);
-  const [singleMat, setSingleMat] = useState({ amount: 0 });
 
   const [material, setMaterial] = useState([]);
   const [rows, setRows] = useState([{ material: "", count: 1, matamount: 0 }]);
@@ -28,13 +23,12 @@ function CustPlaceOrder1() {
   const fetchServiceDatabyId = async (id) => {
     try {
       const result = await ViewById("viewServiceByName", id);
-      console.log("iiid", id);
 
       if (result.success) {
         console.log(result.user);
 
-        setSingleService(result.user);
-        setAmount(result.user.amount);
+        setSingleService(result?.user);
+        setAmount(result?.user?.amount);
       } else {
       }
     } catch (error) {
@@ -112,6 +106,7 @@ function CustPlaceOrder1() {
       } else {
       }
     } catch (error) {
+      console.error("[ERROR]: viewAllMaterialByShopId", error)
       // toast.error("An unexpected error occurred during Data View");
     }
   };
