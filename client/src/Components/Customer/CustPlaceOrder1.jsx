@@ -284,10 +284,11 @@ function CustPlaceOrder1() {
     setRows(updatedRows);
   };
 
-  const next = () => {
+  const next =async () => {
+    await addMore()
     let orderId = localStorage.getItem("order");
-    localStorage.removeItem("order");
     Navigate(`/order-address/${orderId}`);
+    localStorage.removeItem("order");
   };
 
   return (
