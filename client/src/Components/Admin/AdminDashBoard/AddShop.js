@@ -135,8 +135,8 @@ function AddShop() {
       <h2 className="shop-add-staff-mainText mt-5"> Add Laundry Shop</h2>
       <div className="shop-add-staff-mainDiv">
         <form onSubmit={handleLogin}>
-          <div className="row mt-5">
-            <div className="col-md-6 p-2 ">
+          <div className="row ">
+            <div className="col-md-6 px-4 py-2 ">
               <label className="add-shop-label">Shop Name</label>
               <input
                 type="text"
@@ -152,7 +152,7 @@ function AddShop() {
               )}
             </div>
 
-            <div className="col-md-6 p-2 ">
+            <div className="col-md-6 px-4 py-2 ">
               <label className="add-shop-label">Register Number</label>
               <input
                 type="text"
@@ -169,7 +169,7 @@ function AddShop() {
             </div>
           </div>
           <div className="row">
-            <div className="col-md-6 p-2 ">
+            <div className="col-md-6 px-4 py-2 ">
               <label className="add-shop-label">Owner Name</label>
 
               <input
@@ -186,7 +186,7 @@ function AddShop() {
                 </div>
               )}
             </div>
-            <div className="col-md-6 p-2 ">
+            <div className="col-md-6 px-4 py-2 ">
               <label className="add-shop-label">District</label>
 
               <select
@@ -222,7 +222,7 @@ function AddShop() {
             </div>
           </div>
           <div className="row">
-            <div className="col-md-6 p-2 ">
+            <div className="col-md-6 px-4 py-2 ">
               <label className="add-shop-label">Contact Number</label>
               <input
                 type="text"
@@ -238,7 +238,7 @@ function AddShop() {
               )}
             </div>
 
-            <div className="col-md-6 p-2 ">
+            <div className="col-md-6 px-4 py-2 ">
               <label className="add-shop-label">Location</label>
               <input
                 type="text"
@@ -256,7 +256,7 @@ function AddShop() {
             </div>
           </div>
           <div className="row">
-            <div className="col-md-6 p-2 ">
+            <div className="col-md-6 px-4 py-2 ">
               <label className="add-shop-label">Email Id</label>
               <input
                 type="text"
@@ -272,7 +272,7 @@ function AddShop() {
               )}
             </div>
 
-            <div className="col-md-6 p-2 ">
+            <div className="col-md-6 px-4 py-2 ">
               <label className="add-shop-label">Pincode</label>
               <input
                 type="text"
@@ -291,7 +291,7 @@ function AddShop() {
           </div>
 
           <div className="row">
-            <div className="col-md-6 p-2">
+            <div className="col-md-6 px-4 py-2">
               <label className="add-shop-label">Image Upload</label>
               <input
                 type="file"
@@ -306,7 +306,7 @@ function AddShop() {
               )}
             </div>
 
-            <div className="col-md-6 p-2">
+            <div className="col-md-6 px-4 py-2">
               <label className="add-shop-label">Password</label>
               <div style={{ position: "relative" }}>
                 <input

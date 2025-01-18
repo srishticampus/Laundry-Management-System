@@ -35,7 +35,7 @@ function CustHome() {
       <h2 className="uh-service-head">Service provided by us</h2>
       <h2 className="uh-service-prov">What we provide</h2>
 
-      <div className="row mt-5 gap-5">
+      <div className="row mt-5 ">
         <div className="col-3">
           <div class="container">
             <div className="uh-cards">
@@ -129,14 +129,14 @@ function CustHome() {
           <h4 className="uh-testimonials">Testimonials</h4>
           <h2 className="uh-review-mainhead">What our customer says!</h2>
         </div>
-        <div className="row mt-5">
+        <div className="row mt-5 ms-5 mx-auto" style={{width: "95%"}}>
           <div className="col-md-4">
             <div className="uh-review-prov-div">
               <img src={rev1} className="review-prov-img" />
               <h5 className="review-prov-head">Lora Smith</h5>
               <img src={rating} className="review-prov-rating" />
               <p className="uh-review-prov-reviews">
-                Your attention to detail and care for my clothes is top-notch v{" "}
+                Your attention to detail and care for my clothes is top-notch{" "}
               </p>
             </div>
           </div>
