@@ -50,6 +50,8 @@
   text-decoration: none;
   color: white;
   text-align: left;
+  margin-top: 10px;
+  font-size: 14px;
   display: block; /* Make the link full width */
 }
 

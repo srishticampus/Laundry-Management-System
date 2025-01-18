@@ -16,23 +16,18 @@ import ShopOrderViewMorecomp from "./ShopOrderViewMorecomp";
 import ShopViewFeedback from "./ShopViewFeedback";
 import ShopManageIssue from "./ShopManageIssue";
 
-
-
-
 function ShopMain({ data }) {
   return (
     <div>
-        
       <div>
         <div className="row">
           <div className="col-2">
             <ShopSidebar />
           </div>
           <div className="col-10">
-          <ShopNavbar/>
-          {data === "shop-home" ? (
+            <ShopNavbar />
+            {data === "shop-home" ? (
               <ShopDashboard />
-            
             ) : data === "shop-view-service" ? (
               <ShopViewServices />
             ) : data === "shop-edit-service" ? (
@@ -44,20 +39,22 @@ function ShopMain({ data }) {
             ) : data === "shop-view-workinghours" ? (
               <ShopWorkingHoursView />
             ) : data === "shop-edit-workinghours" ? (
-              <ShopEditWorkingHours/>
+              <ShopEditWorkingHours />
             ) : data === "shop-orders" ? (
-              <ShopViewOrders/>
+              <ShopViewOrders />
             ) : data === "shop-view-single-order" ? (
-              <ShopOrderViewMore/>
+              <ShopOrderViewMore />
             ) : data === "shop-order-history" ? (
-              <ShopViewOrderHistory/>
+              <ShopViewOrderHistory />
             ) : data === "shop-view-single-comp-order" ? (
-              <ShopOrderViewMorecomp/>
+              <ShopOrderViewMorecomp />
             ) : data === "shop-feedback" ? (
-              <ShopViewFeedback/>
+              <ShopViewFeedback />
             ) : data === "shop-issues" ? (
-              <ShopManageIssue/>
-            ) : data === "logout" }
+              <ShopManageIssue />
+            ) : (
+              data === "logout"
+            )}
           </div>
         </div>
       </div>

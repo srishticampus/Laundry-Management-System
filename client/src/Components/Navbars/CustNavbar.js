@@ -340,7 +340,7 @@ function CustNavbar() {
               {/* Body Section */}
               <div className="modal-body" style={{ marginTop: "0px" }}>
                 <form>
-                  <div className="mb-3">
+                  <div className="mb-3 text-start">
                     <label htmlFor="name" className="form-label">
                       Name
                     </label>
@@ -356,7 +356,7 @@ function CustNavbar() {
                       <span className="text-danger">{errors.name}</span>
                     )}
                   </div>
-                  <div className="mb-3">
+                  <div className="mb-3 text-start">
                     <label htmlFor="email" className="form-label">
                       Email
                     </label>
@@ -373,7 +373,7 @@ function CustNavbar() {
                       <span className="text-danger">{errors.email}</span>
                     )}
                   </div>
-                  <div className="mb-3">
+                  <div className="mb-3 text-start">
                     <label htmlFor="contact" className="form-label">
                       Phone Number
                     </label>

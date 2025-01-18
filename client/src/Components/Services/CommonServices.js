@@ -142,6 +142,7 @@ export const resetPassword = async (data, api, id) => {
   }
 };
 
+
 export const ViewById = async (api, id) => {
   try {
     const response = await axios.post(`${API_BASE_URL}/${api}/${id}`);

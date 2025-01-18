@@ -58,7 +58,7 @@ function ShopLogin() {
         console.log(result);
         localStorage.setItem("shop", result.user._id);
 
-        toast.success("Message Send successfully !");
+        toast.success("Login Successfull !");
         navigate("/shop-home");
       } else {
         console.error("Error Occured:", result);
