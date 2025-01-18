@@ -1,21 +1,23 @@
-const mongoose=require("mongoose")
+const mongoose = require("mongoose");
 
-const schema=mongoose.Schema({
-    name:{
-        type:String,
-      
-        required:true,
-    },
-    amount:{
-        type:Number,
-        required:true
-    },
-    
-    shopId:{
-        type:mongoose.Types.ObjectId,
-        ref:'shops',
-        required:true
-    }
+const schema = mongoose.Schema(
+  {
+    name: {
+      type: String,
 
-},{timeStamps:true});
-module.exports=mongoose.model('materials',schema)
+      required: true,
+    },
+    amount: {
+      type: Number,
+      required: true,
+    },
+
+    shopId: {
+      type: mongoose.Types.ObjectId,
+      ref: "shops",
+      required: true,
+    },
+  },
+  { timeStamps: true }
+);
+module.exports = mongoose.model("materials", schema);

@@ -100,7 +100,7 @@ function App() {
           <Route path='/shop-order-history' element={<ShopMain data="shop-order-history" />} />
           <Route path='/shop-view-single-comp-order/:id' element={<ShopMain data="shop-view-single-comp-order" />} />
           <Route path='/shop-feedback' element={<ShopMain data="shop-feedback" />} />
-          <Route path='shop-issues' element={<ShopMain data="shop-issues" />} />
+          <Route path='/shop-issues' element={<ShopMain data="shop-issues" />} />
 
           {/* Customer */}
 

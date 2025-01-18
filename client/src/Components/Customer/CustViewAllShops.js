@@ -10,6 +10,7 @@ import { IoMdMail } from "react-icons/io";
 
 function CustViewAllShops() {
     const [data, setData] = useState([]);
+    console.log('data', data)
 
     const fetchData = async () => {
         try {
