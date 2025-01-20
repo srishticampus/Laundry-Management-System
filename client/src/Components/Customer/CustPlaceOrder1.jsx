@@ -204,7 +204,8 @@ function CustPlaceOrder1() {
             console.log(result2);
           }
 
-          window.location.reload(true);
+          // window.location.reload(true);
+          next()
         } else {
           console.error("Error Occured:", result);
           toast.error(result.message);
@@ -231,7 +232,8 @@ function CustPlaceOrder1() {
           if (result2.success) {
             console.log(result2);
           }
-          window.location.reload(true);
+          // window.location.reload(true);
+          next()
         } else {
           console.error("Error Occured:", result);
           toast.error(result.message);
@@ -285,7 +287,6 @@ function CustPlaceOrder1() {
   };
 
   const next =async () => {
-    await addMore()
     let orderId = localStorage.getItem("order");
     Navigate(`/order-address/${orderId}`);
     localStorage.removeItem("order");
@@ -467,15 +468,15 @@ function CustPlaceOrder1() {
             <hr className="cust-order-hr mt-5" />
             <center>
               <button className="cust-orderbtn" onClick={addMore}>
-                Add More
+                Next
               </button>
             </center>
           </div>
-          <center>
+          {/* <center>
             <button className="shop-signup-button mt-3" onClick={next}>
               Next
             </button>
-          </center>
+          </center> */}
         </div>
       </div>
     </div>

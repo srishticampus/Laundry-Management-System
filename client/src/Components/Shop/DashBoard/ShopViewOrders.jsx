@@ -135,7 +135,6 @@ function ShopViewOrders() {
                 <th className="">Pickup City</th>
                 <th className="">Amount</th>
                 <th className="">Serrvice Status</th>
-                <th className="vo-table-head ">Action</th>
                 <th className="vo-table-head ">View More</th>
               </tr>
             </thead>

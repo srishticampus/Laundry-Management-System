@@ -156,11 +156,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-left: 200px;
+    margin: auto;
     padding: 30px 30px 30px 15px;
-
-
-    width: 1000px;
+    width: 90%;
 }
 
 .order-service-title {
