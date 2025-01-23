@@ -65,7 +65,9 @@ function App() {
         <Routes>
           <Route path='/' element={[<CommonNav />, <TopComponent />, <Working />, <Services />, <ServiceFeatures />, <Footer />]} />
           <Route path='/contact-us' element={[<CommonNav2 />, <ContactUs />, <Footer />]} />
+          
           <Route path='/about-us' element={[<CommonNav2 />, <TopComponent />, <AboutUs />, <Footer />]} />
+          
           <Route path='/services' element={[<CommonNav />, <Services />, <Footer />]} />
 
           {/* Admin  */}
@@ -124,6 +126,8 @@ function App() {
           <Route path='/agent-signup' element={[<CommonNav />, <AgentSignup />, <Footer />]} />
           <Route path='/agent-login' element={[<CommonNav />, <AgentLogin />, <Footer />]} />
           <Route path='/agent-home' element={[<AgentNav />, <AgentHome />, <Footer />]} />
+          <Route path='/agent-about-us' element={[<AgentNav />, <TopComponent />, <AboutUs />, <Footer />]} />
+          <Route path='/agent-contact-us' element={[<AgentNav />, <ContactUs />, <Footer />]} />
           <Route path='/agent-order-reqs' element={[<AgentNav />, <AgentOrderReqs />, <Footer />]} />
           <Route path='/agent-orders' element={[<AgentNav />, <AgentAssignedOrders />, <Footer />]} />
           <Route path='/agent-drop-orders' element={[<AgentNav />, <AgentDropReqs />, <Footer />]} />

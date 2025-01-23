@@ -134,7 +134,7 @@ function AgentNav() {
         console.log(result);
 
         toast.success("Profile Updated successfully !");
-        navigate("/cust-home");
+        navigate("/agent-home");
       } else {
         console.error("Registration error:", result);
         toast.error(result.message);
@@ -157,17 +157,17 @@ function AgentNav() {
           <div className="collapse navbar-collapse justify-content-center">
             <ul className="navbar-nav">
               <li className="nav-item mx-3">
-                <Link to="/cust-home" className="nav-link">
+                <Link to="/agent-home" className="nav-link">
                   Home
                 </Link>
               </li>
               <li className="nav-item mx-3">
-                <Link to="/about-us" className="nav-link">
+                <Link to="/agent-about-us" className="nav-link">
                   About Us
                 </Link>
               </li>
               <li className="nav-item mx-3">
-                <Link to="/contact-us" className="nav-link">
+                <Link to="/agent-contact-us" className="nav-link">
                   Contact Us
                 </Link>
               </li>
@@ -178,7 +178,7 @@ function AgentNav() {
                 </Link>
               </li>
 
-              <div className="nav-item dropdown">
+              <div className="nav-item dropdown pt-2 me-3">
                 <span
                   className="dropdown-toggle"
                   id="manageRequestDropdown"
@@ -221,7 +221,7 @@ function AgentNav() {
                 </ul>
               </div>
 
-              <>
+              <div className="pt-2 me-3">
                 <span
                   className="dropdown-toggle"
                   id="manageRequestDropdown"
@@ -235,7 +235,12 @@ function AgentNav() {
                   Confirmed Orders
                 </span>
                 <ul
-                  className="dropdown-menu dropdown-menu-end"
+                  style={{
+                    left: "75%",
+                    width: "100px",
+                    position: "absolute",
+                  }}
+                  className="dropdown-menu"
                   aria-labelledby="manageRequestDropdown"
                 >
                   <li>
@@ -255,7 +260,7 @@ function AgentNav() {
                     </Link>
                   </li>
                 </ul>
-              </>
+              </div>
             </ul>
           </div>
 

@@ -1,80 +1,78 @@
-.shop-table-head{
-    background-color: #56905C !important;
-    
-    }
-    .shop-table-border {
-        color: white;
-        border: 1px solid #56905C !important; 
-        border-radius: 20px; 
-        overflow: hidden; 
-    }
-    
-    .shop-table-border th {
-        border: 1px solid #56905C !important; 
-        color: white;
-    }
-    .shop-table-border td {
-        border: 1px solid #313331 !important; 
-        
-    }
-    .table thead th {
-        background-color: #3070F5;
-        color: white;
-    }
-    .shop-table td {
-        border: 1px solid black !important; 
-        color: #3070F5;
-        border-bottom: 1px solid black !important; 
-    }
-    .shop-btn-border {
-        color: white;
-        border: 1px solid #3070F5 !important; 
-        border-radius: 20px; 
-        overflow: hidden; 
-        margin-right: 20px;
-        background-color:#3070F5;
-    
-    width:120px;
-    padding: 5px;
-    margin-left: 80%;
-    margin-top: 7%;
-    padding-bottom: 10px;
-    }
-    .shop-tab{
-        border : 1px solid #3070F5 !important; 
-        border-radius: 10px !important;
-    }
-    .shop-tab2{
-        border : px solid #3070F5 !important;
-        border-radius: 20px !important;
-        overflow: hidden; 
-    }
-    .shop-view-head{
-        color: #000;
+.shop-table-head {
+  background-color: #56905c !important;
+}
+.shop-table-border {
+  color: white;
+  border: 1px solid #56905c !important;
+  border-radius: 20px;
+  overflow: hidden;
+}
 
-font-feature-settings: 'liga' off, 'clig' off;
-font-family: "Open Sans";
-font-size: 18px;
-font-style: normal;
-font-weight: 400;
-line-height: 28px; /* 155.556% */
-    }
-    .shop-view-main-head{
-        color: #000;
-text-align: center;
-font-feature-settings: 'liga' off, 'clig' off;
-font-family: "Times New Roman";
-font-size: 24px;
-font-style: normal;
-font-weight: 400;
-    }
-    .users-tab2{
-        border : px solid #3070F5 !important;
-        border-radius: 10px !important;
-        overflow: hidden; 
-    }
-    .user-image{
-        height:50px;
-        width:50px;
-        border-radius: 50%;
-    }
+.shop-table-border th {
+  border: 1px solid #56905c !important;
+  color: white;
+}
+.shop-table-border td {
+  border: 1px solid #313331 !important;
+}
+.table thead th {
+  background-color: #3070f5;
+  color: white;
+}
+.shop-table td {
+  border: 1px solid black !important;
+  color: #3070f5;
+  border-bottom: 1px solid black !important;
+}
+.shop-btn-border {
+  color: white;
+  border: 1px solid #3070f5 !important;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-right: 20px;
+  background-color: #3070f5;
+
+  width: 120px;
+  padding: 5px;
+  margin-left: 80%;
+  margin-top: 7%;
+  padding-bottom: 10px;
+}
+.shop-tab {
+  border: 1px solid #3070f5 !important;
+  border-radius: 10px !important;
+}
+.shop-tab2 {
+  border: px solid #3070f5 !important;
+  border-radius: 20px !important;
+  overflow: hidden;
+}
+.shop-view-head {
+  color: #000;
+
+  font-feature-settings: "liga" off, "clig" off;
+  font-family: "Open Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px; /* 155.556% */
+}
+.shop-view-main-head {
+  color: #000;
+  text-align: center;
+  font-feature-settings: "liga" off, "clig" off;
+  font-family: "Times New Roman";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+}
+.users-tab2 {
+  border: px solid #3070f5 !important;
+  border-radius: 10px !important;
+  overflow: hidden;
+}
+.user-image {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}

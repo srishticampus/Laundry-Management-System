@@ -30,8 +30,11 @@ function ShopViewServices() {
       );
 
       if (result.success) {
-        if (result.user.length > 0) setdata(result.user);
-        else setdata([]);
+        if (result.user.length > 0) {
+          setdata(result.user);
+        } else {
+          setdata([]);
+        } 
       } else {
         console.error("Data error:", result);
         toast.error(result.message);
@@ -51,7 +54,9 @@ function ShopViewServices() {
     setIsAddingService(false);
   };
   useEffect(() => {
-    fetchData(); // Call the async function
+    if (localStorage.getItem("shop")) {
+      fetchData(); // Call the async function
+    }
   }, []);
   const viewShop = (id) => {
     Navigate(`/shop-edit-service/${id}`);

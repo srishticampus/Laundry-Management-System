@@ -1,52 +1,53 @@
 /* CommonNav.css */
 .navbar {
-    padding: 5px 10px; /* Reduces overall navbar padding */
-    height: 50px; /* Set a fixed height */
+  padding: 5px 10px; /* Reduces overall navbar padding */
+  height: 50px; /* Set a fixed height */
 }
 
 .navbar_logo img {
-    height: 40px; /* Adjust logo size for better fit */
-    width: auto; /* Keep aspect ratio */
+  height: 40px; /* Adjust logo size for better fit */
+  width: auto; /* Keep aspect ratio */
 }
 
 .landingnavbar_text {
-    color: black;
-    font-weight: normal;
-    text-align: center;
-    font-family: "Times New Roman";
-    padding: 4px 8px; /* Reduced padding for compact height */
+  color: black;
+  font-weight: normal;
+  text-align: center;
+  font-family: "Times New Roman";
+  padding: 4px 8px; /* Reduced padding for compact height */
 }
 
 .nav-item {
-    margin: 0 6px; /* Smaller margins for nav items */
+  margin: 0 6px; /* Smaller margins for nav items */
 }
 
 .landin-nav-btn {
-    border-radius: 5px;
-    background: #75ACCE; /* Button background color */
-    width: 100px; /* Adjusted button width */
-    height: 30px; /* Reduced height for compactness */
-    padding: 5px 10px; /* Slight padding */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  border-radius: 5px;
+  background: #75acce; /* Button background color */
+  width: 100px; /* Adjusted button width */
+  height: 30px; /* Reduced height for compactness */
+  padding: 5px 10px; /* Slight padding */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .invalid-feedback {
-    display: block;
+  display: block;
 }
 
 /* Responsive navbar toggler */
 .navbar-toggler {
-    padding: 4px; /* Smaller padding for the toggler button */
+  padding: 4px; /* Smaller padding for the toggler button */
 }
 .footer-div {
-    background: #f8f9fa; /* Light background for footer */
-    padding: 15px 0;
-    text-align: center; /* Optional */
-    border-top: 1px solid #ddd; /* Optional border */
+  background: #f8f9fa; /* Light background for footer */
+  padding: 15px 0;
+  margin-top: 50px;
+  text-align: center; /* Optional */
+  border-top: 1px solid #ddd; /* Optional border */
 }
 
 .navbar_bg {
-    margin: 0;
+  margin: 0;
 }

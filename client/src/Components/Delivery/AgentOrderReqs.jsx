@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { Modal, Button } from "react-bootstrap";
-import { approveById, viewCount } from '../Services/AdminService';
+import { approveById, viewCount } from "../Services/AdminService";
 import { toast } from "react-toastify";
-import '../../Styles/ViewAllshops.css';
-import { useNavigate } from 'react-router-dom';
-import { IMG_BASE_URL } from '../Services/BaseURL';
-import tick from '../../Assets/tick.png'
-import '../../Styles/Agent.css'
-import { resetPassword } from '../Services/CommonServices';
+import "../../Styles/ViewAllshops.css";
+import { useNavigate } from "react-router-dom";
+import { IMG_BASE_URL } from "../Services/BaseURL";
+import tick from "../../Assets/tick.png";
+import "../../Styles/Agent.css";
+import { resetPassword } from "../Services/CommonServices";
 function AgentOrderReqs() {
   const [data, setData] = useState([]);
 
@@ -17,14 +17,14 @@ function AgentOrderReqs() {
   // Fetch Data
   const fetchData = async () => {
     try {
-      const result = await viewCount('viewAllOrderforAgent');
+      const result = await viewCount("viewAllOrderforAgent");
       if (result.success) {
         setData(result.user.length > 0 ? result.user : []);
       } else {
         toast.error(result.message);
       }
     } catch (error) {
-      toast.error('An unexpected error occurred during Data View');
+      toast.error("An unexpected error occurred during Data View");
     }
   };
 
@@ -32,46 +32,50 @@ function AgentOrderReqs() {
     fetchData();
   }, []);
 
-
-
-
   // Approve Request
   const approve = async (id) => {
     try {
-      const result = await resetPassword({agentId:localStorage.getItem('agent')},'approveOrderByAgent', id);
+      const result = await resetPassword(
+        { agentId: localStorage.getItem("agent") },
+        "approveOrderByAgent",
+        id
+      );
       if (result.success) {
-        toast.success('Request approved successfully');
+        toast.success("Request approved successfully");
         fetchData();
       } else {
         toast.error(result.message);
       }
     } catch (error) {
-      toast.error('An unexpected error occurred during approval');
+      toast.error("An unexpected error occurred during approval");
     }
   };
 
   // Reject Request
   const reject = async (id) => {
     try {
-      const result = await approveById('deleteAgentById', id);
+      const result = await approveById("deleteAgentById", id);
       if (result.success) {
-        toast.success('Request rejected successfully');
+        toast.success("Request rejected successfully");
         fetchData();
       } else {
         toast.error(result.message);
       }
     } catch (error) {
-      toast.error('An unexpected error occurred during rejection');
+      toast.error("An unexpected error occurred during rejection");
     }
   };
 
   return (
     <div className="Agent-order">
-       <div className="cust-view-shop-main">
-                        <p className="cust-choose-shop">PICK UP REQUEST</p>
-                    </div>
+      <div className="cust-view-shop-main">
+        <p className="cust-choose-shop">PICK UP REQUEST</p>
+      </div>
       {data.length > 0 ? (
-        <table className="table table-hover shop-tab2 p-5 mt-3">
+        <table
+          className="table table-hover shop-tab2 p-5 mt-3"
+          style={{ width: "90%", margin: "auto" }}
+        >
           <thead className="ms-5 aks shop-tab2">
             <tr>
               <th className="ps-3">Sl No</th>
@@ -90,25 +94,21 @@ function AgentOrderReqs() {
             {data.map((item, index) => (
               <tr key={item._id} className="shop-tab2">
                 <td>{index + 1}</td>
-                <td>
-                ORD{(item._id.slice(20,24)).toUpperCase()}
-                </td>
-                <td>{item?.createdAt?.slice(0,10)}</td>
-                <td>{item.pickupDate.slice(0,10)}</td>
-                <td>{item.shopId.name}</td>
-                <td>{item.shopId.location}</td>
-                <td>{item.shopId.district}</td>
-                <td>{item.district}</td>
-                <td>{item.city}</td>
-                
-               
-               
+                <td>ORD{item?._id?.slice(20, 24)?.toUpperCase()}</td>
+                <td>{item?.createdAt?.slice(0, 10)}</td>
+                <td>{item?.pickupDate?.slice(0, 10)}</td>
+                <td>{item?.shopId?.name}</td>
+                <td>{item?.shopId?.location}</td>
+                <td>{item?.shopId?.district}</td>
+                <td>{item?.district}</td>
+                <td>{item?.city}</td>
+
                 <td>
                   <img
                     src={tick}
                     alt="Approve"
                     className="ms-3"
-                    onClick={() => approve(item._id)}
+                    onClick={() => approve(item?._id)}
                   />
                   {/* <AiOutlineCloseCircle
                     className="ms-2"
@@ -122,11 +122,9 @@ function AgentOrderReqs() {
         </table>
       ) : (
         <center>
-          <h3 className='mt-5'>No New Requests Found !!</h3>
+          <h3 className="mt-5">No New Requests Found !!</h3>
         </center>
       )}
-
-     
     </div>
   );
 }
