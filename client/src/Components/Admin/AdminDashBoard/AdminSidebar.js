@@ -34,8 +34,12 @@ function AdminSidebar() {
   return (
     <div>
       <div className="admin-sidebar-background">
-        <div className="pt-5 ms-3 admin-sidebar-h4">
-          <img src={admin} className="admin-logo"></img>
+        <div className="admin-sidebar-h4">
+          {/* <img src={admin} className="admin-logo"></img> */}
+          <div className="p-3 d-flex flex-column align-items-center justify-content-center">
+            <img src={admin} alt="logo" style={{ width: "40%" }} />
+           {/* ? <h5 className="mt-3"> {shopData?.name} </h5> */}
+          </div>
           <Link to="/admin-home" className="admin-dash-link">
             <p className="p-2 fw-light admin-border"> Dashboard</p>
           </Link>
@@ -60,7 +64,14 @@ function AdminSidebar() {
               <ul>
                 <li>
                   {" "}
-                  <Link to="/admin-add-shop" className="admin-sub-link" style={{ ":hover": { backgroundColor: "red" }, marginTop: "5px" }}>
+                  <Link
+                    to="/admin-add-shop"
+                    className="admin-sub-link"
+                    style={{
+                      ":hover": { backgroundColor: "red" },
+                      marginTop: "5px",
+                    }}
+                  >
                     Add Shop
                   </Link>
                 </li>

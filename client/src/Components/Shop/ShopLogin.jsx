@@ -92,7 +92,7 @@ function ShopLogin() {
                   <div className="shop-login-div2">
                     <form>
                       <div className="mt-5">
-                        <label>E-mail</label>
+                        <label>E mail</label>
                         <input
                           type="text"
                           className="form-control border border-dark"
@@ -110,7 +110,7 @@ function ShopLogin() {
                         <div style={{ position: "relative" }}>
                           <input
                             type={showPassword ? "text" : "password"}
-                            placeholder="password"
+                            placeholder="Password"
                             name="password"
                             onChange={handleChange}
                             className="form-control border border-dark"
@@ -138,7 +138,6 @@ function ShopLogin() {
                         </button>
                       </div>
                     </form>{" "}
-                    
                   </div>
                 </div>
               </div>

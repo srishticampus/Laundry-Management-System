@@ -145,8 +145,8 @@ function ShopViewMaterial() {
                       </div>
                     )}
                   </div>
-                  <div className="row ">
-                    <div className="col-md-12 p-2 ">
+
+                  <div className="col-md-12 p-2 ">
                       <label className="add-service-label">Amount</label>
                       <input
                         type="text"
@@ -161,7 +161,7 @@ function ShopViewMaterial() {
                         </div>
                       )}
                     </div>
-                  </div>
+               
                 </div>
 
                 <div className="shop-signup-button-div">

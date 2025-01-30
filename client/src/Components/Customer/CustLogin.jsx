@@ -103,7 +103,7 @@ function CustLogin() {
                         <div style={{ position: "relative" }}>
                           <input
                             type={showPassword ? "text" : "password"}
-                            placeholder="password"
+                            placeholder="Password"
                             name="password"
                             onChange={handleChange}
                             className="form-control border border-dark"
