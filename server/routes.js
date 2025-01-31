@@ -63,6 +63,7 @@ router.post('/deleteCustomerById/:id', Customer.deleteCustomerById);
 router.post('/custLogin', Customer.login);
 router.post('/forgotPasswordCustomer', Customer.forgotPWDsentMail);
 router.post('/resetPasswordCustomer/:id', Customer.custresetpswd);
+router.post('/cust-forgotPasswordNew', Customer.forgotPasswordNew);
 
 
 

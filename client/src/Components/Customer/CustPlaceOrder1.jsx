@@ -276,7 +276,7 @@ function CustPlaceOrder1() {
       singleservice.amount // Add base service amount
     );
     setAmount(totalAmount);
-  }, [rows, singleservice.amount]);
+  }, [rows, singleservice?.amount]);
 
   const onCountChange = (e, index) => {
     const { value } = e.target;

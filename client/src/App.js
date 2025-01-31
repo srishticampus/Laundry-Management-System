@@ -252,7 +252,7 @@ function App() {
           />
           <Route
             path="/cust-forgot"
-            element={[<CustNavbar />, <CustForgotPassword />]}
+            element={[<CommonNav2 />, <CustForgotPassword />]}
           />
 
           <Route
