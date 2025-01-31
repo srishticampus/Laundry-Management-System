@@ -127,6 +127,7 @@ router.post('/deleteAgentById/:id', agentController.deleteAgentById);
 router.post('/viewApprovedAgents', agentController.viewApprovedAgents);
 router.post('/viewAgentsforApproval', agentController.viewAgentsforApproval);
 router.post('/agentLogin', agentController.login);
+router.post('/agent-forgotPasswordNew', agentController.forgotPasswordNew);
 router.post('/approveAgentById/:id', agentController.approveAgentById);
 
 router.post('/toggleAgentActivationAgent/:id', agentController.toggleAgentActivation);

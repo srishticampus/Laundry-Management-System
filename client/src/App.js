@@ -47,6 +47,7 @@ import CustEnquiries from "./Components/Customer/CustEnquiries";
 import CustForgotPassword from "./Components/Customer/CustForgotPassword";
 import CustResetPassword from "./Components/Customer/CustResetPassword";
 import ShopViewFeedback from "./Components/Shop/DashBoard/ShopViewFeedback";
+import AgentForgotPassword from "./Components/Delivery/Agentforgot";
 
 function App() {
   return (
@@ -268,6 +269,10 @@ function App() {
           <Route
             path="/agent-login"
             element={[<CommonNav />, <AgentLogin />, <Footer />]}
+          />
+          <Route
+            path="/agent-forgot-password"
+            element={[<CommonNav />, <AgentForgotPassword />, <Footer />]}
           />
           <Route
             path="/agent-home"

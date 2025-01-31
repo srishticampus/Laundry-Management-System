@@ -24,7 +24,7 @@ function CommonNav() {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse flex-grow-0 mt-3 landingnavbar_text">
+          <div className="collapse navbar-collapse flex-grow-0 landingnavbar_text">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item m-3">
                 <Link

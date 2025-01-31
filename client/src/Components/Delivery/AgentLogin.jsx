@@ -120,7 +120,9 @@ function AgentLogin() {
                           <span className="text-danger">{errors.password}</span>
                         )}
                       </div>
-                      <p className="cust-login-forgot">Forgot password</p>
+                      <Link to="/agent-forgot-password">
+                        <p className="cust-login-forgot">Forgot password</p>
+                      </Link>
                       <div className="text-center mt-3 d-flex justify-content-evenly mb-2">
                         <button
                           type="submit"

@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../../Styles/ContactUs.css";
 import { toast } from "react-toastify";
 import "../../Styles/AdminLogin.css";
 import { VscEyeClosed } from "react-icons/vsc";
 import { VscEye } from "react-icons/vsc";
-import img from "../../Assets/adminlogin.png";
 import "../../Styles/ShopLogin.css";
 import "../../Styles/CustomerLoginSignup.css";
 
-import { login, register } from "../Services/CommonServices";
 import { API_BASE_URL } from "../Services/BaseURL";
 import axios from "axios";
-function CustForgotPassword() {
+function AgentForgotPassword() {
   const navigate = useNavigate();
   const [data, setData] = useState({
     email: "",
@@ -79,13 +77,13 @@ function CustForgotPassword() {
     console.log("test 3", API_BASE_URL);
     try {
       const result = await axios.post(
-        `${API_BASE_URL}/cust-forgotPasswordNew`,
+        `${API_BASE_URL}/agent-forgotPasswordNew`,
         data
       );
       console.log("resu", result);
       if (result.status === 200) {
         toast.success("Password Reset Succesful");
-        navigate("/cust-login");
+        navigate("/agent-login");
       } else {
         console.error("Error Occured:", result);
         toast.error("Something went wrong. Try again later.");
@@ -107,7 +105,10 @@ function CustForgotPassword() {
             <h4 className="cust-title">Forget Password?</h4>
             <div className="contact_us_circle"></div>
           </div>
-          <div className="cust-lgin-input_container" style={{minHeight: "450px"}}>
+          <div
+            className="cust-lgin-input_container"
+            style={{ minHeight: "450px" }}
+          >
             <div className="shop-login-div1">
               <div className="row ">
                 <div className="col-6">
@@ -208,4 +209,4 @@ function CustForgotPassword() {
   );
 }
 
-export default CustForgotPassword;
+export default AgentForgotPassword;

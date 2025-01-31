@@ -1,7 +1,6 @@
 /* CommonNav.css */
 .navbar {
   padding: 5px 10px; /* Reduces overall navbar padding */
-  height: 50px; /* Set a fixed height */
 }
 
 .navbar_logo img {

@@ -231,7 +231,22 @@ const toggleAgentActivation = async (req, res) => {
     }
 };
 
-
+const forgotPasswordNew = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const user = await Agent.findOne({ email })
+    if (!user) {
+      return res.status(404).json({msg: "User not found"});
+    }
+    user.password = password;
+    await user.save();
+    return res.status(200).json({ msg: "Password Updated Successfully" });
+  } catch (error) {
+    
+    console.log("error on forgot password", error);
+    return res.status(500).json({ msg: "Something went wrong" });
+  }
+}
 
 module.exports = {
     registerAgent,
@@ -244,5 +259,6 @@ module.exports = {
     upload,
     approveAgentById,
     viewAgentsforApproval,
-    viewApprovedAgents
+    viewApprovedAgents,
+    forgotPasswordNew
 };
