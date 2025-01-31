@@ -71,15 +71,15 @@ function AdminViewSingleShop() {
     <div className="container">
       <div className="shop-add-staff-mainDiv">
         <form onSubmit={handleLogin}>
-          <div className="row">
+          <div className="row d-flex justify-content-center ">
             <img
               src={`${IMG_BASE_URL}/${data.image.filename}`}
-              className="img-fluid image-rounded "
+              className="img-fluid  "
               alt="User"
             />
           </div>
           <div className="row mt-5">
-            <div className="col-md-5 p-2 ">
+            <div className="col-md-6 p-2 ">
               <label className="add-shop-label">Shop Name</label>
               <input
                 type="text"
@@ -96,7 +96,7 @@ function AdminViewSingleShop() {
               )}
             </div>
 
-            <div className="col-md-5 p-2 ">
+            <div className="col-md-6 p-2 ">
               <label className="add-shop-label">Register Number</label>
               <input
                 type="text"
@@ -114,7 +114,7 @@ function AdminViewSingleShop() {
             </div>
           </div>
           <div className="row">
-            <div className="col-md-5 p-2 ">
+            <div className="col-md-6 p-2 ">
               <label className="add-shop-label">Owner Name</label>
 
               <input
@@ -132,7 +132,7 @@ function AdminViewSingleShop() {
                 </div>
               )}
             </div>
-            <div className="col-md-5 p-2 ">
+            <div className="col-md-6 p-2 ">
               <label className="add-shop-label">District</label>
               <input
                 type="text"
@@ -145,7 +145,7 @@ function AdminViewSingleShop() {
             </div>
           </div>
           <div className="row">
-            <div className="col-md-5 p-2 ">
+            <div className="col-md-6 p-2 ">
               <label className="add-shop-label">Contact Number</label>
               <input
                 type="text"
@@ -162,7 +162,7 @@ function AdminViewSingleShop() {
               )}
             </div>
 
-            <div className="col-md-5 p-2 ">
+            <div className="col-md-6 p-2 ">
               <label className="add-shop-label">Location</label>
               <input
                 type="text"
@@ -182,7 +182,7 @@ function AdminViewSingleShop() {
             </div>
           </div>
           <div className="row">
-            <div className="col-md-5 p-2 ">
+            <div className="col-md-6 p-2 ">
               <label className="add-shop-label">Email Id</label>
               <input
                 type="text"
@@ -199,7 +199,7 @@ function AdminViewSingleShop() {
               )}
             </div>
 
-            <div className="col-md-5 p-2 ">
+            <div className="col-md-6 p-2 ">
               <label className="add-shop-label">Pincode</label>
               <input
                 type="text"
@@ -218,7 +218,7 @@ function AdminViewSingleShop() {
             </div>
           </div>
 
-          <div className="shop-signup-button-div">
+          <div className="d-flex mx-auto justify-content-center my-3">
             <button type="submit" className="shop-signup-button">
               Edit
             </button>

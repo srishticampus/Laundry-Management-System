@@ -10,6 +10,7 @@ function AdminSidebar() {
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
   const [showLaundryDropdown, setShowLaundryDropdown] = useState(false);
+  const [showDA, setShowDA] = useState(false);
   useEffect(() => {
     if (localStorage.getItem("admin") != 1) navigate("/admin-login");
   }, []);
@@ -30,6 +31,9 @@ function AdminSidebar() {
 
   const toggleLaundryDropdown = () => {
     setShowLaundryDropdown(!showLaundryDropdown);
+  };
+  const toggleDAOpen = () => {
+    setShowDA(!showDA);
   };
   return (
     <div>
@@ -87,7 +91,7 @@ function AdminSidebar() {
           <Link
             to=""
             className="admin-dash-link"
-            onClick={toggleLaundryDropdown}
+            onClick={toggleDAOpen}
           >
             <p className="p-2 fw-light admin-border">
               <span>Delivery Agents</span>
@@ -96,7 +100,7 @@ function AdminSidebar() {
               </span>
             </p>
           </Link>
-          {showLaundryDropdown && (
+          {showDA && (
             <div className="submenu">
               <ul>
                 <li>

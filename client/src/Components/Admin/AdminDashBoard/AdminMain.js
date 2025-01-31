@@ -18,10 +18,10 @@ function AdminMain({ data }) {
     <div>
       <div>
         <div className="row">
-          <div className="col-3">
+          <div className="col-3" style={{position: "fixed", overflow: "auto", maxHeight: "100vh"}}>
             <AdminSidebar />
           </div>
-          <div className="col-9">
+          <div className="col-9" style={{marginLeft: "300px"}}>
             <AdminNavber />
             {data === "admindashboard" ? (
               <AdminDashboard />

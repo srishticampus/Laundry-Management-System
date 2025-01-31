@@ -98,7 +98,7 @@ function ShopEditMaterial() {
   return (
     <div className="shop-add-service-container">
       <div className="container ms-5 shop-add-service">
-        <h2 className="shop-add-service-mainText mt-5"> Edit Service</h2>
+        <h2 className="shop-add-service-mainText mt-5"> Edit Material</h2>
         <hr className="shop-add-service-hr" />
 
         <form onSubmit={handleLogin}>
@@ -137,7 +137,12 @@ function ShopEditMaterial() {
             </div>
           </div>
 
-          <div className="shop-signup-button-div">
+          <div className="shop-signup-button-div mx-auto justify-content-between d-flex">
+            <button type="button" onClick={() => {
+                Navigate('/shop-view-material')
+            }} className="bg-warning shop-signup-button ">
+              Cancel
+            </button>
             <button type="submit" className="shop-signup-button">
               Save
             </button>

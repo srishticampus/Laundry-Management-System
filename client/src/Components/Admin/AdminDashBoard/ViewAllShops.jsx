@@ -92,13 +92,7 @@ function ViewAllShops() {
                             viewShop(item._id);
                           }}
                         />
-                        <img
-                          src={notepad}
-                          className="ms-2"
-                          onClick={() => {
-                            editShop(item._id);
-                          }}
-                        />
+                       
                         {console.log("j", item.isActive)}
                         {item.isActive ? (
                           <img

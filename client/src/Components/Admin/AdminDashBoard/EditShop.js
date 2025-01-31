@@ -140,7 +140,7 @@ function EditShop() {
         console.log(result);
 
         toast.success("Shop Added successfully !");
-        // navigate(-1);
+        navigate(-1);
       } else {
         console.error("Registration error:", result);
         toast.error(result.message);

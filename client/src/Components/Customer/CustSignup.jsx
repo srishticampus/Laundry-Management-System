@@ -119,16 +119,16 @@ function CustSignup() {
             <div className="cust-login-div1">
               <div className="cust-login-div2">
                 <form>
-                  <div className="image-upload">
+                  <div className="image-upload flex-column d-flex align-items-center">
                     <label htmlFor="file-input">
                       <img
                         src={profileImage}
-                        className="img-fluid fake-image-rounded"
+                        className="img-fluid "
                         alt="User"
-                        style={{ cursor: "pointer" }}
+                        style={{ cursor: "pointer", width: "120px", height: "120px", borderRadius: "50%" }}
                       />
                     </label>
-                    <p className="text-muted mt-2">Add Photo</p>
+                    <h6 className="text-muted mt-2">Add Photo</h6>
                     <input
                       id="file-input"
                       type="file"
@@ -149,7 +149,7 @@ function CustSignup() {
                       <input
                         type="text"
                         className="form-control border border-dark"
-                        placeholder="Enter Email"
+                        placeholder="Enter name"
                         name="name"
                         value={data.name}
                         onChange={handleChange}
@@ -164,7 +164,7 @@ function CustSignup() {
                       <div style={{ position: "relative" }}>
                         <input
                           type={showPassword ? "text" : "password"}
-                          placeholder="password"
+                          placeholder="Password"
                           name="password"
                           onChange={handleChange}
                           className="form-control border border-dark"

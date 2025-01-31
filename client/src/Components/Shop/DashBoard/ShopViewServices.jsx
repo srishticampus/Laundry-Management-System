@@ -34,7 +34,7 @@ function ShopViewServices() {
           setdata(result.user);
         } else {
           setdata([]);
-        } 
+        }
       } else {
         console.error("Data error:", result);
         toast.error(result.message);
