@@ -55,8 +55,12 @@ function AddShop() {
     } else if (!emailRegex.test(data.email)) {
       newErrors.email = "Invalid email format";
     }
-    if (!data.name) {
+    if (!data?.name) {
       newErrors.name = "Shop Name is required";
+    }else if (data?.name?.length < 3) {
+      newErrors.name = "Shop Name must be at least 3 characters long";
+    }else if (data?.name?.length > 20) {
+      newErrors.name = "Shop Name must be at most 20 characters long";
     }
     if (!data.location) {
       newErrors.location = "Location is required";
@@ -69,6 +73,8 @@ function AddShop() {
 
     if (!data.pincode) {
       newErrors.pincode = "Pincode is required";
+    }else if (data?.pincode?.length !== 6) {
+      newErrors.pincode = "Enter a valid Pincode";
     }
     if (!data.regNo) {
       newErrors.regNo = "Register Number is required";
@@ -119,7 +125,7 @@ function AddShop() {
         console.log(result);
 
         toast.success("Shop Added successfully !");
-        // navigate(-1);
+        navigate(-1);
       } else {
         console.error("Registration error:", result);
         toast.error(result.message);
@@ -330,7 +336,7 @@ function AddShop() {
               )}
             </div>
           </div>
-          <div className="shop-signup-button-div">
+          <div className="shop-signup-button-div mx-0 my-3 d-flex justify-content-center">
             <button type="submit" className="shop-signup-button">
               Confirm
             </button>

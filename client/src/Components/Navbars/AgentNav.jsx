@@ -292,10 +292,12 @@ function AgentNav() {
           <div
             className="modal-dialog"
             style={{
-              marginTop: "1px",
-              maxWidth: "400px",
+              maxWidth: "350px",
               width: "100%",
               marginTop: "10px",
+              position: "absolute",
+              right: "20px",
+              top: "50px"
             }}
           >
             <div className="modal-content">
@@ -310,7 +312,7 @@ function AgentNav() {
                     textDecoration: "none",
                   }}
                 >
-                  <img src={arrow} />
+                  <img src={arrow} alt="arow" />
                 </button>
                 <img
                   src={
@@ -328,12 +330,12 @@ function AgentNav() {
                 <table className="table table-borderless">
                   <tbody>
                     <tr>
-                      <td className="cust-pro-label-color">Phone Number</td>
-                      <td className="cust-pro-label">: {data.contact}</td>
+                      <td className="cust-pro-label-color text-start">Phone Number</td>
+                      <td className="cust-pro-label text-start">: {data.contact}</td>
                     </tr>
                     <tr>
-                      <td className="cust-pro-label-color">Email Id</td>
-                      <td className="cust-pro-label">: {data.email}</td>
+                      <td className="cust-pro-label-color text-start">Email Id</td>
+                      <td className="cust-pro-label text-start">: {data.email}</td>
                     </tr>
                   </tbody>
                 </table>

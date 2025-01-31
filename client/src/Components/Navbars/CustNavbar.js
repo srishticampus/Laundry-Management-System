@@ -229,7 +229,7 @@ function CustNavbar() {
                     textDecoration: "none",
                   }}
                 >
-                  <img src={arrow} />
+                  <img src={arrow} alt="arow"/>
                 </button>
                 <img
                   src={
