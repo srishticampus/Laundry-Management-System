@@ -119,6 +119,8 @@ function ShopViewOrders({title = "View Orders"}) {
       toast.error("An unexpected error occurred during Registration");
     }
   };
+
+  console.log('data', data)
   return (
     <div className="container mt-5 ">
       <h2 className="shop-add-service-mainText"> {title} </h2>
@@ -130,11 +132,11 @@ function ShopViewOrders({title = "View Orders"}) {
               <tr>
                 <th className=" ps-3">Sl No</th>
                 <th className="">Order no</th>
-                <th className="">Order Date</th>
                 <th className="">Customer Name</th>
                 <th className="">Pickup City</th>
                 <th className="">Amount</th>
-                <th className="">Serrvice Status</th>
+                <th className="">Choose</th>
+                <th className="">Service Status</th>
                 <th className="vo-table-head ">View More</th>
               </tr>
             </thead>
@@ -145,7 +147,6 @@ function ShopViewOrders({title = "View Orders"}) {
                     <tr className="shop-tab2" key={index}>
                       <td>{index + 1}</td>
                       <td>ORD{item._id.slice(20, 24).toUpperCase()}</td>
-                      {/* <td>{item.orderDate.slice(0,10)}</td> */}
                       {/* <td>date</td> */}
 
                       <td>{item.custId.name}</td>

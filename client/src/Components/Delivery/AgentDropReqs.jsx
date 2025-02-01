@@ -94,12 +94,12 @@ function AgentDropReqs() {
                 ORD{(item._id.slice(20,24)).toUpperCase()}
                 </td>
                 <td>{item?.createdAt?.slice(0,10)}</td>
-                <td>{item.pickupDate.slice(0,10)}</td>
-                <td>{item.shopId.name}</td>
-                <td>{item.shopId.location}</td>
-                <td>{item.shopId.district}</td>
-                <td>{item.district}</td>
-                <td>{item.city}</td>
+                <td>{item.pickupDate?.slice(0,10)}</td>
+                <td>{item.shopId?.name}</td>
+                <td>{item.shopId?.location}</td>
+                <td>{item.shopId?.district}</td>
+                <td>{item?.district}</td>
+                <td>{item?.city}</td>
                 
                
                

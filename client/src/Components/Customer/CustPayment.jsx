@@ -110,13 +110,13 @@ function CustPayment() {
     console.log("after err");
     let flag = 0;
 
-    if (card.cardno == data.cardno) {
-      if (card.cvv != data.cvv) {
-        flag = 1;
-        toast.error("Please Check your CVV Number !");
-        return;
-      }
-    }
+    // if (card.cardno == data.cardno) {
+    //   if (card.cvv != data.cvv) {
+    //     flag = 1;
+    //     toast.error("Please Check your CVV Number !");
+    //     return;
+    //   }
+    // }
     console.log("after cvv");
     if (flag == 0) {
       if (isCardSaved) {
