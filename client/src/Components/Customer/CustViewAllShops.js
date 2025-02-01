@@ -57,7 +57,9 @@ function CustViewAllShops() {
                     ))}
                 </div>
             ) : (
+              <div style={{minHeight: "80vh"}}>
                 <h3>No Shops Found!</h3>
+                </div>
             )}
         </div>
     );

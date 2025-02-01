@@ -24,7 +24,7 @@ function ShopMain({ data }) {
           <div className="col-2">
             <ShopSidebar />
           </div>
-          <div className="col-10">
+          <div className="col-10" style={{height: "100vh", overflow: "auto"}}>
             <ShopNavbar />
             {data === "shop-home" ? (
               <ShopDashboard />

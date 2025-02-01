@@ -107,7 +107,6 @@ function ShopViewServices() {
   };
 
   const resetFields = () => {
-    console.log("chek");
     setData({
       ...data2,
       name: "",
@@ -134,7 +133,8 @@ function ShopViewServices() {
         console.log(result);
 
         toast.success("Service Added successfully !");
-        // navigate(-1);
+        await fetchData();
+        handleViewServicesClick()
       } else {
         console.error("Registration error:", result);
         toast.error(result.message);

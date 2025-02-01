@@ -57,7 +57,7 @@ function ShopSidebar() {
     setShowLaundryDropdown(!showLaundryDropdown);
   };
   return (
-    <div>
+    <div style={{height: "100vh", overflow: "scroll"}}>
       <div className="admin-sidebar-background">
         <div className="admin-sidebar-h4">
           <div className="p-3 d-flex flex-column align-items-center justify-content-center">
