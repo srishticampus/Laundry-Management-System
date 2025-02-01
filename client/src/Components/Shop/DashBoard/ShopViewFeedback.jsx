@@ -38,7 +38,7 @@ function ShopViewFeedback() {
 
   return (
     <div className="container mt-3" style={{minHeight: "80vh  "}}>
-      <h5 className="mt-5">View Feedbacks</h5>
+      <h5 className="mt-5 text-center my-4">Feedbacks</h5>
       {feedbacks.length > 0 ? (
         <div className="complaints-grid">
           {feedbacks.map((item, index) => (

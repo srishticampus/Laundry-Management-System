@@ -13,7 +13,7 @@ import {
   ViewById,
 } from "../../Services/CommonServices";
 import "../../../Styles/ShopDashboard.css";
-function ShopViewOrders() {
+function ShopViewOrders({title = "View Orders"}) {
   const [data, setdata] = useState([]);
 
   const Navigate = useNavigate();
@@ -121,7 +121,7 @@ function ShopViewOrders() {
   };
   return (
     <div className="container mt-5 ">
-      <h2 className="shop-add-service-mainText"> View Orders</h2>
+      <h2 className="shop-add-service-mainText"> {title} </h2>
 
       {data.length > 0 ? (
         <>

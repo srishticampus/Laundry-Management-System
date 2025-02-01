@@ -59,7 +59,7 @@ function AdminDashboard() {
 
   // Data for the Bar Chart
   const data = {
-    labels: ['Total Orders', 'Pending', 'Completed', 'Canceled', 'Others'],
+    labels: ['Total Orders Processed', 'Pending', 'Completed', 'Canceled', 'Others'],
     datasets: [
       {
         label: 'Order Analysis',

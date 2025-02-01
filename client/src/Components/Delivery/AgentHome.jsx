@@ -20,7 +20,7 @@ function AgentHome() {
             <p className='uh-text1'>Welcome To <span className='uh-text2'>Laundry Lynx</span></p>
             <p className='uh-text3'> Fresh Clothes, Zero Hassle – Laundry Made Effortless!</p>
             <p className='uh-text4'>From doorstep pickup to on-time delivery, enjoy spotless, soft laundry without lifting a finger.</p>
-            <div className='uh-div3-btn'> Schedule Pickup</div>
+            {/* <div className='uh-div3-btn'> Schedule Pickup</div> */}
           </div>
         </div>
       </div>

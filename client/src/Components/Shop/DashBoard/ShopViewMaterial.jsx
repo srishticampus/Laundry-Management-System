@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from "react";
-import del from "../../../Assets/delete.png";
 import notepad from "../../../Assets/notepad-edit.png";
-import inactive from "../../../Assets/inactive.png";
-import active from "../../../Assets/active.png";
-import { approveById, viewCount } from "../../Services/AdminService";
 import { toast } from "react-toastify";
 import "../../../Styles/ViewAllshops.css";
 import { useNavigate } from "react-router-dom";
@@ -20,28 +16,28 @@ function ShopViewMaterial() {
 
   const [isAddingService, setIsAddingService] = useState(false);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await ViewById(
-          "viewAllMaterialByShopId",
-          localStorage.getItem("shop")
-        );
+  const fetchData = async () => {
+    try {
+      const result = await ViewById(
+        "viewAllMaterialByShopId",
+        localStorage.getItem("shop")
+      );
 
-        if (result.success) {
-          console.log(result);
-          if (result.user.length > 0) setdata(result.user);
-          else setdata([]);
-        } else {
-          console.error("Data error:", result);
-          toast.error(result.message);
-        }
-      } catch (error) {
-        console.error("Unexpected error:", error);
-        toast.error("An unexpected error occurred during Data View");
+      if (result.success) {
+        console.log(result);
+        if (result.user.length > 0) setdata(result.user);
+        else setdata([]);
+      } else {
+        console.error("Data error:", result);
+        toast.error(result.message);
       }
-    };
+    } catch (error) {
+      console.error("Unexpected error:", error);
+      toast.error("An unexpected error occurred during Data View");
+    }
+  };
 
+  useEffect(() => {
     fetchData(); // Call the async function
   }, []);
   const handleAddServiceClick = () => {
@@ -62,14 +58,12 @@ function ShopViewMaterial() {
       ...data2,
       [name]: value,
     });
-    // }
   };
   const validate = () => {
     const newErrors = {};
 
     if (!data2.name) {
       console.log("here");
-
       newErrors.name = "Material Name is required";
     }
     if (!data2.amount) {
@@ -97,7 +91,9 @@ function ShopViewMaterial() {
         console.log(result);
 
         toast.success("Material Added successfully !");
-        // navigate(-1);
+
+        handleViewServicesClick();
+        fetchData();
       } else {
         console.error("Registration error:", result);
         toast.error(result.message);
@@ -147,21 +143,20 @@ function ShopViewMaterial() {
                   </div>
 
                   <div className="col-md-12 p-2 ">
-                      <label className="add-service-label">Amount</label>
-                      <input
-                        type="text"
-                        placeholder="Enter Amount"
-                        className="form-control p-2"
-                        name="amount"
-                        onChange={handleChange}
-                      ></input>
-                      {errors.amount && (
-                        <div id="nameError" className="invalid-feedback">
-                          {errors.amount}
-                        </div>
-                      )}
-                    </div>
-               
+                    <label className="add-service-label">Amount</label>
+                    <input
+                      type="text"
+                      placeholder="Enter Amount"
+                      className="form-control p-2"
+                      name="amount"
+                      onChange={handleChange}
+                    ></input>
+                    {errors.amount && (
+                      <div id="nameError" className="invalid-feedback">
+                        {errors.amount}
+                      </div>
+                    )}
+                  </div>
                 </div>
 
                 <div className="shop-signup-button-div">

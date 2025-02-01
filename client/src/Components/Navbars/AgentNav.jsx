@@ -149,7 +149,7 @@ function AgentNav() {
       <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid d-flex justify-content-between align-items-center">
           {/* Logo on the Left */}
-          <Link to="/" className="navbar-brand">
+          <Link to="/agent-home" className="navbar-brand">
             <img src={logo} className="img-fluid nav-img" alt="logo" />
           </Link>
 

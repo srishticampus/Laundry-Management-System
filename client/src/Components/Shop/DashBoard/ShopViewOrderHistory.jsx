@@ -179,7 +179,7 @@ const UpdateServiceforCompletion=async(id)=>{
                         </tbody>
                     </table>
                 </>) : (<>
-                    <center>  <h3>No Histrory Found</h3></center>
+                    <center>  <h3>No History Found</h3></center>
                 </>)
             }
 
