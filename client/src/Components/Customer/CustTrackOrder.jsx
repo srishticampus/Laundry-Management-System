@@ -246,7 +246,8 @@ function CustTrackOrder() {
                       <div className="status-text">
                         <span className="trackdelivery-main_text">Process</span>
                         <p className="trackdelivery-sub-text">
-                          Working in Progress
+                          {item.serviceStatus}
+                          
                         </p>
                       </div>
                     </div>

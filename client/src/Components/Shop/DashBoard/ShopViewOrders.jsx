@@ -204,13 +204,14 @@ function ShopViewOrders({title = "View Orders"}) {
                         ) : item.serviceStatus === "Pickup Completed" ? (
                           <button
                             className="shop-signup-button"
+                            
                             onClick={() => {
                               UpdateServiceforCompletion(item._id);
                             }}
                           >
                             Completed
                           </button>
-                        ) : item.serviceStatus === "Drop Completed" ? (
+                        ) : item.serviceStatus === "Delivery Completed" ? (
                           <p style={{ color: "green" }}>Service Completed</p>
                         ) : item.serviceStatus === "Reschedule Pickup" ? (
                           <button
