@@ -74,7 +74,7 @@ const registerIssue = async (req, res) => {
 const viewIssues = async (req, res) => {
   try {
     const Issues = await IssueModel.find()
-    .populate('agentId') .populate('orderId').sort({ createdAt: 1 }).exec();
+    .populate('agentId').populate('orderId').sort({ createdAt: 1 }).exec();
     return res.json({
       status: 200,
       msg: "Issues obtained successfully",

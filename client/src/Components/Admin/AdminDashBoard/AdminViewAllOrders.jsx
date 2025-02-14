@@ -61,8 +61,8 @@ function AdminViewAllOrders() {
 
   return (
     <div className="container mt-3">
-      <h3 className=" shop-view-main-head mt-5">View Registered Agents</h3>
-      <h5 className=" shop-view-head mt-3">Registered Agents</h5>
+      <h3 className=" shop-view-main-head mt-5">View Orders</h3>
+      <h5 className=" shop-view-head mt-3">Orders</h5>
 
       {data.length > 0 ? (
         <>

@@ -247,7 +247,7 @@ function App() {
             element={[<CustNavbar />, <CustTrackOrder />]}
           />
 
-          
+   
           <Route
             path="/cust-enquiries"
             element={[<CustNavbar />, <h1> development progress</h1>]}
