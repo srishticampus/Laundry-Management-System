@@ -40,7 +40,7 @@
     font-family: "Open Sans";
     font-size: 12px;
     font-weight: 600;
-    margin-top: 5px;
+    margin: 0;
 }
 
 .blue-tick {
@@ -52,12 +52,9 @@
 
 .status-line {
     width: 2px;
-    /* Line thickness */
     background-color: #0084E4;
     height: 20px;
-    /* Distance between statuses */
-    margin-left: 12px;
-    /* Align with the center of the images */
+    margin-left: 14px;
 }
 
 .grey-circle-track {
@@ -93,6 +90,7 @@
     font-size: 14px;
     font-weight: 600;
     color: rgba(0, 0, 0, 0.7);
+    
     text-transform: capitalize;
 }
 
