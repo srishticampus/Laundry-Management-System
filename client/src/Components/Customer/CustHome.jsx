@@ -10,7 +10,10 @@ import rev2 from "../../Assets/rev2.png";
 import rev3 from "../../Assets/rev3.png";
 import rating from "../../Assets/rating.png";
 import img4 from "../../Assets/abt4.png";
+import { useNavigate } from "react-router-dom";
 function CustHome() {
+  const navigate = useNavigate();
+
   return (
     <div>
       <div>
@@ -27,7 +30,15 @@ function CustHome() {
               From doorstep pickup to on-time delivery, enjoy spotless, soft
               laundry without lifting a finger.
             </p>
-            <div className="uh-div3-btn"> Schedule Pickup</div>
+            <div
+              className="uh-div3-btn"
+              onClick={() => {
+                navigate("/cust-view-shops");
+              }}
+            >
+              {" "}
+              Book Now{" "}
+            </div>
           </div>
         </div>
       </div>
@@ -129,7 +140,7 @@ function CustHome() {
           <h4 className="uh-testimonials">Testimonials</h4>
           <h2 className="uh-review-mainhead">What our customer says!</h2>
         </div>
-        <div className="row mt-5 ms-5 mx-auto" style={{width: "95%"}}>
+        <div className="row mt-5 ms-5 mx-auto" style={{ width: "95%" }}>
           <div className="col-md-4">
             <div className="uh-review-prov-div">
               <img src={rev1} className="review-prov-img" />

@@ -67,8 +67,8 @@ function ViewAllShops() {
                 <th className=" ps-3">Sl No</th>
                 <th className="">Shop Name</th>
                 <th className="">Reg Number</th>
-                <th className="">Email</th>
                 <th className="vo-table-head">Phone Number</th>
+                <th className="">Email</th>
 
                 <th className="vo-table-head ">Action</th>
               </tr>
@@ -80,10 +80,9 @@ function ViewAllShops() {
                     <tr className="shop-tab2">
                       <td>{index + 1}</td>
                       <td>{item.name}</td>
-                      <td>{item.owner}</td>
+                      <td>{item.regNo}</td>
                       <td>{item.contact}</td>
-
-                      <td>{item.password}</td>
+                      <td>{item.email}</td>
                       <td>
                         <img
                           src={eye}
