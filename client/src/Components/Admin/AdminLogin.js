@@ -28,7 +28,6 @@ function AdminLogin() {
   };
   const validate = () => {
     const newErrors = {};
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!data.email) {
       console.log("here");

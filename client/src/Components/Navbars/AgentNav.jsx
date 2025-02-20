@@ -90,7 +90,7 @@ function AgentNav() {
   };
   const validate = () => {
     const newErrors = {};
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
     const phoneRegex = /^\d{10}$/;
 
     if (!data.name.length > 0) {
