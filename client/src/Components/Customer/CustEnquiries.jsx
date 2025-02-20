@@ -272,7 +272,7 @@ function CustEnquiries() {
           })}
         </>
       ) : (
-        <h3>No Enquiries found</h3>
+        <h3 className="text-center mt-5">No Enquiries found</h3>
       )}
       {showFeedbackModal && (
         <div className="modal fade show d-block" tabIndex="-1">
