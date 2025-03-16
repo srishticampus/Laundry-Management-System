@@ -25,7 +25,7 @@ function ServiceFeatures() {
       const result = await viewCount("viewFeedbacks");
 
       if (result.success) {
-        if (result.user.length == 3) setFeedbacks(result.user);
+        if (result.user.length>0) setFeedbacks(result.user.reverse().slice(0, 3));
         else setFeedbacks([]);
       } else {
         console.error("Data error:", result);
@@ -194,7 +194,7 @@ function ServiceFeatures() {
             return (
               <>
                 <div className="col-md-4">
-                  <div className="review-prov-div">
+                  <div className="review-prov-div px-2">
                     <img
                       src={`${IMG_BASE_URL}/${item.custId.image.filename}`}
                       className="review-prov-img"
@@ -203,9 +203,9 @@ function ServiceFeatures() {
                     <ReactStars
                       count={5}
                       value={item.rating} // Display rating from feedback data
-                      size={28}
+                      size={38}
                       color1={"#dcdcdc"} // Default color for stars
-                      color2={"#3070F5"} // Green color for filled stars
+                      color2={"	#ffe234"} // Green color for filled stars
                       edit={false} // Disable editing
                     />
                     <p className="review-prov-reviews">
