@@ -28,7 +28,7 @@ function CustViewAllShops() {
 
     useEffect(() => {
         fetchData();
-    }, []);
+    }, []); 
 
     return (<div>
         <div className="cust-view-shop-main">

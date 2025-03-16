@@ -14,6 +14,7 @@ import rating from "../../Assets/rating.png";
 import { IMG_BASE_URL } from "../Services/BaseURL";
 import ReactStars from "react-stars"; // Import ReactStars
 import { viewCount } from "../Services/AdminService";
+import { toast } from "react-toastify";
 
 function ServiceFeatures() {
   const [feedbacks, setFeedbacks] = useState([]);
@@ -21,8 +22,7 @@ function ServiceFeatures() {
   // Fetch feedback data
   const fetchData = async () => {
     try {
-
-      const result = await viewCount("viewFeedbacksforLanding");
+      const result = await viewCount("viewFeedbacks");
 
       if (result.success) {
         if (result.user.length == 3) setFeedbacks(result.user);
@@ -38,6 +38,35 @@ function ServiceFeatures() {
   useEffect(() => {
     fetchData(); // Call the async function
   }, []);
+
+  console.log(feedbacks);
+  
+
+  const [data, setData] = useState([]);
+  console.log("data", data);
+
+  const fetchShopData = async () => {
+    try {
+      const result = await viewCount("viewActiveShops");
+      if (result.success) {
+        if (result.user.length > 0) {
+          setData(result.user.reverse().slice(0, 3));
+        } else {
+          setData([]);
+        }
+      } else {
+        toast.error(result.message);
+      }
+    } catch (error) {
+      toast.error("An unexpected error occurred during Data View");
+    }
+  };
+
+  useEffect(() => {
+    fetchShopData();
+  }, []);
+
+
   const settings = {
     infinite: true,
     speed: 500,
@@ -88,26 +117,48 @@ function ServiceFeatures() {
       <div className="services-prov-head">
         <h2 className="working-head1 mb-5">Our Service provider</h2>
       </div>
-      <div className="row mt-5">
-        <div className="col-md-4">
+
+      {data.length > 0 ? (
+        <div className="row mt-5">
+          {
+            data.length?data.map((item)=>{
+              return(
+                <div className="col-md-4">
           <div className="services-prov-div">
-            <img src={shop1} className="services-prov-img" />
-            <h5 className="ms-5">Shine bright landomat</h5>
+            <img src={`${IMG_BASE_URL}/${item.image.filename}`} className="services-prov-img" />
+            <h5 className="ms-5">{item.name}</h5>
           </div>
         </div>
-        <div className="col-md-4">
-          <div className="services-prov-div">
-            <img src={shop2} className="services-prov-img" />
-            <h5 className="ms-5">Laundry heaven</h5>
-          </div>
-        </div>
-        <div className="col-md-4">
-          <div className="services-prov-div">
-            <img src={shop3} className="services-prov-img" />
-            <h5 className="ms-5">Clean as a whistle</h5>
-          </div>
-        </div>
+              )
+            }):''
+          }
+        
+       
+        
       </div>
+      ) : (
+        <div className="row mt-5">
+          <div className="col-md-4">
+            <div className="services-prov-div">
+              <img src={shop1} className="services-prov-img" />
+              <h5 className="ms-5">Shine bright landomat</h5>
+            </div>
+          </div>
+          <div className="col-md-4">
+            <div className="services-prov-div">
+              <img src={shop2} className="services-prov-img" />
+              <h5 className="ms-5">Laundry heaven</h5>
+            </div>
+          </div>
+          <div className="col-md-4">
+            <div className="services-prov-div">
+              <img src={shop3} className="services-prov-img" />
+              <h5 className="ms-5">Clean as a whistle</h5>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="services-prov-head">
         <h2 className="working-head1">Our Operational areaS</h2>
       </div>
